@@ -1,0 +1,48 @@
+title: Conférences & Ateliers
+description: Découvrez les conférences et ateliers que j'ai donnés sur le design UX, le développement front-end et la création de meilleurs produits numériques.
+links:
+  - label: M'inviter à parler
+    size: md
+events:
+  - category: Conference
+    title: "Combler le fossé : Systèmes de design pour la collaboration Designer-Développeur"
+    date: "2024-10-26"
+    location: "VueConf US, Miami, FL"
+    url: "#"
+  - category: Conference
+    title: "Interfaces intuitives : Appliquer les principes UX dans les applications Nuxt.js"
+    date: "2024-06-15"
+    location: "Nuxt Nation, En ligne"
+    url: "#"
+  - category: Conference
+    title: "Accessibilité d'abord : Créer des applications web inclusives"
+    date: "2023-11-08"
+    location: "Boston Web Performance Meetup, Boston, MA"
+  - category: Live talk
+    title: "Maîtriser le design des composants dans Figma & Vue"
+    date: "2024-08-20"
+    location: "Design & Dev Boston Meetup, Boston, MA"
+    url: "#"
+  - category: Live talk
+    title: "Du wireframe au web : Un flux de travail front-end pratique"
+    date: "2024-03-05"
+    location: "Atelier interne @ EntreprisePrécédente Inc."
+  - category: Live talk
+    title: "Le pouvoir de la recherche utilisateur dans le développement produit"
+    date: "2023-09-12"
+    location: "Conférence invitée Boston University, Boston, MA"
+  - category: Podcast
+    title: "Design pour les développeurs : Une perspective UX"
+    date: "2024-07-18"
+    location: "Syntax.fm (Invitée)"
+    url: "#"
+  - category: Podcast
+    title: "L'avenir des frameworks front-end et des outils de design"
+    date: "2024-01-30"
+    location: "Design Details Podcast (Invité)"
+    url: "#"
+  - category: Podcast
+    title: "Construire une carrière en UX/UI & Développement"
+    date: "2023-05-22"
+    location: "TechForward Boston Podcast"
+    url: "#"

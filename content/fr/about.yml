@@ -1,0 +1,27 @@
+title: À propos de moi
+description: En savoir plus sur mon parcours en tant que Designer UX/UI et Développeuse Front-End basée à Boston, ma philosophie de design et ma passion pour la création d'expériences numériques intuitives.
+content: |
+  Bonjour, je suis **Emma Thompson**, Designer UX/UI et Développeuse Front-End basée à Boston. Depuis six ans, je me suis immergée dans la création de produits numériques, en me concentrant sur la construction d'expériences qui ne sont pas seulement fonctionnelles, mais véritablement intuitives et engageantes pour les utilisateurs.
+
+  Mon parcours a commencé à **Boston University**, où j'ai obtenu un diplôme en Interactive Design. C'est là que j'ai découvert ma double passion pour le langage visuel du design et la logique du code. Depuis, j'ai affiné mes compétences dans les deux domaines, croyant que les meilleurs produits numériques naissent d'une compréhension profonde de l'esthétique et de la mise en œuvre.
+
+  ### Ma philosophie de design
+
+  Ma philosophie de design est ancrée dans l'**empathie** et la **résolution de problèmes**. Je crois que le grand design commence par la compréhension du "pourquoi" - les besoins, les motivations et les points de douleur des utilisateurs. J'utilise la recherche, le prototypage itératif (souvent avec des outils comme Figma) et les tests utilisateurs pour m'assurer que les solutions que je construis sont véritablement efficaces.
+
+  Je m'efforce de créer des interfaces qui semblent sans effort, où la fonctionnalité et la beauté fonctionnent ensemble. Que je crée des UIs pixel-parfaites ou que j'écrive du code Vue.js/Nuxt.js propre, mon focus est toujours sur la création de valeur pour l'utilisateur final.
+
+  ### Ce qui me motive
+
+  Ce qui m'excite dans ce travail est l'apprentissage constant et le défi de traduire des idées complexes en solutions simples et élégantes. Il n'y a rien de plus récompenseant que de voir un design prendre vie et savoir qu'il rend l'interaction numérique de quelqu'un plus facile ou plus agréable.
+
+  ### En dehors de l'écran
+
+  Quand je ne conçois pas ou ne code pas, vous pouvez me trouver en train d'explorer les derniers cafés de Boston, de faire de la randonnée sur les trails proches, ou de contribuer occasionnellement à des projets open-source.
+
+  Merci de votre visite. N'hésitez pas à parcourir mes [projets](/fr/projects) ou à [me contacter](/fr#contact) si vous souhaitez collaborer !
+images:
+  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: Mon espace de travail café
+  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: Mon voyage à Tokyo
