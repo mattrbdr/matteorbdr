@@ -29,27 +29,21 @@ export default defineAppConfig({
     links: [
       {
         icon: "i-simple-icons-instagram",
-        to: "https://go.nuxt.com/discord",
+        to: "https://w.instagram.com/matteorbdr/",
         target: "_blank",
-        "aria-label": "Nuxt on Discord",
+        "aria-label": "Instagram",
       },
       {
         icon: "i-simple-icons-x",
-        to: "https://go.nuxt.com/x",
+        to: "https://x.com/bymatteorbd",
         target: "_blank",
-        "aria-label": "Nuxt on X",
+        "aria-label": "X",
       },
       {
         icon: "i-simple-icons-github",
-        to: "https://github.com/nuxt/ui",
+        to: "https://github.com/mattrbdr/",
         target: "_blank",
-        "aria-label": "Nuxt UI on GitHub",
-      },
-      {
-        icon: "i-simple-icons-slack",
-        to: "https://github.com/nuxt/ui",
-        target: "_blank",
-        "aria-label": "Nuxt UI on GitHub",
+        "aria-label": "GitHub",
       },
     ],
   },
