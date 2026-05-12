@@ -26,9 +26,8 @@ export default defineNuxtConfig({
   },
 
   content: {
-    database: {
-      type: 'sqlite',
-      filename: '.data/content.db'
+    experimental: {
+      sqliteConnector: false
     }
   },
 
@@ -40,6 +39,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      failOnError: false,
       crawlLinks: true,
       routes: ['/']
     }
