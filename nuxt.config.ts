@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    // '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
@@ -34,18 +33,19 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-11-01',
 
+  future: {
+    compatibilityVersion: 4
+  },
+
   nitro: {
-    static: true,
+    preset: 'cloudflare-pages',
+    output: {
+      dir: 'dist'
+    },
     prerender: {
       crawlLinks: true,
       routes: ['/']
-    },
-    devStorage: {
-      'cache:nuxt:payload': { driver: 'memory' }
     }
-  },
-  future: {
-    compatibilityVersion: 4
   },
 
   eslint: {
