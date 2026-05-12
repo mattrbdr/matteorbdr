@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/matteorbdr/',
     head: {
       htmlAttrs: { class: 'dark' }
     }
