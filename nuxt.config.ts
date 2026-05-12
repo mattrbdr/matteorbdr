@@ -38,11 +38,6 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'cloudflare-pages',
-    moduleSideEffects: false,
-    output: {
-      dir: 'dist'
-    },
     prerender: {
       crawlLinks: true,
       routes: ['/']
