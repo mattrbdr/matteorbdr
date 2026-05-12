@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const locale = route.path.startsWith('/fr') ? 'fr' : 'en'
-const pagesCollection = locale === 'fr' ? 'pages_fr' : 'pages'
+const pagesCollection = locale === 'fr' ? 'blog_page_fr' : 'blog_page'
 const blogCollection = locale === 'fr' ? 'blog_fr' : 'blog'
 
 const { data: page } = await useAsyncData(`blog-page-${locale}`, () => {

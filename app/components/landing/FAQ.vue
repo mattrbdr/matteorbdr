@@ -5,6 +5,12 @@ const props = defineProps<{
   page: IndexCollectionItem
 }>()
 
+const route = useRoute()
+const isFr = route.path.startsWith('/fr')
+
+const faqTitle = computed(() => props.page?.faq?.title || (isFr ? 'Questions fréquentes' : 'Common questions'))
+const faqDescription = computed(() => props.page?.faq?.description || (isFr ? 'Réponses aux questions courantes' : 'Answers to questions I often get asked'))
+
 const items = computed(() => {
   return props.page.faq?.categories.map((faq) => {
     return {
@@ -12,7 +18,7 @@ const items = computed(() => {
       key: faq.title.toLowerCase(),
       questions: faq.questions
     }
-  })
+  }) || []
 })
 
 const ui = {
@@ -26,8 +32,8 @@ const ui = {
 
 <template>
   <UPageSection
-    :title="page.faq.title"
-    :description="page.faq.description"
+    :title="faqTitle"
+    :description="faqDescription"
     :ui="{
       container: 'px-0 pt-0! gap-4 sm:gap-4',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',

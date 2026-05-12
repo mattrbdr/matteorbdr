@@ -1,2 +1,5 @@
-title: Derniers articles
-description: Mes réflexions récentes sur le design, le développement et l'industrie technologique.
+title: Blog
+description: "Des mots sur ce que je construis, découvre et traverse."
+links:
+  - label: "Explorer"
+    color: "neutral"

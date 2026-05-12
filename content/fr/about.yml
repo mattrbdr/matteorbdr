@@ -1,27 +1,59 @@
-title: À propos de moi
-description: En savoir plus sur mon parcours en tant que Designer UX/UI et Développeuse Front-End basée à Boston, ma philosophie de design et ma passion pour la création d'expériences numériques intuitives.
+title: À propos
+description: Mon parcours et ma façon de travailler.
 content: |
-  Bonjour, je suis **Emma Thompson**, Designer UX/UI et Développeuse Front-End basée à Boston. Depuis six ans, je me suis immergée dans la création de produits numériques, en me concentrant sur la construction d'expériences qui ne sont pas seulement fonctionnelles, mais véritablement intuitives et engageantes pour les utilisateurs.
+  ## Les débuts
 
-  Mon parcours a commencé à **Boston University**, où j'ai obtenu un diplôme en Interactive Design. C'est là que j'ai découvert ma double passion pour le langage visuel du design et la logique du code. Depuis, j'ai affiné mes compétences dans les deux domaines, croyant que les meilleurs produits numériques naissent d'une compréhension profonde de l'esthétique et de la mise en œuvre.
+  Je construis des choses sur internet depuis que j'ai l'âge de les casser.
 
-  ### Ma philosophie de design
+  Tout a commencé au collège, sans plan particulier. Je gérais le site de l'association sportive de l'établissement, je traînais sur des forums, je bidouillais. À l'époque je ne savais pas que ça s'appelait du développement web, je savais juste que c'était possible de faire des choses et que je voulais les faire. Ce premier projet a duré quatre ans. J'étais aussi délégué au conseil d'administration, membre de la commission éducative. J'ai appris très tôt que construire quelque chose, c'est aussi le défendre, le gérer, convaincre les gens autour de soi.
 
-  Ma philosophie de design est ancrée dans l'**empathie** et la **résolution de problèmes**. Je crois que le grand design commence par la compréhension du "pourquoi" - les besoins, les motivations et les points de douleur des utilisateurs. J'utilise la recherche, le prototypage itératif (souvent avec des outils comme Figma) et les tests utilisateurs pour m'assurer que les solutions que je construis sont véritablement efficaces.
+  Ensuite j'ai continué, dans tous les sens. Un label musical associatif régional produit de A à Z. Une plateforme de streaming vidéo qui a fini par dépasser le million de vues. Des sites pour des indépendants, des créateurs, des gens qui avaient besoin de quelqu'un capable de comprendre leur problème avant de toucher au code.
 
-  Je m'efforce de créer des interfaces qui semblent sans effort, où la fonctionnalité et la beauté fonctionnent ensemble. Que je crée des UIs pixel-parfaites ou que j'écrive du code Vue.js/Nuxt.js propre, mon focus est toujours sur la création de valeur pour l'utilisateur final.
+  ## Apprendre en faisant
 
-  ### Ce qui me motive
+  En parallèle j'ai travaillé dans des environnements très différents : la vente terrain, la prospection B2B, le commerce de détail. Des mondes éloignés du développement, et c'est précisément pour ça que c'était formateur. J'ai compris comment les gens prennent des décisions, ce qui les convainc, ce qui les bloque. Ça change profondément la façon dont on conçoit un produit.
 
-  Ce qui m'excite dans ce travail est l'apprentissage constant et le défi de traduire des idées complexes en solutions simples et élégantes. Il n'y a rien de plus récompenseant que de voir un design prendre vie et savoir qu'il rend l'interaction numérique de quelqu'un plus facile ou plus agréable.
+  ## Ce que je fais aujourd'hui
 
-  ### En dehors de l'écran
+  Aujourd'hui je travaille en freelance sur des missions où la technologie répond à un vrai besoin. Moderniser une stack qui ralentit tout. Automatiser ce que quelqu'un fait à la main depuis trop longtemps. Construire un outil sur mesure quand rien d'existant ne convient vraiment. Ce que j'apporte n'est pas juste technique : c'est une capacité à lire un système dans son ensemble et à intervenir là où ça compte.
 
-  Quand je ne conçois pas ou ne code pas, vous pouvez me trouver en train d'explorer les derniers cafés de Boston, de faire de la randonnée sur les trails proches, ou de contribuer occasionnellement à des projets open-source.
+  L'IA fait partie de ma façon de travailler au quotidien, pas comme un gadget, mais comme un levier réel. Je l'intègre là où elle accélère sans dégrader : dans les workflows, dans le code, dans la réflexion produit. Et j'aide mes clients à faire de même quand c'est pertinent.
 
-  Merci de votre visite. N'hésitez pas à parcourir mes [projets](/fr/projects) ou à [me contacter](/fr#contact) si vous souhaitez collaborer !
-images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: Mon espace de travail café
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: Mon voyage à Tokyo
+  ## Mon projet principal
+
+  Mon projet principal en ce moment, c'est Racines, une plateforme SaaS que j'ai conçue et développée seul pour connecter producteurs locaux et acheteurs, des particuliers aux collectivités et aux entreprises. C'est un sujet qui me tient à cœur : raccourcir les circuits, rendre l'alimentation locale accessible, donner aux producteurs des outils à la hauteur de ce qu'ils font. C'est aussi là que je teste, que j'architecture, que je pousse mes propres limites techniques avant de les appliquer ailleurs.
+
+  ## En dehors du travail
+
+  J'explore, je prototype, j'expérimente. Des outils qui n'existent pas encore, des problèmes que je trouve intéressants à résoudre, des systèmes que j'ai envie de comprendre de l'intérieur. Certains finissent en produit. D'autres restent dans un tiroir. Les deux m'apprennent quelque chose.
+
+  J'écris aussi, sur des sujets très variés : tech, produit, culture, société, ce qui me traverse. Pas de ligne éditoriale fixe, juste un point de vue. Je cours, je randonne, je grimpe. Je voyage quand je peux, et chaque endroit m'apprend quelque chose sur la façon dont les gens s'organisent et construisent.
+
+  ## Certifications
+
+  ### Intelligence artificielle
+
+  - AI Fluency Framework & Foundations · Anthropic · Mars 2026
+  - AI Fluency for Educators · Anthropic · Mars 2026
+  - AI Fluency for Nonprofits · Anthropic · Mars 2026
+
+  ### Stratégie & entrepreneuriat
+
+  - Become an Entrepreneur of Change · HEC Paris · Mai 2025
+  - Conseil en stratégie · Boston Consulting Group · Février 2025
+  - Resilient Leadership · Harvard Business School Online · Décembre 2023
+
+  ### Marketing & digital
+
+  - Stratégie du marketing de contenu · Université de Californie · Janvier 2025
+  - Fondamentaux du marketing digital · Google · Avril 2023
+
+  ### Développement durable
+
+  - B.A. Climat et Biodiversité · CNED · Janvier 2025
+
+  ### Sciences humaines
+
+  - Introduction à la psychologie humaine · Université de Yale · Juillet 2024
+
+images: []

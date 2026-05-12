@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/image',
+    // '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
@@ -15,6 +15,16 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  tailwind: {
+    darkMode: 'class'
+  },
+
+  app: {
+    head: {
+      htmlAttrs: { class: 'dark' }
+    }
+  },
 
   content: {
     experimental: {
@@ -29,7 +39,13 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/']
+    },
+    devStorage: {
+      'cache:nuxt:payload': { driver: 'memory' }
     }
+  },
+  future: {
+    compatibilityVersion: 4
   },
 
   eslint: {

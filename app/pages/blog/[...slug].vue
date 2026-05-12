@@ -67,7 +67,7 @@ const formatDate = (dateString: string) => {
               {{ page.minRead }} MIN READ
             </span>
           </div>
-          <NuxtImg
+          <img
             v-if="page.image"
             :src="page.image"
             :alt="page.title"
@@ -79,14 +79,17 @@ const formatDate = (dateString: string) => {
           <p class="text-muted text-center max-w-2xl mx-auto">
             {{ page.description }}
           </p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <UUser
-              orientation="vertical"
-              color="neutral"
-              variant="outline"
-              class="justify-center items-center text-center"
-              v-bind="page.author"
+          <div class="flex items-center justify-center gap-3 mt-2">
+            <img
+              v-if="page.author?.avatar"
+              :src="page.author.avatar"
+              :alt="page.author.name"
+              class="size-10 rounded-full object-cover"
             />
+            <div class="text-center">
+              <p class="font-medium">{{ page.author?.name }}</p>
+              <p v-if="page.author?.description" class="text-sm text-muted">{{ page.author.description }}</p>
+            </div>
           </div>
         </div>
         <UPageBody class="max-w-3xl mx-auto">

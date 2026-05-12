@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
-defineProps<{
+const props = defineProps<{
   page: IndexCollectionItem
 }>()
+
+const route = useRoute()
+const isFr = route.path.startsWith('/fr')
+
+const aboutTitle = computed(() => props.page?.about?.title || 'About me')
+const aboutDescription = computed(() => props.page?.about?.description || (isFr ? 'Description par défaut' : 'Default description'))
 </script>
 
 <template>
   <UPageSection
-    :title="page.about.title"
-    :description="page.about.description"
+    :title="aboutTitle"
+    :description="aboutDescription"
     :ui="{
       container: 'p-0!',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',

@@ -1,0 +1,83 @@
+title: Services
+description: You have a technical problem. I'll take care of it.
+links:
+  - label: "Discuss your project"
+    color: "neutral"
+    to: "https://cal.com/matteorbdr/discovery-meeting"
+
+sections:
+  - title: Modernization
+    description: Improve and modernize your existing tools and processes.
+    items:
+      - UI/UX improvements
+      - Performance optimization
+      - Code refactoring
+      - Technical debt reduction
+
+  - title: Automation
+    description: Automate repetitive tasks to save time and reduce errors.
+    items:
+      - Workflow automation
+      - CI/CD pipeline setup
+      - Testing automation
+      - Documentation generation
+
+  - title: Complete Projects
+    description: Build tailored solutions from scratch.
+    items:
+      - Custom web applications
+      - API development
+      - System architecture
+      - Database design
+
+  - title: Architecture
+    description: Design robust and scalable systems.
+    items:
+      - Technical planning
+      - Code reviews
+      - Team mentoring
+      - Best practices implementation
+
+how_i_work: |
+  My approach is practical and results-oriented:
+
+  1. **Understanding** - I start by deeply understanding your context, constraints, and goals.
+  2. **Analysis** - I identify what's working, what's not, and what can be improved.
+  3. **Execution** - I implement concrete solutions with clear priorities.
+  4. **Knowledge Transfer** - I make sure your team can maintain and evolve what I've built.
+
+mission_types:
+  - title: Consulting
+    description: Advice and expertise to guide your technical decisions.
+
+  - title: Development
+    description: Implementation of specific features or improvements.
+
+  - title: Audit
+    description: Complete analysis of your codebase and infrastructure.
+
+  - title: Training
+    description: Knowledge transfer to strengthen your team's skills.
+
+target_audience: |
+  I work with startups, agencies, and companies that need:
+
+  - To improve existing products without complete rewriting
+  - Technical expertise for specific projects
+  - A pragmatic approach to complex problems
+
+result: |
+  At the end of each collaboration, you get:
+  - Working code in production
+  - Reduced technical debt
+  - Clear documentation
+  - A team that's more autonomous
+
+links:
+  - label: "Let's talk"
+    color: "neutral"
+    to: "https://calendly.com/matteo-neri"
+    target: "_blank"
+  - label: "Email me"
+    color: "neutral"
+    to: "mailto:matteo.neri.dev@gmail.com"

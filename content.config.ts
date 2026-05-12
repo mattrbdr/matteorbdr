@@ -154,46 +154,74 @@ export default defineContentConfig({
         author: createAuthorSchema()
       })
     }),
-    pages: defineCollection({
+    projects_page: defineCollection({
       type: 'page',
-      source: { include: '*.yml' },
+      source: 'projects.yml',
       schema: z.object({
         links: z.array(createButtonSchema())
       })
     }),
-    pages_fr: defineCollection({
+    projects_page_fr: defineCollection({
       type: 'page',
-      source: { include: 'fr/*.yml' },
+      source: 'fr/projects.yml',
       schema: z.object({
         links: z.array(createButtonSchema())
       })
     }),
-    speaking: defineCollection({
+    blog_page: defineCollection({
       type: 'page',
-      source: 'speaking.yml',
+      source: 'blog.yml',
       schema: z.object({
-        links: z.array(createButtonSchema()),
-        events: z.array(z.object({
-          category: z.enum(['Live talk', 'Podcast', 'Conference']),
-          title: z.string(),
-          date: z.date(),
-          location: z.string(),
-          url: z.string().optional()
-        }))
+        links: z.array(createButtonSchema())
       })
     }),
-    speaking_fr: defineCollection({
+    blog_page_fr: defineCollection({
       type: 'page',
-      source: 'fr/speaking.yml',
+      source: 'fr/blog.yml',
       schema: z.object({
-        links: z.array(createButtonSchema()),
-        events: z.array(z.object({
-          category: z.enum(['Live talk', 'Podcast', 'Conference']),
+        links: z.array(createButtonSchema())
+      })
+    }),
+    services: defineCollection({
+      type: 'page',
+      source: 'services.yml',
+      schema: z.object({
+        intro: z.string().optional(),
+        sections: z.array(z.object({
           title: z.string(),
-          date: z.date(),
-          location: z.string(),
-          url: z.string().optional()
-        }))
+          description: z.string(),
+          items: z.array(z.string()),
+          note: z.string().optional()
+        })).optional(),
+        how_i_work: z.string().optional(),
+        mission_types: z.array(z.object({
+          title: z.string(),
+          description: z.string()
+        })).optional(),
+        target_audience: z.string().optional(),
+        result: z.string().optional(),
+        links: z.array(createButtonSchema())
+      })
+    }),
+    services_fr: defineCollection({
+      type: 'page',
+      source: 'fr/services.yml',
+      schema: z.object({
+        intro: z.string().optional(),
+        sections: z.array(z.object({
+          title: z.string(),
+          description: z.string(),
+          items: z.array(z.string()),
+          note: z.string().optional()
+        })).optional(),
+        how_i_work: z.string().optional(),
+        mission_types: z.array(z.object({
+          title: z.string(),
+          description: z.string()
+        })).optional(),
+        target_audience: z.string().optional(),
+        result: z.string().optional(),
+        links: z.array(createButtonSchema())
       })
     }),
     about: defineCollection({

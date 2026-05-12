@@ -11,6 +11,11 @@ export const useNavLinks = () => {
       to: isFr ? '/fr' : '/'
     },
     {
+      label: isFr ? 'Services' : 'Services',
+      icon: 'i-lucide-wrench',
+      to: isFr ? '/fr/services' : '/services'
+    },
+    {
       label: isFr ? 'Projets' : 'Projects',
       icon: 'i-lucide-folder',
       to: isFr ? '/fr/projects' : '/projects'
@@ -19,11 +24,6 @@ export const useNavLinks = () => {
       label: isFr ? 'Blog' : 'Blog',
       icon: 'i-lucide-file-text',
       to: isFr ? '/fr/blog' : '/blog'
-    },
-    {
-      label: isFr ? 'Interviews' : 'Speaking',
-      icon: 'i-lucide-mic',
-      to: isFr ? '/fr/speaking' : '/speaking'
     },
     {
       label: isFr ? 'À propos' : 'About',

@@ -19,6 +19,7 @@ const { footer } = useAppConfig()
           v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
         />
       </template>
+      <LanguageSwitcher />
     </template>
   </UFooter>
 </template>

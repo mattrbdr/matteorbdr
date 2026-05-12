@@ -16,9 +16,12 @@
   }
 }
 
+html.dark, html.dark body {
+  background-color: oklch(0.18 0 0) !important;
+}
+
 .dark {
-  ::selection {
-    color: #ffffff;
-    background-color: #474747;
-  }
+  --color-default: oklch(0.18 0 0);
+  --color-elevated: oklch(0.20 0 0);
+  --color-muted: oklch(0.16 0 0);
 }

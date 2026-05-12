@@ -1,0 +1,85 @@
+title: Services
+description: Vous avez un problème technique. Je m'en occupe.
+links:
+  - label: "Discutons de votre projet"
+    color: "neutral"
+    to: "https://cal.com/matteorbdr/discovery-meeting"
+
+sections:
+  - title: Modernisation de systèmes web
+    description: Je remets à niveau des sites et des stacks vieillissantes.
+    items:
+      - "refonte de sites WordPress ou legacy"
+      - "migration vers des technologies modernes"
+      - "amélioration des performances et de la maintenabilité"
+      - "nettoyage technique sans rupture inutile"
+    note: "L'objectif n'est pas de tout refaire. C'est de garder ce qui fonctionne et de corriger ce qui freine."
+
+  - title: Automatisation et intelligence technologique
+    description: Je transforme des tâches manuelles en systèmes automatisés.
+    items:
+      - "scripts et connecteurs entre outils"
+      - "workflows métier automatisés"
+      - "intégration d'API et d'outils existants"
+      - "réduction des tâches répétitives"
+    note: "Si quelque chose prend du temps chaque semaine, il existe souvent une solution plus simple."
+
+  - title: Projets complets sur mesure
+    description: Je conçois et développe des systèmes complets adaptés à un besoin précis.
+    items:
+      - "conception de produit ou outil from scratch"
+      - "architecture technique complète"
+      - "développement de A à Z"
+      - "mise en production et itérations"
+    note: "L'objectif est de construire un système utile, cohérent et durable, sans complexité inutile."
+
+  - title: Clarification et architecture technique
+    description: J'aide à prendre de meilleures décisions techniques.
+    items:
+      - "choix d'architecture"
+      - "structuration d'un produit ou d'un système"
+      - "simplification d'environnements complexes"
+      - "audit rapide de l'existant"
+    note: "Parfois, le problème n'est pas technique. C'est une mauvaise structure."
+
+how_i_work: |
+  Je n'interviens pas pour ajouter de la complexité.
+
+  J'entre, je comprends, je simplifie, je construis, je sors.
+
+  Chaque mission doit produire un résultat clair :
+  - un système plus propre
+  - un flux plus fluide
+  - une charge mentale réduite
+
+mission_types:
+  - title: Intervention courte
+    description: "Audit, diagnostic, recommandation technique ou architecture rapide."
+  - title: Mission ciblée
+    description: "Refonte d'un site, automatisation d'un processus, mise en place d'un système."
+  - title: Projet complet sur mesure
+    description: "Conception et développement d'un produit ou outil de bout en bout."
+  - title: Optimisation continue (rare)
+    description: "Amélioration progressive d'un environnement existant."
+
+target_audience: |
+  Je travaille avec :
+  - des indépendants et petites structures
+  - des équipes avec des systèmes existants qui deviennent lourds
+  - des projets où la technique est devenue un frein
+  - des besoins de création de produits sur mesure
+
+  Pas besoin d'un gros budget ou d'une grosse équipe.
+  Il faut un vrai problème à résoudre.
+
+result: |
+  À la fin d'une mission :
+  - les outils sont plus simples
+  - les tâches répétitives sont automatisées
+  - les choix techniques sont clarifiés
+  - le système est plus fiable et plus léger
+
+links:
+  - label: Me contacter
+    to: https://cal.com/matteorbdr/discovery-meeting
+    size: md

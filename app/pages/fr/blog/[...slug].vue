@@ -65,7 +65,7 @@ const formatDate = (dateString: string) => {
               {{ page.minRead }} MIN READ
             </span>
           </div>
-          <NuxtImg
+          <img
             v-if="page.image"
             :src="page.image"
             :alt="page.title"

@@ -1,83 +1,68 @@
 seo:
-  title: "Emma Thompson - Designer UX/UI"
-  description: "Bienvenue sur mon portfolio ! Je suis Emma Thompson, designer UX/UI et développeuse front-end basée à Boston. Je crée des expériences numériques centrées sur l'utilisateur qui sont à la fois belles et fonctionnelles."
-title: "Bonjour, je suis Emma Thompson Designer UX/UI"
-description: "Je conçois des expériences numériques intuitives où le design rencontre la fonctionnalité. Basée à Boston, je donne vie aux idées à travers le code et la créativité."
+  title: "Mattéo - Développeur Fullstack"
+  description: "Bonjour, je suis Mattéo. Je conçois et améliore des systèmes techniques qui doivent vraiment fonctionner."
+title: "Salut, je suis Mattéo, développeur freelance, je transforme des idées floues en produits qui tournent."
+description: "J'interviens sur des produits et des systèmes existants pour les simplifier, les moderniser et les rendre plus efficaces. Je construis aussi des outils sur mesure quand il faut repartir de zéro. Mon objectif est simple : réduire la complexité et augmenter l'impact."
 hero:
   links:
-    - label: "Utiliser ce template"
-      to: https://github.com/nuxt-ui-templates/portfolio
+    - label: "Me contacter"
+      to: https://cal.com/matteorbdr/discovery-meeting
       color: "neutral"
-  images:
-    - src: /hero/random-1.avif
-      alt: Random Image 1
-    - src: /hero/random-2.avif
-      alt: Random Image 2
-    - src: /hero/random-3.avif
-      alt: Random Image 3
-    - src: /hero/random-4.avif
-      alt: Random Image 4
-    - src: /hero/random-5.avif
-      alt: Random Image 5
-    - src: /hero/random-6.avif
-      alt: Random Image 6
-    - src: /hero/random-7.avif
-      alt: Random Image 7
-    - src: /hero/random-8.avif
-      alt: Random Image 8
-    - src: /hero/random-9.avif
-      alt: Random Image 9
 about:
-  title: "À propos de moi"
+  title: "About me"
   description: |
-    En tant que designer UX/UI et développeuse front-end avec 6 ans d'expérience, j'utilise mon diplôme en Interactive Design de Boston University pour concevoir des expériences numériques centrées sur l'utilisateur.
-    Mon approche allie stratégie créative et expertise technique, transformant les concepts en produits numériques fonctionnels et pertinents qui intègrent parfaitement design et technologie.
+    Je construis des choses sur internet depuis que j'ai l'âge de les casser.
+    Sites, outils, automatisations, plateformes. J'ai appris en faisant, projet après projet. Aujourd'hui je travaille en freelance sur des missions où la technologie répond à un vrai problème: une stack qui ralentit tout, un process manuel qui prend trop de temps, un produit qui a besoin d'une base solide pour tenir dans la durée.
+    Mon projet principal en ce moment, c'est Racines — une plateforme SaaS de circuits courts que j'ai conçue et développée seul, de l'architecture au déploiement. C'est là que je teste tout ce que j'applique ensuite chez les autres.
+    Ce qui m'intéresse dans une mission, c'est comprendre le système avant de toucher au code. Identifier ce qui coince vraiment. Livrer quelque chose que la personne en face peut reprendre et faire vivre sans moi.
+    En dehors du travail, j'écris des articles parfois — et je m'intéresse à tout ce qui ressemble à un système qu'on peut améliorer.
 experience:
-  title: Expérience professionnelle
+  title: Expériences
   items:
-    - position: "Designer de marque chez"
-      date: "2023 - Present"
+    - position: "Fondateur & développeur chez"
+      date: "2025 - Aujourd'hui"
       company:
-        name: Nuxt
+        name: "Racines"
         logo: "i-simple-icons-nuxtdotjs"
-        url: "https://nuxt.com"
+        url: "https://racines.app"
         color: "#00DC82"
-    - position: "Designer d'assets chez"
+    - position: "Architecte chez"
+      date: "2026 - Aujourd'hui"
+      company:
+        name: "OpenValue"
+        logo: "i-simple-icons-raycast"
+        url: "https://openvalue.tech"
+        color: "#FF6363"
+    - position: "Développeur web freelance chez"
       date: "2022 - 2023"
       company:
-        name: Raycast
-        logo: "i-simple-icons-raycast"
-        url: "https://raycast.com"
-        color: "#FF6363"
-    - position: "Designer UX/UI Senior chez"
-      date: "2020 - 2021"
-      company:
-        name: Linear
+        name: "Initiative for Science in Europe"
         logo: "i-simple-icons-linear"
-        url: "https://linear.app"
+        url: "https://ise.foundation"
         color: "#5E6AD2"
+    - position: "Développeur & conseiller chez"
+      date: "2022 - 2025"
+      company:
+        name: "Seizart"
+        logo: "i-simple-icons-nuxtdotjs"
+        url: "https://seizart.io"
+        color: "#00DC82"
+    - position: "Développeur web freelance chez"
+      date: "2018 - Aujourd'hui"
+      company:
+        name: "Indépendant"
+        logo: "i-simple-icons-nuxtdotjs"
+        url: "https://rbdr.fr"
+        color: "#00DC82"
 testimonials:
-  - quote: "L'approche d'Emma en matière de design UX a complètement transformé notre produit. Elle possède une rare capacité à équilibrer une esthétique belle avec une simplicité fonctionnelle. La refonte n'était pas seulement plus belle, mais elle a réduit nos tickets de support client de 40% et augmenté les taux de conversion sur toutes les métriques clés."
+  - quote: "Mattéo a travaillé sur deux projets pour ISE : la refonte du site, et la mise en place d'un outil de sondage des listes candidates aux élections européennes dans les 27 pays de l'UE. Il a rempli la mission avec une grande efficacité et beaucoup de souplesse. Je ne peux que me féliciter de la qualité de notre collaboration."
     author:
-      name: 'Sarah Chen'
-      description: 'Directrice Produit chez Bloom Finance'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Travailler avec Emma a été la meilleure décision que nous ayons prise pour notre startup. Elle n'a pas simplement livré des designs - elle a challengé nos hypothèses, a mené des recherches utilisateur approfondies et a créé une expérience qui résonna truly avec notre audience. Ses connaissances techniques en développement front-end ont rendu le transfert à notre équipe d'ingénierie seamless."
+      name: "Martin Andler"
+      description: "Professeur émérite UVSQ · Président, Initiative for Science in Europe"
+  - quote: "Du site à la boutique en ligne, en passant par toute la mise en conformité légale et technique — Mattéo a géré l'ensemble du lancement. Efficace, rigoureux, et toujours capable d'expliquer clairement ce qu'il fait pour qu'on puisse s'en emparer après lui."
     author:
-      name: 'Michael Rodriguez'
-      description: 'Co-fondateur de Wavelength Music'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Emma se démarque par sa capacité à traduire des données complexes sur la durabilité en interfaces intuitives. Son travail sur EcoTrack n'était pas seulement visuellement incontournble - il a fondamentalement changé la façon dont nos utilisateurs interagissent avec les informations environnementales. Elle approche chaque problème avec créativité et rigueur analytique, exactement ce dont nous avions besoin."
-    author:
-      name: 'Dr. Aisha Johnson'
-      description: 'Directrice de l\'Innovation chez GreenTech Solutions'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
+      name: "Jules Taffoirin"
+      description: "Fondateur · Seizart"
 blog:
   title: "Derniers articles"
   description: "Mes réflexions récentes"
@@ -85,36 +70,19 @@ faq:
   title: Questions fréquentes
   description: "Réponses aux questions courantes sur mon processus et mes services."
   categories:
-    - title: Services & Processus
+    - title: Work & Collaboration
       questions:
-        - label: Quels services proposez-vous ?
-          content: |
-            Je suis spécialisée en design UX/UI et développement front-end. Cela inclut la recherche utilisateur, le wireframing, la création de prototypes interactifs, la conception d'interfaces utilisateur intuitives, la création de sites web et applications responsive (spécialement avec Vue.js/Nuxt.js), et le développement de design systems. Mon objectif est de créer des expériences numériques fluides du concept au déploiement.
-        - label: Quel est votre processus de design ?
-          content: |
-            Mon processus est collaboratif et itératif, impliquant généralement des phases comme la Découverte & Recherche, l'Idéation & Prototypage, les Tests Utilisateurs, le Design Visuel et une étroite collaboration avec les équipes de développement pendant la mise en œuvre. J'adapte le processus selon les besoins du projet, en me concentrant toujours sur des solutions centrées sur l'utilisateur.
-        - label: Travaillez-vous avec des startups ?
-          content: |
-            Absolument ! J'aime travailler avec les startups pour façonner leur vision produit et créer des interfaces utilisateur ergonomiques dès le départ. Je peux adapter mon processus à l'environnement startup rapide.
-    - title: Tarifs & Délais
+        - label: Comment se passe une collaboration avec toi ?
+          content: "Un échange pour valider le besoin. Un audit pour comprendre le système. Des recommandations, un cadrage clair, puis une exécution autonome avec points réguliers. Livraison à la date prévue, communication simple (Slack, WhatsApp, email)."
+        - label: Tu peux travailler sur un produit existant ?
+          content: "Oui. Je modernise, optimise ou remplace uniquement ce qui freine. Pas de refonte inutile."
+        - label: Tu travailles en autonomie ?
+          content: "Oui. Je gère l'avancée et les intervenants éventuels. J'ai juste besoin d'un contact disponible pour valider les décisions clés."
+    - title: Services & Pricing
       questions:
-        - label: Combien coûte généralement un projet ?
-          content: |
-            Les coûts des projets varient en fonction de la portée, de la complexité, des fonctionnalités et du délai. Pour des projets complets de design UX/UI et développement front-end, mes engagements commencent généralement autour de 5 000€, les projets moyens variant entre 8 000€ et 25 000€. Pour du conseil ou des tâches de design spécifiques, ma journée est à 700€.
-        - label: Quelles sont vos conditions de paiement ?
-          content: |
-            Je demande généralement un acompte de 40% pour planifier le projet et commencer le travail, les 60% restants étant dus à la fin réussie du projet et à la livraison. J'accepte les virements bancaires et Stripe.
-        - label: Combien de temps prend un projet type ?
-          content: |
-            Les délais dépendent fortement de la portée et de la complexité du projet. Les petits projets peuvent prendre 3-4 semaines, tandis que les projets plus importants et plus complexes peuvent aller de 2 à 4 mois. Je fournis toujours une estimation détaillée après la phase de découverte initiale.
-        - label: Proposez-vous des forfaits ou un support continu ?
-          content: |
-            Oui, pour les clients ayant besoin d'un support design continu, de développement de fonctionnalités ou de maintenance, je propose des options de forfait mensuel adaptées aux besoins spécifiques. Discutons si cela vous intéresse.
-    - title: À propos de moi
-      questions:
-        - label: Qu'est-ce qui vous passionne le plus dans votre travail ?
-          content: |
-            J'adore le défi de résoudre des problèmes complexes à travers le design et la technologie. C'est incroyablement récompenseant de voir les gens interagir avec quelque chose que j'ai créé et le trouver véritablement utile et facile à naviguer. Réduire le pont entre les besoins utilisateurs et les possibilités techniques est vraiment ce qui m'excite.
-        - label: Quels sont vos loisirs en dehors du travail ?
-          content: |
-            Quand je ne conçois pas ou ne code pas, vous pouvez me trouver en train d'explorer les quartiers de Boston, d'essayer de nouveaux cafés et de randonnées dans les réserves proches. Je suis aussi passionnée par la photographie et contribue occasionnellement à des projets open-source.
+        - label: Quels projets tu prends en charge ?
+          content: "Refontes, outils internes, SaaS, audits, optimisation, web branding léger. Je ne fais pas d'applications mobiles ni de communication éditoriale."
+        - label: Comment fonctionnent tes tarifs ?
+          content: "TJM pour les missions courtes. Forfait pour les projets cadrés. Tarification ajustée selon le client et les objectifs."
+        - label: Quel budget minimum ?
+          content: "Il n'y a pas de minimum strict. J'adapte chaque mission au profil du client, à son contexte et à ses objectifs. Je travaille avec tout type de structures — PME, associations, institutions, petites équipes ou organisations plus larges. L'essentiel, c'est qu'il y ait un besoin clair et un projet qui mérite d'être fait correctement."

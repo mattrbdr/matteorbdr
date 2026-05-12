@@ -1,27 +1,59 @@
-title: About Me
-description: Learn more about my journey as a Boston-based UX/UI Designer & Front-End Developer, my design philosophy, and my passion for crafting intuitive digital experiences.
+title: About
+description: My journey and how I work.
 content: |
-  Hi, I'm **Emma Thompson**, a UX/UI Designer and Front-End Developer based right here in Boston. For the past six years, I've been immersed in the world of digital product creation, focusing on building experiences that are not just functional, but genuinely intuitive and engaging for users.
+  ## The beginnings
 
-  My path started at **Boston University**, where I earned a degree in Interactive Design. It was there I discovered my dual passion for the visual language of design and the logical puzzle of code. Since then, I've honed my skills in both areas, believing that the best digital products are born from a deep understanding of both aesthetics and implementation.
+  I've been building things on the internet since I was old enough to break them.
 
-  ### My Design Philosophy
+  It all started in middle school, with no particular plan. I managed the sports association website of the school, I hung around forums, I tinkered. At the time I didn't know it was called web development, I just knew it was possible to make things and that I wanted to make them. That first project lasted four years. I was also a delegate on the board of directors, member of the educational committee. I learned early that building something also means defending it, managing it, convincing people around you.
 
-  My design philosophy is rooted in **empathy** and **problem-solving**. I believe great design starts with understanding the 'why' – the user's needs, motivations, and pain points. I use research, iterative prototyping (often with tools like Figma), and user testing to ensure the solutions I build are truly effective.
+  Then I kept going, in every direction. A regional associative record label produced from A to Z. A video streaming platform that ended up exceeding a million views. Websites for freelancers, creators, people who needed someone capable of understanding their problem before touching the code.
 
-  I strive to create interfaces that feel effortless, where functionality and beauty work hand-in-hand. Whether I'm crafting pixel-perfect UIs or writing clean Vue.js/Nuxt.js code, my focus is always on creating value for the end-user.
+  ## Learning by doing
 
-  ### What Drives Me
+  In parallel I worked in very different environments: field sales, B2B prospecting, retail. Worlds far from development, and that's precisely why it was formative. I understood how people make decisions, what convinces them, what blocks them. It deeply changes the way you design a product.
 
-  What keeps me excited about this work is the constant learning and the challenge of translating complex ideas into simple, elegant solutions. There's nothing more rewarding than seeing a design come to life and knowing it's making someone's digital interaction easier or more enjoyable.
+  ## What I do today
 
-  ### Beyond the Screen
+  Today I work freelance on missions where technology answers a real need. Modernize a stack that's slowing everything down. Automate what someone has been doing by hand for too long. Build a custom tool when nothing existing really fits. What I bring isn't just technical: it's an ability to read a system as a whole and intervene where it matters.
 
-  When I'm not designing or coding, you might find me exploring Boston's latest coffee shops, hiking nearby trails, or occasionally contributing to open-source projects.
+  AI is part of how I work daily, not as a gadget, but as a real lever. I integrate it where it speeds up without degrading: in workflows, in code, in product thinking. And I help my clients do the same when it's relevant.
 
-  Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/#contact) if you'd like to collaborate!
-images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My coffee workspace
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My trip to Tokyo
+  ## My main project
+
+  My main project right now is Racines, a SaaS platform I designed and built solo to connect local producers and buyers, from individuals to local authorities and businesses. It's a topic close to my heart: shortening supply chains, making local food accessible, giving producers tools worthy of what they do. That's also where I test, where I architect, where I push my own technical limits before applying them elsewhere.
+
+  ## Outside of work
+
+  I explore, I prototype, I experiment. Tools that don't exist yet, problems I find interesting to solve, systems I want to understand from the inside. Some end up as products. Others stay in a drawer. Both teach me something.
+
+  I also write, on very varied topics: tech, product, culture, society, whatever crosses my mind. No fixed editorial line, just a point of view. I run, I hike, I climb. I travel when I can, and every place teaches me something about how people organize themselves and build.
+
+  ## Certifications
+
+  ### Artificial Intelligence
+
+  - AI Fluency Framework & Foundations · Anthropic · March 2026
+  - AI Fluency for Educators · Anthropic · March 2026
+  - AI Fluency for Nonprofits · Anthropic · March 2026
+
+  ### Strategy & entrepreneurship
+
+  - Become an Entrepreneur of Change · HEC Paris · May 2025
+  - Strategic Advisory · Boston Consulting Group · February 2025
+  - Resilient Leadership · Harvard Business School Online · December 2023
+
+  ### Marketing & digital
+
+  - Content Marketing Strategy · University of California · January 2025
+  - Digital Marketing Fundamentals · Google · April 2023
+
+  ### Sustainable development
+
+  - B.A. Climate & Biodiversity · CNED · January 2025
+
+  ### Humanities
+
+  - Introduction to Psychology · Yale University · July 2024
+
+images: []

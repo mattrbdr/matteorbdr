@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const locale = useState('locale', () => 'fr')
-
 const { data: page } = await useAsyncData('index-fr', () => {
   return queryCollection('index_fr').first()
 })

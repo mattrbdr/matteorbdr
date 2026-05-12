@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const isFr = route.path.startsWith('/fr')
-const pageCollection = isFr ? 'pages_fr' : 'pages'
+const pageCollection = isFr ? 'projects_page_fr' : 'projects_page'
 const projectsCollection = isFr ? 'projects_fr' : 'projects'
 
 const { data: page } = await useAsyncData(`projects-page-${isFr ? 'fr' : 'en'}`, () => {
@@ -15,7 +15,7 @@ if (!page.value) {
   })
 }
 
-const { data: projects } = await useAsyncData(`projects-${locale.value}`, () => {
+const { data: projects } = await useAsyncData(`projects-${isFr ? 'fr' : 'en'}`, () => {
   return queryCollection(projectsCollection).all()
 })
 

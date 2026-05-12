@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: page } = await useAsyncData('projects-page-fr', () => {
-  return queryCollection('pages_fr').first()
+  return queryCollection('projects_page_fr').first()
 })
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
