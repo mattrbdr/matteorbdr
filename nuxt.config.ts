@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   ],
 
   devtools: {
-    enabled: true
+    enabled: false
   },
 
   css: ['~/assets/css/main.css'],
@@ -39,6 +39,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare-pages',
+    moduleSideEffects: false,
     output: {
       dir: 'dist'
     },
@@ -55,6 +56,10 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  build: {
+    chunkSizeWarningLimit: 1000
   },
 
   ogImage: {
