@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 
   content: {
     experimental: {
-      sqliteConnector: 'native'
+      database: false
     }
   },
 
