@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { locale, t } = useTranslations()
+const { locale } = useTranslations()
 const collection = computed(() => locale.value === 'fr' ? 'services_fr' : 'services')
 
 const { data: page } = await useAsyncData(`services-${locale.value}`, () => {
@@ -21,10 +21,16 @@ defineOgImage('Portfolio', { title, description })
 
 const { global } = useAppConfig()
 
-const howIWorkLabel = computed(() => t('services.how_i_work'))
-const missionTypesLabel = computed(() => t('services.mission_types'))
-const targetAudienceLabel = computed(() => t('services.target_audience'))
-const resultLabel = computed(() => t('services.result'))
+const serviceIcons: Record<string, string> = {
+  'Web Systems Modernization': 'i-lucide-sparkles',
+  'Automation & Technology Intelligence': 'i-lucide-zap',
+  'Custom Complete Projects': 'i-lucide-rocket',
+  'Technical Clarification & Architecture': 'i-lucide-layout-template',
+  'Modernisation de systèmes web': 'i-lucide-sparkles',
+  'Automatisation et intelligence technologique': 'i-lucide-zap',
+  'Projets complets sur mesure': 'i-lucide-rocket',
+  'Clarification et architecture technique': 'i-lucide-layout-template'
+}
 </script>
 
 <template>
@@ -32,82 +38,88 @@ const resultLabel = computed(() => t('services.result'))
     <UPageHero
       :title="page.title"
       :description="page.description"
-      :ui="{ title: 'mx-0! text-left', description: 'mx-0! text-left', links: 'justify-start' }"
+      :ui="{
+        title: 'mx-0! text-left',
+        description: 'mx-0! text-left',
+        links: 'justify-start'
+      }"
     >
       <template #links>
         <UButton
           v-if="page.links"
-          :to="`mailto:${global.email}`"
+          :to="global.meetingLink"
           v-bind="page.links[0]"
         />
       </template>
     </UPageHero>
 
-    <UPageSection
-      v-if="page.intro"
-      :ui="{ container: 'pt-0!' }"
-    >
-      <div class="prose prose-lg max-w-none" v-html="page.intro.replace(/\n/g, '<br>')" />
-    </UPageSection>
+    <template v-if="page.sections?.length">
+      <UPageSection
+        v-for="section in page.sections"
+        :key="section.title"
+        :ui="{
+          container: 'pt-0!',
+          title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium'
+        }"
+      >
+        <UPageHeader
+          :title="section.title"
+          :description="section.description"
+          :ui="{
+            title: 'text-xl font-semibold mb-2',
+            description: 'text-base text-muted mb-4'
+          }"
+        >
+          <template #icon>
+            <div class="p-2 rounded-lg bg-primary/10 text-primary">
+              <UIcon
+                :name="serviceIcons[section.title] || 'i-lucide-wrench'"
+                class="size-5"
+              />
+            </div>
+          </template>
+        </UPageHeader>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+          <div>
+            <ul class="space-y-2">
+              <li
+                v-for="item in section.items"
+                :key="item"
+                class="flex items-start gap-2 text-sm"
+              >
+                <UIcon
+                  name="i-lucide-check"
+                  class="text-primary mt-0.5 flex-shrink-0 size-4"
+                />
+                <span class="text-muted">{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+          <div
+            v-if="section.note"
+            class="md:text-right"
+          >
+            <p class="text-sm text-muted italic">
+              {{ section.note }}
+            </p>
+          </div>
+        </div>
+      </UPageSection>
+    </template>
 
     <UPageSection
-      v-for="(section, index) in page.sections"
-      :key="index"
-      :ui="{ container: 'pt-0!' }"
+      v-if="page.links?.length > 1"
+      :ui="{ container: 'pt-4!' }"
     >
-      <div class="space-y-6">
-        <h2 class="text-2xl font-bold">{{ section.title }}</h2>
-        <p class="text-muted">{{ section.description }}</p>
-        <ul class="space-y-2">
-          <li v-for="item in section.items" :key="item" class="flex items-start gap-2">
-            <UIcon name="i-lucide-check" class="text-primary mt-1 flex-shrink-0" />
-            <span>{{ item }}</span>
-          </li>
-        </ul>
-        <p v-if="section.note" class="text-sm text-muted italic border-l-2 border-primary pl-4">
-          {{ section.note }}
-        </p>
-      </div>
-    </UPageSection>
-
-    <UPageSection
-      v-if="page.how_i_work"
-      :title="howIWorkLabel"
-      :ui="{ container: 'pt-0!' }"
-    >
-      <div class="prose prose-lg max-w-none" v-html="page.how_i_work.replace(/\n/g, '<br>')" />
-    </UPageSection>
-
-    <UPageSection
-      v-if="page.mission_types"
-      :title="missionTypesLabel"
-      :ui="{ container: 'pt-0!' }"
-    >
-      <div class="grid md:grid-cols-2 gap-4">
-        <UPageCard
-          v-for="mission in page.mission_types"
-          :key="mission.title"
-          :title="mission.title"
-          :description="mission.description"
-          variant="subtle"
+      <div class="flex flex-wrap gap-3 justify-center">
+        <UButton
+          v-for="link in page.links.slice(1)"
+          :key="link.label"
+          size="sm"
+          v-bind="link"
         />
       </div>
-    </UPageSection>
-
-    <UPageSection
-      v-if="page.target_audience"
-      :title="targetAudienceLabel"
-      :ui="{ container: 'pt-0!' }"
-    >
-      <div class="prose prose-lg max-w-none" v-html="page.target_audience.replace(/\n/g, '<br>')" />
-    </UPageSection>
-
-    <UPageSection
-      v-if="page.result"
-      :title="resultLabel"
-      :ui="{ container: 'pt-0!' }"
-    >
-      <div class="prose prose-lg max-w-none" v-html="page.result.replace(/\n/g, '<br>')" />
     </UPageSection>
   </UPage>
 </template>

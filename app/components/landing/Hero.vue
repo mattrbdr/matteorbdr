@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from "@nuxt/content";
+import type { IndexCollectionItem } from '@nuxt/content'
 
-const { footer, global } = useAppConfig();
-const { t } = useTranslations();
+const { footer, global } = useAppConfig()
+const { t } = useTranslations()
 
 defineProps<{
-  page: IndexCollectionItem;
-}>();
+  page: IndexCollectionItem
+}>()
 
 const availabilityLabel = computed(() => {
   return global.available ? t('availability.available') : t('availability.unavailable')
@@ -18,7 +18,7 @@ const availabilityLabel = computed(() => {
     :ui="{
       headline: 'flex items-center justify-center',
       title: 'text-shadow-md max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center',
+      links: 'mt-4 flex-col justify-center items-center'
     }"
   >
     <template #headline>
@@ -26,23 +26,23 @@ const availabilityLabel = computed(() => {
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)',
+          filter: 'blur(20px)'
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)',
+          filter: 'blur(0px)'
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1,
+          delay: 0.1
         }"
       >
         <img
           src="/matteorbdr.webp"
           alt="Mattéo"
           class="size-18 rounded-full ring ring-default ring-offset-3 ring-offset-bg object-cover"
-        />
+        >
       </Motion>
     </template>
 
@@ -51,16 +51,16 @@ const availabilityLabel = computed(() => {
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)',
+          filter: 'blur(20px)'
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)',
+          filter: 'blur(0px)'
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1,
+          delay: 0.1
         }"
       >
         {{ page.title }}
@@ -72,16 +72,16 @@ const availabilityLabel = computed(() => {
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)',
+          filter: 'blur(20px)'
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)',
+          filter: 'blur(0px)'
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3,
+          delay: 0.3
         }"
       >
         {{ page.description }}
@@ -93,19 +93,22 @@ const availabilityLabel = computed(() => {
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)',
+          filter: 'blur(20px)'
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)',
+          filter: 'blur(0px)'
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.5,
+          delay: 0.5
         }"
       >
-        <div v-if="page.hero.links" class="flex items-center gap-2">
+        <div
+          v-if="page.hero.links"
+          class="flex items-center gap-2"
+        >
           <UButton v-bind="page.hero.links[0]" />
           <UButton
             :color="global.available ? 'success' : 'error'"
@@ -139,16 +142,16 @@ const availabilityLabel = computed(() => {
           :initial="{
             scale: 1.1,
             opacity: 0,
-            filter: 'blur(20px)',
+            filter: 'blur(20px)'
           }"
           :animate="{
             scale: 1,
             opacity: 1,
-            filter: 'blur(0px)',
+            filter: 'blur(0px)'
           }"
           :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1,
+            delay: 0.5 + index * 0.1
           }"
         >
           <UButton

@@ -6,78 +6,47 @@ links:
     to: "https://cal.com/matteorbdr/discovery-meeting"
 
 sections:
-  - title: Modernization
-    description: Improve and modernize your existing tools and processes.
+  - title: Web Systems Modernization
+    description: I upgrade aging websites and legacy stacks.
     items:
-      - UI/UX improvements
-      - Performance optimization
-      - Code refactoring
-      - Technical debt reduction
+      - "WordPress or legacy site redesign"
+      - "Migration to modern technologies"
+      - "Performance and maintainability improvements"
+      - "Technical cleanup without unnecessary disruption"
+    note: "The goal isn't to rebuild everything. It's to keep what works and fix what's holding you back."
 
-  - title: Automation
-    description: Automate repetitive tasks to save time and reduce errors.
+  - title: AI Integration When It Makes Sense
+    description: I add AI only where it actually helps, not for the sake of it.
     items:
-      - Workflow automation
-      - CI/CD pipeline setup
-      - Testing automation
-      - Documentation generation
+      - "AI-powered workflow automation"
+      - "Smart data processing and analysis"
+      - "Integration of existing AI tools (OpenAI, Claude, etc.)"
+      - "AI training for your team"
+    note: "Not every project needs AI. I'll tell you honestly if it's overkill."
 
-  - title: Complete Projects
-    description: Build tailored solutions from scratch.
+  - title: Custom Complete Projects
+    description: I design and develop complete systems tailored to specific needs.
     items:
-      - Custom web applications
-      - API development
-      - System architecture
-      - Database design
+      - "Product or tool design from scratch"
+      - "Complete technical architecture"
+      - "End-to-end development"
+      - "Production deployment and iterations"
+    note: "The goal is to build a useful, coherent, and durable system without unnecessary complexity."
 
-  - title: Architecture
-    description: Design robust and scalable systems.
+  - title: Technical Clarification & Architecture
+    description: I help you make better technical decisions.
     items:
-      - Technical planning
-      - Code reviews
-      - Team mentoring
-      - Best practices implementation
-
-how_i_work: |
-  My approach is practical and results-oriented:
-
-  1. **Understanding** - I start by deeply understanding your context, constraints, and goals.
-  2. **Analysis** - I identify what's working, what's not, and what can be improved.
-  3. **Execution** - I implement concrete solutions with clear priorities.
-  4. **Knowledge Transfer** - I make sure your team can maintain and evolve what I've built.
-
-mission_types:
-  - title: Consulting
-    description: Advice and expertise to guide your technical decisions.
-
-  - title: Development
-    description: Implementation of specific features or improvements.
-
-  - title: Audit
-    description: Complete analysis of your codebase and infrastructure.
-
-  - title: Training
-    description: Knowledge transfer to strengthen your team's skills.
-
-target_audience: |
-  I work with startups, agencies, and companies that need:
-
-  - To improve existing products without complete rewriting
-  - Technical expertise for specific projects
-  - A pragmatic approach to complex problems
-
-result: |
-  At the end of each collaboration, you get:
-  - Working code in production
-  - Reduced technical debt
-  - Clear documentation
-  - A team that's more autonomous
+      - "Architecture choices"
+      - "Product or system structuring"
+      - "Complex environment simplification"
+      - "Quick audit of existing setup"
+    note: "Sometimes the problem isn't technical. It's poor structure."
 
 links:
   - label: "Let's talk"
     color: "neutral"
-    to: "https://calendly.com/matteo-neri"
+    to: "https://cal.com/matteorbdr/discovery-meeting"
     target: "_blank"
   - label: "Email me"
     color: "neutral"
-    to: "mailto:matteo.neri.dev@gmail.com"
+    to: "mailto:matteorbdr@icloud.com"
