@@ -14,33 +14,19 @@ export default defineNuxtConfig({
     enabled: false
   },
 
-  css: ['~/assets/css/main.css'],
-
-  tailwind: {
-    darkMode: 'class'
-  },
-
   app: {
     baseURL: '/matteorbdr/',
     head: {
-      htmlAttrs: { class: 'dark' }
+      htmlAttrs: { class: 'dark' },
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }
+      ]
     }
   },
 
-  i18n: {
-    locales: [
-      { code: 'en', language: 'en-US', name: 'English' },
-      { code: 'fr', language: 'fr-FR', name: 'Français' }
-    ],
-    defaultLocale: 'en',
-    strategy: 'prefix_except_default',
-    differentDomains: false,
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
-  },
+  css: ['~/assets/css/main.css'],
 
   content: {
     experimental: {
@@ -50,11 +36,19 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-11-01',
+  build: {
+    chunkSizeWarningLimit: 1000
+  },
 
   future: {
     compatibilityVersion: 4
   },
+
+  experimental: {
+    payloadExtraction: false
+  },
+
+  compatibilityDate: '2024-11-01',
 
   nitro: {
     prerender: {
@@ -82,10 +76,6 @@ export default defineNuxtConfig({
     }
   },
 
-  experimental: {
-    payloadExtraction: false
-  },
-
   eslint: {
     config: {
       stylistic: {
@@ -95,11 +85,26 @@ export default defineNuxtConfig({
     }
   },
 
-  build: {
-    chunkSizeWarningLimit: 1000
+  i18n: {
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English' },
+      { code: 'fr', language: 'fr-FR', name: 'Français' }
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    differentDomains: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
 
   ogImage: {
     zeroRuntime: true
+  },
+
+  tailwind: {
+    darkMode: 'class'
   }
 })
