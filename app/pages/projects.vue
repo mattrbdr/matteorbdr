@@ -1,11 +1,10 @@
 <script setup lang="ts">
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
-const pageCollection = isFr ? 'projects_page_fr' : 'projects_page'
-const projectsCollection = isFr ? 'projects_fr' : 'projects'
+const { locale, t } = useTranslations()
+const pageCollection = computed(() => locale.value === 'fr' ? 'projects_page_fr' : 'projects_page')
+const projectsCollection = computed(() => locale.value === 'fr' ? 'projects_fr' : 'projects')
 
-const { data: page } = await useAsyncData(`projects-page-${isFr ? 'fr' : 'en'}`, () => {
-  return queryCollection(pageCollection).first()
+const { data: page } = await useAsyncData(`projects-page-${locale.value}`, () => {
+  return queryCollection(pageCollection.value).first()
 })
 if (!page.value) {
   throw createError({
@@ -15,11 +14,34 @@ if (!page.value) {
   })
 }
 
-const { data: projects } = await useAsyncData(`projects-${isFr ? 'fr' : 'en'}`, () => {
-  return queryCollection(projectsCollection).all()
+const { data: projects } = await useAsyncData(`projects-${locale.value}`, () => {
+  return queryCollection(projectsCollection.value).all()
 })
 
 const { global } = useAppConfig()
+
+const selectedProject = ref<any>(null)
+const drawerOpen = ref(false)
+const modalOpen = ref(false)
+
+const openProject = (project: any) => {
+  selectedProject.value = project
+  if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+    modalOpen.value = true
+  } else {
+    drawerOpen.value = true
+  }
+}
+
+const closeModal = () => {
+  modalOpen.value = false
+  selectedProject.value = null
+}
+
+const closeDrawer = () => {
+  drawerOpen.value = false
+  selectedProject.value = null
+}
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
@@ -32,6 +54,10 @@ useSeoMeta({
 })
 
 defineOgImage('Portfolio', { title, description })
+
+const viewLiveLabel = computed(() => t('view_live'))
+const viewGithubLabel = computed(() => t('view_github'))
+const tagsLabel = computed(() => t('technologies'))
 </script>
 
 <template>
@@ -63,55 +89,120 @@ defineOgImage('Portfolio', { title, description })
         </div>
       </template>
     </UPageHero>
+
     <UPageSection
       :ui="{
         container: 'pt-0!'
       }"
     >
-      <Motion
-        v-for="(project, index) in projects"
-        :key="project.title"
-        :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-        :transition="{ delay: 0.2 * index }"
-        :in-view-options="{ once: true }"
-      >
-        <UPageCard
-          :title="project.title"
-          :description="project.description"
-          :to="project.url"
-          orientation="horizontal"
-          variant="naked"
-          :reverse="index % 2 === 1"
-          class="group"
-          :ui="{
-            wrapper: 'max-sm:order-last'
-          }"
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          v-for="project in projects"
+          :key="project.title"
+          class="group cursor-pointer border border-[var(--ui-border)] rounded-lg p-4 hover:bg-[var(--ui-bg-elevated)] transition-colors"
+          @click="openProject(project)"
         >
-          <template #leading>
-            <span class="text-sm text-muted">
-              {{ new Date(project.date).getFullYear() }}
-            </span>
-          </template>
-          <template #footer>
-            <ULink
-              :to="project.url"
-              class="text-sm text-primary flex items-center"
-            >
-              View Project
-              <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
-              />
-            </ULink>
-          </template>
-          <img
-            :src="project.image"
-            :alt="project.title"
-            class="object-cover w-full h-48 rounded-lg"
-          >
-        </UPageCard>
-      </Motion>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm text-muted">{{ new Date(project.date).getFullYear() }}</span>
+            <UIcon
+              name="i-lucide-arrow-right"
+              class="size-4 text-muted group-hover:text-foreground transition-colors"
+            />
+          </div>
+          <h3 class="font-medium mb-1">{{ project.title }}</h3>
+          <p class="text-sm text-muted line-clamp-2">{{ project.description }}</p>
+        </div>
+      </div>
     </UPageSection>
+
+    <UModal
+      v-model:open="modalOpen"
+      :title="selectedProject?.title"
+    >
+      <template #body>
+        <div v-if="selectedProject" class="space-y-4">
+          <p class="text-muted">{{ selectedProject.description }}</p>
+          <div>
+            <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in selectedProject.tags"
+                :key="tag"
+                class="px-3 py-1 bg-[var(--ui-bg)] text-sm rounded-md"
+              >
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <template #footer>
+        <div class="flex gap-3">
+          <UButton
+            :label="viewLiveLabel"
+            :to="selectedProject?.url"
+            target="_blank"
+            icon="i-lucide-external-link"
+          />
+          <UButton
+            v-if="selectedProject?.github"
+            :label="viewGithubLabel"
+            :to="selectedProject.github"
+            target="_blank"
+            variant="outline"
+            icon="i-lucide-github"
+          />
+        </div>
+      </template>
+    </UModal>
+
+    <UDrawer
+      v-model:open="drawerOpen"
+      direction="bottom"
+    >
+      <template #body>
+        <div v-if="selectedProject" class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold">{{ selectedProject.title }}</h2>
+            <UButton
+              variant="ghost"
+              size="sm"
+              icon="i-lucide-x"
+              @click="closeDrawer"
+            />
+          </div>
+          <p class="text-muted">{{ selectedProject.description }}</p>
+          <div>
+            <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in selectedProject.tags"
+                :key="tag"
+                class="px-3 py-1 bg-[var(--ui-bg)] text-sm rounded-md"
+              >
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+          <div class="flex gap-3 pt-4">
+            <UButton
+              :label="viewLiveLabel"
+              :to="selectedProject.url"
+              target="_blank"
+              icon="i-lucide-external-link"
+            />
+            <UButton
+              v-if="selectedProject.github"
+              :label="viewGithubLabel"
+              :to="selectedProject.github"
+              target="_blank"
+              variant="outline"
+              icon="i-lucide-github"
+            />
+          </div>
+        </div>
+      </template>
+    </UDrawer>
   </UPage>
 </template>

@@ -6,13 +6,13 @@ export default defineAppConfig({
       alt: "Mattéo",
     },
     meetingLink: "https://cal.com/matteorbdr/discovery-meeting",
-    email: "matteo@rbdr.fr",
+    email: "matteorbdr@icloud.com",
     available: true,
   },
   ui: {
     colors: {
-      primary: "blue",
-      neutral: "neutral",
+      primary: 'primary',
+      neutral: 'neutral',
     },
     pageHero: {
       slots: {
@@ -22,6 +22,15 @@ export default defineAppConfig({
           "mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted",
       },
     },
+    navigation: {
+      links: [
+        { label: 'nav.home', to: '/' },
+        { label: 'nav.projects', to: '/projects' },
+        { label: 'nav.blog', to: '/blog' },
+        { label: 'nav.about', to: '/about' },
+        { label: 'nav.services', to: '/services' }
+      ]
+    }
   },
   footer: {
     credits: `Construit avec ♥ par Mattéo`,

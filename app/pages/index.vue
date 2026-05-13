@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
-const collection = isFr ? 'index_fr' : 'index'
+const { locale } = useTranslations()
+const collection = computed(() => locale.value === 'fr' ? 'index_fr' : 'index')
 
-const { data: page } = await useAsyncData(`index-${isFr ? 'fr' : 'en'}`, () => {
-  return queryCollection(collection).first()
+const { data: page } = await useAsyncData(`index-${locale.value}`, () => {
+  return queryCollection(collection.value).first()
 })
 
 if (!page.value) {
@@ -16,11 +15,11 @@ if (!page.value) {
 }
 
 useSeoMeta({
-  title: page.value?.seo?.title || page.value?.title,
-  ogTitle: page.value?.seo?.title || page.value?.title,
-  description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png'
+  title: 'Mattéo — Developer & Web Architect',
+  ogTitle: 'Mattéo — Developer & Web Architect',
+  description: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
+  ogDescription: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
+  ogImage: '/og-image.png'
 })
 </script>
 

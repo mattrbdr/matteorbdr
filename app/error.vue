@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
+const { navLinks } = useNavLinks()
+
 defineProps({
   error: {
     type: Object as PropType<NuxtError>,

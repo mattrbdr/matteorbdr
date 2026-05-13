@@ -1,11 +1,10 @@
 <script setup lang="ts">
-const route = useRoute()
-const locale = route.path.startsWith('/fr') ? 'fr' : 'en'
-const pagesCollection = locale === 'fr' ? 'blog_page_fr' : 'blog_page'
-const blogCollection = locale === 'fr' ? 'blog_fr' : 'blog'
+const { locale } = useTranslations()
+const pagesCollection = computed(() => locale.value === 'fr' ? 'blog_page_fr' : 'blog_page')
+const blogCollection = computed(() => locale.value === 'fr' ? 'blog_fr' : 'blog')
 
-const { data: page } = await useAsyncData(`blog-page-${locale}`, () => {
-  return queryCollection(pagesCollection).first()
+const { data: page } = await useAsyncData(`blog-page-${locale.value}`, () => {
+  return queryCollection(pagesCollection.value).first()
 })
 if (!page.value) {
   throw createError({
@@ -14,8 +13,8 @@ if (!page.value) {
     fatal: true
   })
 }
-const { data: posts } = await useAsyncData(`blogs-${locale}`, () =>
-  queryCollection(blogCollection).order('date', 'DESC').all()
+const { data: posts } = await useAsyncData(`blogs-${locale.value}`, () =>
+  queryCollection(blogCollection.value).order('date', 'DESC').all()
 )
 if (!posts.value) {
   throw createError({

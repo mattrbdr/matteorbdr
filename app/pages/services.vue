@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
-const collection = isFr ? 'services_fr' : 'services'
+const { locale, t } = useTranslations()
+const collection = computed(() => locale.value === 'fr' ? 'services_fr' : 'services')
 
-const { data: page } = await useAsyncData(`services-${isFr ? 'fr' : 'en'}`, () => {
-  return queryCollection(collection).first()
+const { data: page } = await useAsyncData(`services-${locale.value}`, () => {
+  return queryCollection(collection.value).first()
 })
 
 if (!page.value) {
@@ -21,6 +20,11 @@ useSeoMeta({
 defineOgImage('Portfolio', { title, description })
 
 const { global } = useAppConfig()
+
+const howIWorkLabel = computed(() => t('services.how_i_work'))
+const missionTypesLabel = computed(() => t('services.mission_types'))
+const targetAudienceLabel = computed(() => t('services.target_audience'))
+const resultLabel = computed(() => t('services.result'))
 </script>
 
 <template>
@@ -68,7 +72,7 @@ const { global } = useAppConfig()
 
     <UPageSection
       v-if="page.how_i_work"
-      :title="isFr ? 'Ma façon de travailler' : 'How I work'"
+      :title="howIWorkLabel"
       :ui="{ container: 'pt-0!' }"
     >
       <div class="prose prose-lg max-w-none" v-html="page.how_i_work.replace(/\n/g, '<br>')" />
@@ -76,7 +80,7 @@ const { global } = useAppConfig()
 
     <UPageSection
       v-if="page.mission_types"
-      :title="isFr ? 'Types de missions' : 'Mission Types'"
+      :title="missionTypesLabel"
       :ui="{ container: 'pt-0!' }"
     >
       <div class="grid md:grid-cols-2 gap-4">
@@ -92,7 +96,7 @@ const { global } = useAppConfig()
 
     <UPageSection
       v-if="page.target_audience"
-      :title="isFr ? 'Pour qui' : 'Target Audience'"
+      :title="targetAudienceLabel"
       :ui="{ container: 'pt-0!' }"
     >
       <div class="prose prose-lg max-w-none" v-html="page.target_audience.replace(/\n/g, '<br>')" />
@@ -100,7 +104,7 @@ const { global } = useAppConfig()
 
     <UPageSection
       v-if="page.result"
-      title="Résultat attendu"
+      :title="resultLabel"
       :ui="{ container: 'pt-0!' }"
     >
       <div class="prose prose-lg max-w-none" v-html="page.result.replace(/\n/g, '<br>')" />

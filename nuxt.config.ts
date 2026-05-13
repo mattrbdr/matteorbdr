@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-og-image',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxtjs/i18n'
   ],
 
   devtools: {
@@ -26,9 +27,26 @@ export default defineNuxtConfig({
     }
   },
 
+  i18n: {
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English' },
+      { code: 'fr', language: 'fr-FR', name: 'Français' }
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    differentDomains: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
+  },
+
   content: {
     experimental: {
-      sqliteConnector: false
+      search: {
+        indexed: true
+      }
     }
   },
 
@@ -42,8 +60,30 @@ export default defineNuxtConfig({
     prerender: {
       failOnError: false,
       crawlLinks: true,
-      routes: ['/']
+      routes: [
+        '/',
+        '/blog',
+        '/blog/welcome',
+        '/projects',
+        '/about',
+        '/services',
+        '/fr',
+        '/fr/blog',
+        '/fr/blog/welcome',
+        '/fr/projects',
+        '/fr/about',
+        '/fr/services'
+      ]
+    },
+    devStorage: {
+      cache: {
+        driver: 'memory'
+      }
     }
+  },
+
+  experimental: {
+    payloadExtraction: false
   },
 
   eslint: {

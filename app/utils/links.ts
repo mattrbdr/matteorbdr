@@ -1,34 +1,33 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 export const useNavLinks = () => {
-  const route = useRoute()
-  const isFr = route.path.startsWith('/fr')
+  const { locale } = useTranslations()
 
   const navLinks: NavigationMenuItem[] = [
     {
-      label: isFr ? 'Accueil' : 'Home',
+      label: 'nav.home',
       icon: 'i-lucide-home',
-      to: isFr ? '/fr' : '/'
+      to: '/'
     },
     {
-      label: isFr ? 'Services' : 'Services',
+      label: 'nav.services',
       icon: 'i-lucide-wrench',
-      to: isFr ? '/fr/services' : '/services'
+      to: '/services'
     },
     {
-      label: isFr ? 'Projets' : 'Projects',
+      label: 'nav.projects',
       icon: 'i-lucide-folder',
-      to: isFr ? '/fr/projects' : '/projects'
+      to: '/projects'
     },
     {
-      label: isFr ? 'Blog' : 'Blog',
+      label: 'nav.blog',
       icon: 'i-lucide-file-text',
-      to: isFr ? '/fr/blog' : '/blog'
+      to: '/blog'
     },
     {
-      label: isFr ? 'À propos' : 'About',
+      label: 'nav.about',
       icon: 'i-lucide-user',
-      to: isFr ? '/fr/about' : '/about'
+      to: '/about'
     }
   ]
 

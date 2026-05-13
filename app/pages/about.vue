@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
-const collection = isFr ? 'about_fr' : 'about'
+const { locale } = useTranslations()
+const collection = computed(() => locale.value === 'fr' ? 'about_fr' : 'about')
 
-const { data: page } = await useAsyncData(`about-${isFr ? 'fr' : 'en'}`, () => {
-  return queryCollection(collection).first()
+const { data: page } = await useAsyncData(`about-${locale.value}`, () => {
+  return queryCollection(collection.value).first()
 })
 if (!page.value) {
   throw createError({

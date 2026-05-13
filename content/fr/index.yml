@@ -9,7 +9,7 @@ hero:
       to: https://cal.com/matteorbdr/discovery-meeting
       color: "neutral"
 about:
-  title: "About me"
+  title: "À propos"
   description: |
     Je construis des choses sur internet depuis que j'ai l'âge de les casser.
     Sites, outils, automatisations, plateformes. J'ai appris en faisant, projet après projet. Aujourd'hui je travaille en freelance sur des missions où la technologie répond à un vrai problème: une stack qui ralentit tout, un process manuel qui prend trop de temps, un produit qui a besoin d'une base solide pour tenir dans la durée.
@@ -47,10 +47,10 @@ experience:
         logo: "i-simple-icons-nuxtdotjs"
         url: "https://seizart.io"
         color: "#00DC82"
-    - position: "Développeur web freelance chez"
+    - position: "Développeur web chez"
       date: "2018 - Aujourd'hui"
       company:
-        name: "Indépendant"
+        name: "MRBDRS"
         logo: "i-simple-icons-nuxtdotjs"
         url: "https://rbdr.fr"
         color: "#00DC82"

@@ -28,7 +28,7 @@ defineProps<{
         >
           <div class="flex flex-col gap-1 text-left">
             <span class="text-xs text-muted">{{ experience.date }}</span>
-            <span class="text-sm text-muted">{{ experience.position }} <span class="text-foreground">{{ experience.company.name }}</span></span>
+            <span class="text-sm text-muted">{{ experience.position }} <span class="font-semibold group-hover:text-primary transition-colors">{{ experience.company.name }}</span></span>
           </div>
         </Motion>
       </div>
@@ -37,10 +37,4 @@ defineProps<{
 </template>
 
 <style scoped>
-.group :deep(span.text-foreground) {
-  transition: opacity 0.2s;
-}
-.group:hover :deep(span.text-foreground) {
-  opacity: 0.6;
-}
 </style>

@@ -1,16 +1,12 @@
 <script setup lang="ts">
 const route = useRoute()
-const locale = useState('locale')
 
-const switchLocale = () => {
-  const currentLang = route.path.startsWith('/fr') ? 'fr' : 'en'
-  const newLang = currentLang === 'en' ? 'fr' : 'en'
-  
-  if (newLang === 'fr') {
-    navigateTo(`/fr${route.path === '/' ? '' : route.path}`)
+const toggleLocale = () => {
+  const currentPath = route.path
+  if (currentPath.startsWith('/fr')) {
+    navigateTo(currentPath.replace(/^\/fr/, '') || '/')
   } else {
-    const newPath = route.path.replace(/^\/fr/, '')
-    navigateTo(newPath || '/')
+    navigateTo(`/fr${currentPath}`)
   }
 }
 </script>
@@ -24,7 +20,7 @@ const switchLocale = () => {
       variant="ghost"
       size="sm"
       class="rounded-full text-xs font-medium"
-      @click="switchLocale"
+      @click="toggleLocale"
     />
     <template #fallback>
       <div class="size-4" />

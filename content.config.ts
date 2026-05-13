@@ -118,6 +118,7 @@ export default defineContentConfig({
         description: z.string().nonempty(),
         image: z.string().nonempty().editor({ input: 'media' }),
         url: z.string().nonempty(),
+        github: z.string().optional(),
         tags: z.array(z.string()),
         date: z.date()
       })
@@ -130,6 +131,7 @@ export default defineContentConfig({
         description: z.string().nonempty(),
         image: z.string().nonempty().editor({ input: 'media' }),
         url: z.string().nonempty(),
+        github: z.string().optional(),
         tags: z.array(z.string()),
         date: z.date()
       })
@@ -141,7 +143,8 @@ export default defineContentConfig({
         minRead: z.number(),
         date: z.date(),
         image: z.string().nonempty().editor({ input: 'media' }),
-        author: createAuthorSchema()
+        author: createAuthorSchema(),
+        category: z.string().optional()
       })
     }),
     blog_fr: defineCollection({
@@ -151,7 +154,8 @@ export default defineContentConfig({
         minRead: z.number(),
         date: z.date(),
         image: z.string().nonempty().editor({ input: 'media' }),
-        author: createAuthorSchema()
+        author: createAuthorSchema(),
+        category: z.string().optional()
       })
     }),
     projects_page: defineCollection({
