@@ -72,11 +72,11 @@ const messages = {
 export const useTranslations = () => {
   const route = useRoute()
   const locale = computed(() => route.path.startsWith('/fr') ? 'fr' : 'en')
-  
+
   const t = (key: string): string => {
     const keys = key.split('.')
     let value: any = messages[locale.value]
-    
+
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k]
@@ -84,9 +84,9 @@ export const useTranslations = () => {
         return key
       }
     }
-    
+
     return typeof value === 'string' ? value : key
   }
-  
+
   return { t, locale }
 }

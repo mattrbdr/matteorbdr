@@ -109,8 +109,12 @@ const tagsLabel = computed(() => t('technologies'))
               class="size-4 text-muted group-hover:text-foreground transition-colors"
             />
           </div>
-          <h3 class="font-medium mb-1">{{ project.title }}</h3>
-          <p class="text-sm text-muted line-clamp-2">{{ project.description }}</p>
+          <h3 class="font-medium mb-1">
+            {{ project.title }}
+          </h3>
+          <p class="text-sm text-muted line-clamp-2">
+            {{ project.description }}
+          </p>
         </div>
       </div>
     </UPageSection>
@@ -120,8 +124,13 @@ const tagsLabel = computed(() => t('technologies'))
       :title="selectedProject?.title"
     >
       <template #body>
-        <div v-if="selectedProject" class="space-y-4">
-          <p class="text-muted">{{ selectedProject.description }}</p>
+        <div
+          v-if="selectedProject"
+          class="space-y-4"
+        >
+          <p class="text-muted">
+            {{ selectedProject.description }}
+          </p>
           <div>
             <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>
             <div class="flex flex-wrap gap-2">
@@ -162,9 +171,14 @@ const tagsLabel = computed(() => t('technologies'))
       direction="bottom"
     >
       <template #body>
-        <div v-if="selectedProject" class="space-y-4">
+        <div
+          v-if="selectedProject"
+          class="space-y-4"
+        >
           <div class="flex items-center justify-between">
-            <h2 class="text-xl font-semibold">{{ selectedProject.title }}</h2>
+            <h2 class="text-xl font-semibold">
+              {{ selectedProject.title }}
+            </h2>
             <UButton
               variant="ghost"
               size="sm"
@@ -172,7 +186,9 @@ const tagsLabel = computed(() => t('technologies'))
               @click="closeDrawer"
             />
           </div>
-          <p class="text-muted">{{ selectedProject.description }}</p>
+          <p class="text-muted">
+            {{ selectedProject.description }}
+          </p>
           <div>
             <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>
             <div class="flex flex-wrap gap-2">

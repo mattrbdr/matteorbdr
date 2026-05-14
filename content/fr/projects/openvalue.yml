@@ -1,9 +1,10 @@
 title: "OpenValue"
-description: "Architecture et conseil en stratégie"
+description: "Moteur de calcul de prix déterministe avec intégrité cryptographique — pas de blockchain, juste des maths."
 image: ""
-url: "https://openvalue.tech"
+url: "https://racinesapp.com/open-value"
 tags:
-  - "Architecture"
-  - "Conseil"
-  - "Stratégie"
-date: "2026-05-12"
+  - "Tech / Dev"
+  - "Architecture logicielle"
+  - "Finance / Business"
+date: "2026-05-14"
+status: in_progress

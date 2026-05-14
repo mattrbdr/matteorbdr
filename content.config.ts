@@ -120,7 +120,8 @@ export default defineContentConfig({
         url: z.string().nonempty(),
         github: z.string().optional(),
         tags: z.array(z.string()),
-        date: z.date()
+        date: z.date(),
+        status: z.enum(['in_progress', 'completed', 'archived']).optional()
       })
     }),
     projects_fr: defineCollection({
@@ -133,7 +134,8 @@ export default defineContentConfig({
         url: z.string().nonempty(),
         github: z.string().optional(),
         tags: z.array(z.string()),
-        date: z.date()
+        date: z.date(),
+        status: z.enum(['in_progress', 'completed', 'archived']).optional()
       })
     }),
     blog: defineCollection({

@@ -36,8 +36,8 @@ const copyLink = async () => {
 </script>
 
 <template>
-  <div class="flex items-center gap-3">
-    <span class="text-sm text-muted">{{ t('share') }}</span>
+  <div class="flex flex-wrap items-center gap-3">
+    <span class="text-sm text-muted shrink-0">{{ t('share') }}</span>
     <UButton
       variant="ghost"
       size="sm"
@@ -46,6 +46,7 @@ const copyLink = async () => {
       icon="i-lucide-twitter"
       :to="twitterUrl"
       target="_blank"
+      class="shrink-0"
       aria-label="Share on X (Twitter)"
     />
     <UButton
@@ -55,16 +56,17 @@ const copyLink = async () => {
       :label="t('share_email')"
       icon="i-lucide-mail"
       :to="emailUrl"
+      class="shrink-0"
       aria-label="Share via Email"
     />
     <UButton
       variant="ghost"
       size="sm"
       color="neutral"
-      :label="t('share_facebook')"
       icon="i-lucide-facebook"
       :to="facebookUrl"
       target="_blank"
+      class="shrink-0"
       aria-label="Share on Facebook"
     />
     <UButton
@@ -73,6 +75,7 @@ const copyLink = async () => {
       color="neutral"
       :label="copied ? t('copied') : t('copy_link')"
       :icon="copied ? 'i-lucide-check' : 'i-lucide-copy'"
+      class="shrink-0"
       @click="copyLink()"
     />
   </div>

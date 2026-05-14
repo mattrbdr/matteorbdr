@@ -42,10 +42,10 @@ defineOgImage('Portfolio', { title, description })
       }"
     >
       <img
-          src="/mattrbdr2.webp"
-          alt="Mattéo"
-          class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-bg object-cover"
-        />
+        src="/mattrbdr2.webp"
+        alt="Mattéo"
+        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-bg object-cover"
+      >
     </UPageHero>
     <UPageSection
       :ui="{

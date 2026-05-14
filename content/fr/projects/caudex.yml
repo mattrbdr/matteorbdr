@@ -1,0 +1,9 @@
+title: "Caudex"
+description: "Gestionnaire de bibliothèque ebook open-source, conçu comme une alternative moderne et performante à Calibre. Construit avec Rust, Tauri v2 et Svelte."
+image: ""
+url: "https://github.com/mattrbdr/caudex"
+tags:
+  - "Tech / Dev"
+  - "Open-source"
+date: "2026-04-14"
+status: in_progress

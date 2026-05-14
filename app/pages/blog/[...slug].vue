@@ -56,7 +56,7 @@ const minLabel = computed(() => t('min_read'))
 
 <template>
   <UMain class="mt-20">
-    <UContainer class="max-w-3xl mx-auto">
+    <UContainer class="max-w-3xl">
       <ULink
         to="/blog"
         class="inline-flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors mb-6"
@@ -65,8 +65,8 @@ const minLabel = computed(() => t('min_read'))
         {{ backLabel }}
       </ULink>
 
-      <div class="text-center mb-8">
-        <div class="flex items-center justify-center gap-2 text-sm text-muted mb-4">
+      <div class="mb-8">
+        <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
           <span
             v-if="categoryLabel"
             class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
@@ -81,11 +81,11 @@ const minLabel = computed(() => t('min_read'))
           </span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground mb-4 leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground mb-4 leading-tight text-left">
           {{ page?.title }}
         </h1>
 
-        <p class="text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
+        <p class="text-lg sm:text-xl text-muted leading-relaxed text-left">
           {{ page?.description }}
         </p>
       </div>
@@ -95,7 +95,7 @@ const minLabel = computed(() => t('min_read'))
         :src="page.image"
         :alt="page.title || ''"
         class="w-full h-[400px] sm:h-[500px] object-cover object-center rounded-xl mb-12"
-      />
+      >
 
       <div>
         <ContentRenderer
@@ -115,15 +115,15 @@ const minLabel = computed(() => t('min_read'))
         />
       </div>
 
-      <div class="border-t border-[var(--ui-border)] pt-8 pb-16">
-        <div class="flex items-center justify-center gap-3 mb-4">
+<div class="border-t border-[var(--ui-border)] pt-8 pb-16">
+        <div class="flex items-center gap-3">
           <img
             v-if="page?.author?.avatar"
             :src="typeof page.author.avatar === 'string' ? page.author.avatar : page.author.avatar.src"
             :alt="typeof page.author.avatar === 'string' ? page.author.name : page.author.avatar.alt"
-            class="size-10 rounded-full object-cover"
+            class="size-10 rounded-full object-cover shrink-0"
           />
-          <div class="text-center">
+          <div>
             <p class="text-sm font-medium">{{ page?.author?.name }}</p>
             <p v-if="page?.author?.description" class="text-xs text-muted">{{ page.author.description }}</p>
           </div>
