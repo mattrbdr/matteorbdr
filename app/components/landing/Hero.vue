@@ -17,7 +17,8 @@ const availabilityLabel = computed(() => {
   <UPageHero
     :ui="{
       headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-lg mx-auto',
+      title: 'text-shadow-md max-w-lg mx-auto lg:mx-auto',
+      description: 'max-w-lg mx-auto lg:mx-auto text-left lg:text-center',
       links: 'mt-4 flex-col justify-center items-center'
     }"
   >

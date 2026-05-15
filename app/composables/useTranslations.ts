@@ -9,7 +9,7 @@ const messages = {
     },
     availability: {
       available: 'Available for new projects',
-      unavailable: 'Not available at the moment'
+      unavailable: 'Unavailable'
     },
     share: 'Share',
     copy_link: 'Copy link',
@@ -42,7 +42,7 @@ const messages = {
       services: 'Services'
     },
     availability: {
-      available: 'Disponible pour de nouveaux projets',
+      available: 'Disponible',
       unavailable: 'Non disponible actuellement'
     },
     share: 'Partager',
