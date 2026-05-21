@@ -35,7 +35,8 @@ const ui = {
     :title="faqTitle"
     :description="faqDescription"
     :ui="{
-      container: 'px-0 pt-0! gap-4 sm:gap-4',
+      container: 'px-0! pt-0! gap-4 sm:gap-4',
+      wrapper: 'px-0!',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
       description: 'text-left mt-2 text-sm sm:text-md lg:text-sm text-muted'
     }"

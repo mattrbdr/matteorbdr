@@ -4,8 +4,12 @@ const { footer } = useAppConfig()
 
 <template>
   <UFooter
-    class="z-10 bg-default"
-    :ui="{ left: 'text-muted text-xs' }"
+    class="z-10 mt-10 bg-transparent border-t border-default/40"
+    :ui="{
+      root: 'py-5',
+      left: 'text-muted text-xs',
+      right: 'gap-1'
+    }"
   >
     <template #left>
       {{ footer.credits }}
@@ -17,6 +21,7 @@ const { footer } = useAppConfig()
           v-for="(link, index) of footer?.links"
           :key="index"
           v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
+          class="rounded-md text-muted hover:bg-transparent hover:text-primary"
         />
       </template>
       <LanguageSwitcher />

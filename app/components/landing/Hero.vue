@@ -14,152 +14,45 @@ const availabilityLabel = computed(() => {
 </script>
 
 <template>
-  <UPageHero
-    :ui="{
-      headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-lg mx-auto lg:mx-auto',
-      description: 'max-w-lg mx-auto lg:mx-auto text-left lg:text-center',
-      links: 'mt-4 flex-col justify-center items-center'
-    }"
-  >
-    <template #headline>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.1
-        }"
-      >
-        <img
-          src="/matteorbdr.webp"
-          alt="Mattéo"
-          class="size-18 rounded-full ring ring-default ring-offset-3 ring-offset-bg object-cover"
-        >
-      </Motion>
-    </template>
-
-    <template #title>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.1
-        }"
-      >
+  <section class="w-full px-4 pb-12 pt-4 text-left sm:px-6 lg:px-0">
+    <div class="space-y-4">
+      <p class="text-xl font-medium leading-7 text-foreground sm:text-xl lg:text-2xl">
         {{ page.title }}
-      </Motion>
-    </template>
+      </p>
 
-    <template #description>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.3
-        }"
-      >
+      <p class="text-sm leading-7 text-muted sm:text-md lg:text-sm">
         {{ page.description }}
-      </Motion>
-    </template>
+      </p>
 
-    <template #links>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.5
-        }"
-      >
-        <div
-          v-if="page.hero.links"
-          class="flex items-center gap-2"
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 text-sm leading-6">
+        <ULink
+          v-if="page.hero.links && page.hero.links[0]"
+          :to="page.hero.links[0].to"
+          :target="page.hero.links[0].target"
+          class="font-medium text-primary underline-offset-4 hover:underline"
         >
-          <UButton v-bind="page.hero.links[0]" />
-          <UButton
-            :color="global.available ? 'success' : 'error'"
-            variant="ghost"
-            class="gap-2"
-            :to="global.available ? global.meetingLink : ''"
-            :label="availabilityLabel"
-          >
-            <template #leading>
-              <span class="relative flex size-2">
-                <span
-                  class="absolute inline-flex size-full rounded-full opacity-75"
-                  :class="
-                    global.available ? 'bg-success animate-ping' : 'bg-error'
-                  "
-                />
-                <span
-                  class="relative inline-flex size-2 scale-90 rounded-full"
-                  :class="global.available ? 'bg-success' : 'bg-error'"
-                />
-              </span>
-            </template>
-          </UButton>
-        </div>
-      </Motion>
+          {{ page.hero.links[0].label }}
+        </ULink>
 
-      <div class="gap-x-4 inline-flex mt-4">
-        <Motion
+        <ULink
+          v-if="global.available"
+          :to="global.meetingLink"
+          class="text-muted transition-colors hover:text-primary"
+        >
+          {{ availabilityLabel }}
+        </ULink>
+
+        <ULink
           v-for="(link, index) of footer?.links"
           :key="index"
-          :initial="{
-            scale: 1.1,
-            opacity: 0,
-            filter: 'blur(20px)'
-          }"
-          :animate="{
-            scale: 1,
-            opacity: 1,
-            filter: 'blur(0px)'
-          }"
-          :transition="{
-            duration: 0.6,
-            delay: 0.5 + index * 0.1
-          }"
+          :to="link.to"
+          :target="link.target"
+          :aria-label="link['aria-label']"
+          class="text-muted transition-colors hover:text-primary"
         >
-          <UButton
-            v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }"
-          />
-        </Motion>
+          {{ link['aria-label'] }}
+        </ULink>
       </div>
-    </template>
-  </UPageHero>
+    </div>
+  </section>
 </template>

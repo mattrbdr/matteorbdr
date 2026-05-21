@@ -35,6 +35,14 @@ useSeoMeta({
 })
 
 defineOgImage('Portfolio', { title, description })
+
+const formatDate = (dateString: string | Date) => {
+  return new Date(dateString).toLocaleDateString(locale.value === 'fr' ? 'fr-FR' : 'en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
+}
 </script>
 
 <template>
@@ -44,6 +52,7 @@ defineOgImage('Portfolio', { title, description })
       :description="page.description"
       :links="page.links"
       :ui="{
+        container: 'py-8 sm:py-12 lg:py-14',
         title: 'mx-0! text-left',
         description: 'mx-0! text-left',
         links: 'justify-start'
@@ -54,32 +63,26 @@ defineOgImage('Portfolio', { title, description })
         container: 'pt-0!'
       }"
     >
-      <UBlogPosts orientation="vertical">
-        <Motion
+      <div class="divide-y divide-default/50">
+        <ULink
           v-for="(post, index) in posts"
           :key="index"
-          :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.2 * index }"
-          :in-view-options="{ once: true }"
+          :to="post.path"
+          class="group block py-5 first:pt-0"
         >
-          <UBlogPost
-            variant="naked"
-            orientation="horizontal"
-            :to="post.path"
-            v-bind="post"
-            :ui="{
-              root: 'md:grid md:grid-cols-2 group overflow-visible transition-all duration-300',
-              image:
-                'group-hover/blog-post:scale-105 rounded-lg shadow-lg border-4 border-muted ring-2 ring-default',
-              header:
-                index % 2 === 0
-                  ? 'sm:-rotate-1 overflow-visible'
-                  : 'sm:rotate-1 overflow-visible'
-            }"
-          />
-        </Motion>
-      </UBlogPosts>
+          <div class="flex flex-col gap-2 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-6">
+            <span class="text-xs text-muted">{{ formatDate(post.date) }}</span>
+            <div>
+              <h2 class="text-base font-medium text-foreground transition-colors group-hover:text-primary">
+                {{ post.title }}
+              </h2>
+              <p class="mt-2 max-w-2xl text-sm leading-7 text-muted">
+                {{ post.description }}
+              </p>
+            </div>
+          </div>
+        </ULink>
+      </div>
     </UPageSection>
   </UPage>
 </template>

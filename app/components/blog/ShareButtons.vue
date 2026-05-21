@@ -46,7 +46,7 @@ const copyLink = async () => {
       icon="i-lucide-twitter"
       :to="twitterUrl"
       target="_blank"
-      class="shrink-0"
+      class="shrink-0 rounded-md hover:bg-transparent hover:text-primary"
       aria-label="Share on X (Twitter)"
     />
     <UButton
@@ -56,7 +56,7 @@ const copyLink = async () => {
       :label="t('share_email')"
       icon="i-lucide-mail"
       :to="emailUrl"
-      class="shrink-0"
+      class="shrink-0 rounded-md hover:bg-transparent hover:text-primary"
       aria-label="Share via Email"
     />
     <UButton
@@ -66,7 +66,7 @@ const copyLink = async () => {
       icon="i-lucide-facebook"
       :to="facebookUrl"
       target="_blank"
-      class="shrink-0"
+      class="shrink-0 rounded-md hover:bg-transparent hover:text-primary"
       aria-label="Share on Facebook"
     />
     <UButton
@@ -75,7 +75,7 @@ const copyLink = async () => {
       color="neutral"
       :label="copied ? t('copied') : t('copy_link')"
       :icon="copied ? 'i-lucide-check' : 'i-lucide-copy'"
-      class="shrink-0"
+      class="shrink-0 rounded-md hover:bg-transparent hover:text-primary"
       @click="copyLink()"
     />
   </div>

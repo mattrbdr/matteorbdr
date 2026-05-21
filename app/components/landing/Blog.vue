@@ -14,56 +14,46 @@ const { data: posts } = await useAsyncData(`index-blogs-${isFr ? 'fr' : 'en'}`, 
 
 const blogSectionTitle = computed(() => props.page?.blog?.title || (isFr ? 'Derniers articles' : 'Latest articles'))
 const blogSectionDescription = computed(() => props.page?.blog?.description || (isFr ? 'Mes réflexions récentes' : 'Some of my recent thoughts'))
+
+const formatDate = (dateString: string | Date) => {
+  return new Date(dateString).toLocaleDateString(isFr ? 'fr-FR' : 'en-US', {
+    year: 'numeric'
+  })
+}
 </script>
 
 <template>
-  <UPageSection
-    :title="blogSectionTitle"
-    :description="blogSectionDescription"
-    :ui="{
-      container: 'px-0 pt-0! sm:gap-6 lg:gap-8',
-      title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-      description: 'text-left mt-2 text-sm sm:text-md lg:text-sm text-muted'
-    }"
-  >
-    <UBlogPosts
-      orientation="vertical"
-      class="gap-4 lg:gap-y-4"
-    >
-      <div
+  <section class="py-12 text-left sm:py-16">
+    <header class="mb-4">
+      <h2 class="text-xl font-medium text-foreground lg:text-2xl">
+        {{ blogSectionTitle }}
+      </h2>
+      <p class="mt-2 text-sm text-muted">
+        {{ blogSectionDescription }}
+      </p>
+    </header>
+
+    <div class="divide-y divide-default/50">
+      <ULink
         v-for="(post, index) in posts"
         :key="index"
-        class="group"
+        :to="post.path"
+        class="group block py-4 first:pt-0"
       >
-        <UBlogPost
-          orientation="horizontal"
-          variant="naked"
-          v-bind="post"
-          :to="post.path"
-          :ui="{
-            root: 'relative lg:items-start lg:flex ring-0 hover:ring-0',
-            body: 'px-0!',
-            header: 'hidden',
-            author: 'hidden'
-          }"
-        >
-          <template #footer>
-            <UButton
-              size="xs"
-              variant="link"
-              class="px-0 gap-0"
-              label="Read Article"
-            >
-              <template #trailing>
-                <UIcon
-                  name="i-lucide-arrow-right"
-                  class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
-                />
-              </template>
-            </UButton>
-          </template>
-        </UBlogPost>
-      </div>
-    </UBlogPosts>
-  </UPageSection>
+        <article class="grid grid-cols-[3.25rem_1fr] items-baseline gap-2 text-sm sm:grid-cols-[3.75rem_1fr]">
+          <time class="font-medium tabular-nums text-muted">
+            {{ formatDate(post.date) }}
+          </time>
+          <div>
+            <h3 class="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+              {{ post.title }}
+            </h3>
+            <p class="mt-1 line-clamp-2 text-sm leading-6 text-muted">
+              {{ post.description }}
+            </p>
+          </div>
+        </article>
+      </ULink>
+    </div>
+  </section>
 </template>

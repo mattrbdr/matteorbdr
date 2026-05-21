@@ -4,6 +4,35 @@ import type { IndexCollectionItem } from '@nuxt/content'
 defineProps<{
   page: IndexCollectionItem
 }>()
+
+const formatYear = (date: string | Date) => {
+  const match = String(date).match(/\d{4}/)
+  return match?.[0] || String(date)
+}
+
+const formatRole = (position: string) => {
+  const normalized = position.toLowerCase()
+
+  if (normalized.includes('openvalue') || normalized.includes('architect')) {
+    return 'creator'
+  }
+
+  if (normalized.includes('seizart') || normalized.includes('advisor') || normalized.includes('conseiller')) {
+    return 'business developer'
+  }
+
+  if (normalized.includes('founder') || normalized.includes('fondateur')) {
+    return 'founder'
+  }
+
+  if (normalized.includes('developer') || normalized.includes('développeur')) {
+    return 'developer'
+  }
+
+  return normalized
+    .replace(/\s+(at|chez)$/i, '')
+    .split(/\s+/)[0]
+}
 </script>
 
 <template>
@@ -11,30 +40,30 @@ defineProps<{
     :title="page.experience.title"
     :ui="{
       container: 'p-0! gap-4 sm:gap-4',
+      wrapper: 'px-0!',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
       description: 'mt-2'
     }"
   >
     <template #description>
-      <div class="flex flex-col divide-y divide-muted/30">
-        <Motion
+      <div class="space-y-2.5">
+        <div
           v-for="(experience, index) in page.experience.items"
           :key="index"
-          :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.4 + 0.2 * index }"
-          :in-view-options="{ once: true }"
-          class="group py-3"
+          class="grid grid-cols-[3.25rem_minmax(0,1fr)] items-baseline gap-2 text-left text-sm sm:grid-cols-[3.75rem_minmax(0,1fr)]"
         >
-          <div class="flex flex-col gap-1 text-left">
-            <span class="text-xs text-muted">{{ experience.date }}</span>
-            <span class="text-sm text-muted">{{ experience.position }} <span class="font-semibold group-hover:text-primary transition-colors">{{ experience.company.name }}</span></span>
-          </div>
-        </Motion>
+          <span class="font-medium tabular-nums text-muted">
+            {{ formatYear(experience.date) }}
+          </span>
+          <p class="min-w-0 max-w-full text-wrap break-words leading-6 text-foreground">
+            {{ formatRole(experience.position) }}
+            <span class="font-semibold text-foreground"> · </span>
+            <span class="text-muted">
+              {{ experience.company.name }}
+            </span>
+          </p>
+        </div>
       </div>
     </template>
   </UPageSection>
 </template>
-
-<style scoped>
-</style>

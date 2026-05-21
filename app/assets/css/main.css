@@ -4,15 +4,18 @@
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  --font-sans:
+    "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-serif:
+    "Petrona", Georgia, Cambria, "Times New Roman", Times, serif;
 
   --color-primary-50: #fff5eb;
   --color-primary-100: #ffe6cc;
   --color-primary-200: #ffcc99;
   --color-primary-300: #ffb366;
   --color-primary-400: #ff9933;
-  --color-primary-500: #FF5C00;
+  --color-primary-500: #ff5c00;
   --color-primary-600: #e65300;
   --color-primary-700: #cc4800;
   --color-primary-800: #b33c00;
@@ -27,6 +30,11 @@
     color: #282a30;
     background-color: #c8c8c8;
   }
+}
+
+html,
+body {
+  background-color: var(--ui-bg);
 }
 
 html.dark,

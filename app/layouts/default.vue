@@ -4,7 +4,7 @@ const { navLinks } = useNavLinks()
 
 <template>
   <div>
-    <UContainer class="sm:border-x border-default pt-10">
+    <UContainer class="max-w-3xl pt-8 sm:pt-10">
       <AppHeader :links="navLinks" />
       <slot />
       <AppFooter />

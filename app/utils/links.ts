@@ -1,8 +1,6 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 export const useNavLinks = () => {
-  const { locale } = useTranslations()
-
   const navLinks: NavigationMenuItem[] = [
     {
       label: 'nav.home',

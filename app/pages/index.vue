@@ -26,17 +26,18 @@ useSeoMeta({
 <template>
   <UPage v-if="page">
     <LandingHero :page />
-    <UPageSection
-      :ui="{
-        container: 'pt-0! px-0 lg:grid lg:grid-cols-2 lg:gap-8',
-        wrapper: 'px-4 sm:px-6 lg:px-0'
-      }"
-    >
-      <LandingAbout :page />
-      <LandingWorkExperience :page />
-    </UPageSection>
-    <LandingBlog :page />
+    <section class="px-4 sm:px-6 lg:px-0">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <LandingAbout :page />
+        <LandingWorkExperience :page />
+      </div>
+    </section>
+    <section class="px-4 sm:px-6 lg:px-0">
+      <LandingBlog :page />
+    </section>
     <LandingTestimonials :page />
-    <LandingFAQ :page />
+    <section class="px-4 sm:px-6 lg:px-0">
+      <LandingFAQ :page />
+    </section>
   </UPage>
 </template>

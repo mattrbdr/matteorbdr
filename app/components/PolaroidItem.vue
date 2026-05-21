@@ -10,18 +10,14 @@ defineProps<{
 
 <template>
   <div
-    class="bg-white p-2 flex flex-col drop-shadow-2xl transition-transform duration-300 ease-in-out hover:scale-105 hover:rotate-0 hover:z-10"
-    :class="[
-      index % 2 === 0 ? '-rotate-5' : 'rotate-5',
-      index % 2 === 0 ? 'hover:-translate-x-4' : 'hover:translate-x-4'
-    ]"
+    class="flex flex-col gap-2"
   >
     <img
       :src="image.src"
       :alt="image.alt"
-      class="size-32 object-cover"
+      class="aspect-square w-full max-w-36 rounded-md object-cover grayscale transition duration-300 hover:grayscale-0 sm:w-32"
     >
-    <span class="w-32 text-xs text-black font-serif font-medium text-center mt-2">
+    <span class="text-xs text-muted">
       {{ image.alt }}
     </span>
   </div>

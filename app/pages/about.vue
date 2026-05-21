@@ -13,8 +13,6 @@ if (!page.value) {
   })
 }
 
-const { global } = useAppConfig()
-
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
 
@@ -35,7 +33,7 @@ defineOgImage('Portfolio', { title, description })
       :description="page.description"
       orientation="horizontal"
       :ui="{
-        container: 'lg:flex sm:flex-row items-center',
+        container: 'py-8 sm:py-12 lg:py-14 lg:flex sm:flex-row items-center gap-8',
         title: 'mx-0! text-left',
         description: 'mx-0! text-left',
         links: 'justify-start'
@@ -44,7 +42,7 @@ defineOgImage('Portfolio', { title, description })
       <img
         src="/mattrbdr2.webp"
         alt="Mattéo"
-        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-bg object-cover"
+        class="size-28 rounded-md object-cover grayscale sm:size-32"
       >
     </UPageHero>
     <UPageSection
@@ -55,8 +53,9 @@ defineOgImage('Portfolio', { title, description })
       <MDC
         :value="page.content"
         unwrap="p"
+        class="max-w-2xl text-sm sm:text-base leading-8 text-muted"
       />
-      <div class="flex flex-row justify-center items-center py-10 -space-x-8">
+      <div class="grid grid-cols-2 gap-3 py-10 sm:flex sm:flex-row sm:justify-start sm:gap-4">
         <PolaroidItem
           v-for="(image, index) in page.images"
           :key="index"

@@ -19,7 +19,7 @@ const toggleLocale = () => {
       color="neutral"
       variant="ghost"
       size="sm"
-      class="rounded-full text-xs font-medium"
+      class="rounded-md px-2 text-xs font-medium text-muted hover:text-primary hover:bg-transparent"
       @click="toggleLocale"
     />
     <template #fallback>

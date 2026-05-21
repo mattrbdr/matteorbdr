@@ -17,28 +17,15 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/matteorbdr/',
     head: {
-      htmlAttrs: { class: 'dark' },
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Petrona:wght@400;500;600;700&display=swap' }
       ]
     }
   },
 
   css: ['~/assets/css/main.css'],
-
-  content: {
-    experimental: {
-      search: {
-        indexed: true
-      }
-    }
-  },
-
-  build: {
-    chunkSizeWarningLimit: 1000
-  },
 
   future: {
     compatibilityVersion: 4
@@ -76,6 +63,12 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1000
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -102,9 +95,5 @@ export default defineNuxtConfig({
 
   ogImage: {
     zeroRuntime: true
-  },
-
-  tailwind: {
-    darkMode: 'class'
   }
 })

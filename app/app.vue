@@ -5,6 +5,7 @@ const { navLinks } = useNavLinks()
 const color = computed(() =>
   colorMode.value === 'dark' ? '#020618' : 'white'
 )
+const { app: { baseURL } } = useRuntimeConfig()
 
 useHead({
   meta: [
@@ -12,7 +13,7 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
-  link: [{ rel: 'icon', href: '/favicon.ico' }]
+  link: [{ rel: 'icon', type: 'image/x-icon', href: `${baseURL}favicon.ico` }]
 })
 
 useSeoMeta({
