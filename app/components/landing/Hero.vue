@@ -16,7 +16,7 @@ const availabilityLabel = computed(() => {
 <template>
   <section class="w-full px-4 pb-12 pt-4 text-left sm:px-6 lg:px-0">
     <div class="space-y-4">
-      <p class="text-xl font-medium leading-7 text-foreground sm:text-xl lg:text-2xl">
+      <p class="text-xl font-medium font-serif leading-7 text-foreground sm:text-xl lg:text-2xl">
         {{ page.title }}
       </p>
 
@@ -37,8 +37,12 @@ const availabilityLabel = computed(() => {
         <ULink
           v-if="global.available"
           :to="global.meetingLink"
-          class="text-muted transition-colors hover:text-primary"
+          class="inline-flex items-center gap-1.5 text-green-600 dark:text-green-400 transition-colors hover:text-green-500"
         >
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+            <span class="relative inline-flex size-2 rounded-full bg-green-500" />
+          </span>
           {{ availabilityLabel }}
         </ULink>
 

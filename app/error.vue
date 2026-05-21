@@ -70,10 +70,10 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
 </script>
 
 <template>
-  <div class="mx-auto max-w-3xl px-4 pt-8 sm:px-6 sm:pt-10 lg:px-0">
+  <div class="mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-10 lg:px-0">
     <AppHeader :links="navLinks" />
 
-    <UMain class="min-h-[45vh]">
+    <UMain class="min-h-[45vh] px-4 sm:px-6 lg:px-0">
       <section class="py-16 text-left sm:py-20">
         <p class="text-sm font-medium tabular-nums text-primary">
           {{ error.statusCode || 500 }}

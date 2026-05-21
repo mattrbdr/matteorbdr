@@ -52,7 +52,7 @@ const formatDate = (dateString: string | Date) => {
       :description="page.description"
       :links="page.links"
       :ui="{
-        container: 'py-8 sm:py-12 lg:py-14',
+        container: 'py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-0',
         title: 'mx-0! text-left',
         description: 'mx-0! text-left',
         links: 'justify-start'
@@ -60,7 +60,7 @@ const formatDate = (dateString: string | Date) => {
     />
     <UPageSection
       :ui="{
-        container: 'pt-0!'
+        container: 'pt-0! px-4 sm:px-6 lg:px-0'
       }"
     >
       <div class="divide-y divide-default/50">

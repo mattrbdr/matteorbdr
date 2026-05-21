@@ -12,10 +12,8 @@ about:
   title: "About me"
   description: |
     I've been building things on the internet since I was old enough to break them.
-    Sites, tools, automations, platforms. I learned by doing, project after project. Now I work freelance on missions where technology solves a real problem: a stack that's slowing everything down, a manual process that takes too long, a product that needs a solid foundation to last.
-    My main project right now is Racines — a SaaS platform for short supply chains that I designed and built solo, from architecture to deployment. That's where I test everything I then apply with clients.
-    What interests me in a mission is understanding the system before touching the code. Identifying what's really broken. Delivering something the person on the other side can take over and maintain without me.
-    Outside work, I write articles sometimes — and I'm into anything that looks like a system that can be improved.
+    I now work freelance on products that need fixing, modernizing, or building from scratch. My main project is Racines — a SaaS platform for short supply chains that I designed and shipped solo, from architecture to deployment. That's where I test everything I then apply with clients.
+    What I actually care about in a mission: understanding the system before touching the code. And handing over something the other side can maintain without me.
 experience:
   title: "Experiences"
   items:

@@ -1,48 +1,51 @@
 title: Services
-description: Vous avez un problème technique. Je m'en occupe.
+description: ''
+hero_tagline: "Pour les fondateurs et les équipes qui ont besoin\nd'un développeur qui comprend tout le système."
+hero_text: "Je travaille sur des produits existants qui ont besoin d'être corrigés, et j'en construis de nouveaux quand repartir de zéro est la bonne décision. Je travaille en autonomie, je livre quelque chose que vous pouvez maintenir, et je vous dirai honnêtement si ce que vous pensez vouloir n'est pas ce qui vous aidera vraiment."
+
+offerings:
+  - title: "Audit & Cadrage Technique"
+    subtitle: "Point de départ"
+    description: "Un engagement court à prix fixe avant tout développement. Utile quand vous êtes bloqué, débordé, ou pas sûr de quoi construire — ou corriger — ensuite."
+    items:
+      - "Audit complet de votre stack et architecture existante"
+      - "Diagnostic honnête de ce qui vous bloque vraiment vs. ce qui n'est que du bruit"
+      - "Proposition d'architecture technique avec un plan d'action priorisé"
+      - "Entièrement documenté — vous pouvez l'exécuter avec ou sans moi"
+    good_for: "Idéal si vous avez quelque chose qui tourne mais vous ne savez pas par où commencer."
+    pricing: "Périmètre fixé · à partir de 600\u20ac"
+
+  - title: "Modernisation de Système"
+    subtitle: "Produit existant"
+    description: "Pour les produits qui fonctionnent mais ralentissent tout. Je reprends la codebase existante et corrige ce qui est vraiment cassé — pas de réécriture complète, sauf si c'est vraiment la seule voie sensée."
+    items:
+      - "Migration legacy — WordPress, PHP, architectures monolithiques ou obsolètes"
+      - "Amélioration des performances et nettoyage de la dette technique"
+      - "Nouvelles fonctionnalités construites sur l'architecture existante"
+      - "Documentation de passation pour ne pas dépendre de moi"
+    good_for: "Idéal si votre stack devient un frein pour tout le reste."
+    pricing: "Taux hebdomadaire ou périmètre fixé"
+
+  - title: "Construction sur Mesure"
+    subtitle: "From scratch"
+    description: "Pour les idées qui n'existent pas encore et ont besoin d'une base solide. Je conçois et développe l'ensemble du système — de l'architecture à la mise en production — sans complexité inutile."
+    items:
+      - "Architecture produit et technique from scratch"
+      - "Développement de bout en bout — front, back, infrastructure"
+      - "Déploiement en production et premières itérations"
+      - "Passation structurée — vous possédez tout à la fin"
+    good_for: "Idéal si vous avez une idée claire et avez besoin de quelqu'un pour la concrétiser."
+    pricing: "Périmètre fixé ou forfait mensuel"
+
+ai_note: "Sur l'IA & l'automatisation. Ce n'est pas un service séparé — ce sont des capacités que j'applique aux trois offres quand elles aident vraiment. Automatisation de workflows, traitement intelligent de données, intégrations LLM. Je vous dirai directement si c'est overkill pour votre cas."
+
+cta_bottom_text: "Vous ne savez pas laquelle de ces offres vous correspond ? Commencez par un appel gratuit de 30 minutes — sans pitch, sans pression. On déterminera ensemble ce dont vous avez vraiment besoin."
+
 links:
-  - label: "Discutons de votre projet"
+  - label: "Discutons"
     color: "neutral"
     to: "https://cal.com/matteorbdr/discovery-meeting"
-
-sections:
-  - title: Modernisation de systèmes web
-    description: Je remets à niveau des sites et des stacks vieillissantes.
-    items:
-      - "refonte de sites WordPress ou legacy"
-      - "migration vers des technologies modernes"
-      - "amélioration des performances et de la maintenabilité"
-      - "nettoyage technique sans rupture inutile"
-    note: "L'objectif n'est pas de tout refaire. C'est de garder ce qui fonctionne et de corriger ce qui freine."
-
-  - title: Intégration IA quand ça fait sens
-    description: J'ajoute de l'IA seulement où ça aide vraiment, pas pour le buzzword.
-    items:
-      - "automatisation de workflows pilotée par l'IA"
-      - "traitement et analyse intelligente de données"
-      - "intégration d'outils IA existants (OpenAI, Claude, etc.)"
-      - "formations IA pour votre équipe"
-    note: "Pas tous les projets ont besoin d'IA. Je vous dirai honnêtement si c'est overkill."
-
-  - title: Projets complets sur mesure
-    description: Je conçois et développe des systèmes complets adaptés à un besoin précis.
-    items:
-      - "conception de produit ou outil from scratch"
-      - "architecture technique complète"
-      - "développement de A à Z"
-      - "mise en production et itérations"
-    note: "L'objectif est de construire un système utile, cohérent et durable, sans complexité inutile."
-
-  - title: Clarification et architecture technique
-    description: J'aide à prendre de meilleures décisions techniques.
-    items:
-      - "choix d'architecture"
-      - "structuration d'un produit ou d'un système"
-      - "simplification d'environnements complexes"
-      - "audit rapide de l'existant"
-    note: "Parfois, le problème n'est pas technique. C'est une mauvaise structure."
-
-links:
-  - label: "Me contacter"
-    to: https://cal.com/matteorbdr/discovery-meeting
-    size: md
+    target: "_blank"
+  - label: "M'écrire"
+    color: "neutral"
+    to: "mailto:matteorbdr@icloud.com"

@@ -1,46 +1,45 @@
 title: Services
-description: You have a technical problem. I'll take care of it.
-links:
-  - label: "Discuss your project"
-    color: "neutral"
-    to: "https://cal.com/matteorbdr/discovery-meeting"
+description: ''
+hero_tagline: "For founders and teams who need\na developer who gets the whole system."
+hero_text: "I work on existing products that need fixing, and build new ones when starting from scratch is the right call. I work autonomously, deliver something you can maintain, and I'll tell you honestly if what you think you need isn't actually what will help."
 
-sections:
-  - title: Web Systems Modernization
-    description: I upgrade aging websites and legacy stacks.
+offerings:
+  - title: "Audit & Technical Scoping"
+    subtitle: "Starting point"
+    description: "A short, fixed-price engagement before any development. Useful when you're stuck, overwhelmed, or not sure what to build — or fix — next."
     items:
-      - "WordPress or legacy site redesign"
-      - "Migration to modern technologies"
-      - "Performance and maintainability improvements"
-      - "Technical cleanup without unnecessary disruption"
-    note: "The goal isn't to rebuild everything. It's to keep what works and fix what's holding you back."
+      - "Full audit of your existing stack and architecture"
+      - "Honest diagnosis of what's actually blocking you vs. what's just noise"
+      - "A technical architecture proposal with a prioritized action plan"
+      - "Fully documented — you can execute it with or without me"
+    good_for: "Good if you have something running but don't know where to start."
+    pricing: "Fixed scope · from 600\u20ac"
 
-  - title: AI Integration When It Makes Sense
-    description: I add AI only where it actually helps, not for the sake of it.
+  - title: "System Modernisation"
+    subtitle: "Existing product"
+    description: "For products that work but are slowing everything down. I take over the existing codebase and fix what's actually broken — no full rewrite unless that's genuinely the only sane path."
     items:
-      - "AI-powered workflow automation"
-      - "Smart data processing and analysis"
-      - "Integration of existing AI tools (OpenAI, Claude, etc.)"
-      - "AI training for your team"
-    note: "Not every project needs AI. I'll tell you honestly if it's overkill."
+      - "Legacy migration — WordPress, PHP, monolithic or outdated stacks"
+      - "Performance improvements and technical debt cleanup"
+      - "New features built on top of the existing architecture"
+      - "Handover documentation so you're not stuck depending on me"
+    good_for: "Good if your stack is becoming a burden on everything else."
+    pricing: "Weekly rate or fixed scope"
 
-  - title: Custom Complete Projects
-    description: I design and develop complete systems tailored to specific needs.
+  - title: "Custom Build"
+    subtitle: "From scratch"
+    description: "For ideas that don't exist yet and need a solid foundation. I design and develop the whole system — from architecture to production — without unnecessary complexity."
     items:
-      - "Product or tool design from scratch"
-      - "Complete technical architecture"
-      - "End-to-end development"
-      - "Production deployment and iterations"
-    note: "The goal is to build a useful, coherent, and durable system without unnecessary complexity."
+      - "Product and technical architecture from the ground up"
+      - "End-to-end development — front, back, infrastructure"
+      - "Production deployment and first iterations"
+      - "Structured handover — you own it completely at the end"
+    good_for: "Good if you have a clear idea and need someone to make it real."
+    pricing: "Fixed scope or monthly retainer"
 
-  - title: Technical Clarification & Architecture
-    description: I help you make better technical decisions.
-    items:
-      - "Architecture choices"
-      - "Product or system structuring"
-      - "Complex environment simplification"
-      - "Quick audit of existing setup"
-    note: "Sometimes the problem isn't technical. It's poor structure."
+ai_note: "On AI & automation. These aren't a separate service — they're capabilities I apply across all three when they genuinely help. Workflow automation, smart data processing, LLM integrations. I'll tell you directly if it's overkill for your case."
+
+cta_bottom_text: "Not sure which of these applies to you? Start with a free 30-minute call — no pitch, no pressure. We'll figure out what you actually need."
 
 links:
   - label: "Let's talk"

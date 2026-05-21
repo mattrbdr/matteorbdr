@@ -192,20 +192,18 @@ export default defineContentConfig({
       type: 'page',
       source: 'services.yml',
       schema: z.object({
-        intro: z.string().optional(),
-        sections: z.array(z.object({
+        hero_tagline: z.string().optional(),
+        hero_text: z.string().optional(),
+        offerings: z.array(z.object({
           title: z.string(),
+          subtitle: z.string(),
           description: z.string(),
           items: z.array(z.string()),
-          note: z.string().optional()
+          good_for: z.string().optional(),
+          pricing: z.string().optional()
         })).optional(),
-        how_i_work: z.string().optional(),
-        mission_types: z.array(z.object({
-          title: z.string(),
-          description: z.string()
-        })).optional(),
-        target_audience: z.string().optional(),
-        result: z.string().optional(),
+        ai_note: z.string().optional(),
+        cta_bottom_text: z.string().optional(),
         links: z.array(createButtonSchema())
       })
     }),
@@ -213,20 +211,18 @@ export default defineContentConfig({
       type: 'page',
       source: 'fr/services.yml',
       schema: z.object({
-        intro: z.string().optional(),
-        sections: z.array(z.object({
+        hero_tagline: z.string().optional(),
+        hero_text: z.string().optional(),
+        offerings: z.array(z.object({
           title: z.string(),
+          subtitle: z.string(),
           description: z.string(),
           items: z.array(z.string()),
-          note: z.string().optional()
+          good_for: z.string().optional(),
+          pricing: z.string().optional()
         })).optional(),
-        how_i_work: z.string().optional(),
-        mission_types: z.array(z.object({
-          title: z.string(),
-          description: z.string()
-        })).optional(),
-        target_audience: z.string().optional(),
-        result: z.string().optional(),
+        ai_note: z.string().optional(),
+        cta_bottom_text: z.string().optional(),
         links: z.array(createButtonSchema())
       })
     }),

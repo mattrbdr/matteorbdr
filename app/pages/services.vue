@@ -20,88 +20,100 @@ useSeoMeta({
 defineOgImage('Portfolio', { title, description })
 
 const { global } = useAppConfig()
+const isFr = locale.value === 'fr'
+
+const emailLink = computed(() => page.value?.links?.[1]?.to || 'mailto:matteorbdr@icloud.com')
+const emailLabel = computed(() => {
+  if (page.value?.links?.[1]?.label) return page.value.links[1].label
+  return isFr ? 'M\'écrire' : 'Email me'
+})
 </script>
 
 <template>
   <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      :ui="{
-        container: 'py-8 sm:py-12 lg:py-14',
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
-        links: 'justify-start'
-      }"
-    >
-      <template #links>
+    <section class="px-4 pt-8 sm:px-6 lg:px-0 lg:pt-12">
+      <div class="space-y-4">
+        <p class="whitespace-pre-line text-balance text-3xl leading-tight text-foreground sm:text-4xl lg:text-5xl font-serif">
+          {{ page.hero_tagline }}
+        </p>
+        <p class="mt-6 text-balance leading-7 text-muted sm:text-base">
+          {{ page.hero_text }}
+        </p>
         <UButton
-          v-if="page.links"
           :to="global.meetingLink"
-          v-bind="page.links[0]"
-          variant="link"
-          class="px-0"
-        />
-      </template>
-    </UPageHero>
-
-    <template v-if="page.sections?.length">
-      <UPageSection
-        v-for="section in page.sections"
-        :key="section.title"
-        :ui="{
-          container: 'pt-0! gap-4',
-          title: 'text-left text-lg sm:text-xl font-medium'
-        }"
-      >
-        <UPageHeader
-          :title="section.title"
-          :description="section.description"
-          :ui="{
-            root: 'border-t border-default/50 pt-5',
-            title: 'text-lg font-medium mb-2',
-            description: 'text-sm sm:text-base leading-7 text-muted mb-4'
-          }"
-        />
-
-        <div class="grid gap-4 md:grid-cols-[1fr_16rem] md:gap-8">
-          <div>
-            <ul class="space-y-2.5">
-              <li
-                v-for="item in section.items"
-                :key="item"
-                class="text-sm leading-7 text-muted"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div
-            v-if="section.note"
-            class="md:text-right"
-          >
-            <p class="text-sm leading-7 text-muted">
-              {{ section.note }}
-            </p>
-          </div>
-        </div>
-      </UPageSection>
-    </template>
-
-    <UPageSection
-      v-if="page.links?.length > 1"
-      :ui="{ container: 'pt-4!' }"
-    >
-      <div class="flex flex-wrap gap-3">
-        <UButton
-          v-for="link in page.links.slice(1)"
-          :key="link.label"
-          size="sm"
-          v-bind="link"
-          variant="link"
-          class="px-0"
-        />
+          size="lg"
+          class="mt-8"
+        >
+          {{ page.links?.[0]?.label || (isFr ? 'Discutons' : "Let's talk") }}
+        </UButton>
       </div>
-    </UPageSection>
+    </section>
+
+    <section class="mt-20 space-y-6 px-4 sm:px-6 lg:px-0 sm:mt-28">
+      <UCard
+        v-for="offering in page.offerings"
+        :key="offering.title"
+        variant="soft"
+      >
+        <template #header>
+          <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            {{ offering.subtitle }}
+          </span>
+        </template>
+
+        <template #title>
+          {{ offering.title }}
+        </template>
+
+        <p class="text-sm leading-6 text-muted">
+          {{ offering.description }}
+        </p>
+
+        <ul class="mt-6 space-y-2">
+          <li
+            v-for="item in offering.items"
+            :key="item"
+            class="flex items-start gap-2 text-sm leading-6 text-muted"
+          >
+            <span class="mt-[7px] inline-block size-1 shrink-0 rounded-full bg-foreground/30" />
+            {{ item }}
+          </li>
+        </ul>
+
+        <div class="mt-6 flex items-center gap-1.5 text-xs text-muted">
+          <span class="i-lucide-info size-3.5 shrink-0" />
+          {{ offering.good_for }}
+        </div>
+
+        <template #footer>
+          <div class="text-sm font-medium text-foreground">
+            {{ offering.pricing }}
+          </div>
+        </template>
+      </UCard>
+    </section>
+
+    <section class="mt-16 rounded-xl border border-default/50 bg-elevated/30 px-6 py-8 sm:px-8 lg:px-0">
+      <div class="flex items-start gap-3">
+        <span class="i-lucide-sparkles mt-0.5 size-5 shrink-0 text-primary" />
+        <p class="text-sm leading-7 text-muted">
+          {{ page.ai_note }}
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-16 border-t border-default/50 px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-0">
+      <p class="text-balance text-lg leading-7 text-foreground sm:text-xl">
+        {{ page.cta_bottom_text }}
+      </p>
+      <UButton
+        :to="emailLink"
+        variant="outline"
+        size="lg"
+        class="mt-6"
+      >
+        {{ emailLabel }}
+      </UButton>
+    </section>
   </UPage>
 </template>

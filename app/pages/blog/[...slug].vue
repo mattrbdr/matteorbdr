@@ -102,7 +102,7 @@ const minLabel = computed(() => t('min_read'))
           v-if="page?.body"
           :value="page"
           class="prose dark:prose-invert max-w-none
-                 prose-headings:font-medium prose-headings:tracking-tight
+                 prose-headings:font-medium prose-headings:font-serif prose-headings:tracking-tight
                  prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                  prose-p:leading-8 prose-img:rounded-md prose-img:shadow-none"
         />

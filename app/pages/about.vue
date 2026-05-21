@@ -33,7 +33,7 @@ defineOgImage('Portfolio', { title, description })
       :description="page.description"
       orientation="horizontal"
       :ui="{
-        container: 'py-8 sm:py-12 lg:py-14 lg:flex sm:flex-row items-center gap-8',
+        container: 'py-8 sm:py-12 lg:py-14 lg:flex sm:flex-row items-center gap-8 px-4 sm:px-6 lg:px-0',
         title: 'mx-0! text-left',
         description: 'mx-0! text-left',
         links: 'justify-start'
@@ -47,7 +47,7 @@ defineOgImage('Portfolio', { title, description })
     </UPageHero>
     <UPageSection
       :ui="{
-        container: 'pt-0!'
+        container: 'pt-0! px-4 sm:px-6 lg:px-0'
       }"
     >
       <MDC

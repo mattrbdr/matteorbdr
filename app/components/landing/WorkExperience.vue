@@ -5,6 +5,9 @@ defineProps<{
   page: IndexCollectionItem
 }>()
 
+const route = useRoute()
+const isFr = route.path.startsWith('/fr')
+
 const formatYear = (date: string | Date) => {
   const match = String(date).match(/\d{4}/)
   return match?.[0] || String(date)
@@ -14,19 +17,19 @@ const formatRole = (position: string) => {
   const normalized = position.toLowerCase()
 
   if (normalized.includes('openvalue') || normalized.includes('architect')) {
-    return 'creator'
+    return isFr ? 'créateur' : 'creator'
   }
 
   if (normalized.includes('seizart') || normalized.includes('advisor') || normalized.includes('conseiller')) {
-    return 'business developer'
+    return isFr ? 'conseiller' : 'advisor'
   }
 
   if (normalized.includes('founder') || normalized.includes('fondateur')) {
-    return 'founder'
+    return isFr ? 'fondateur' : 'founder'
   }
 
   if (normalized.includes('developer') || normalized.includes('développeur')) {
-    return 'developer'
+    return isFr ? 'développeur' : 'developer'
   }
 
   return normalized
