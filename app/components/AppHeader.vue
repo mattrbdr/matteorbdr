@@ -30,13 +30,14 @@ const translatedLinks = computed(() => {
     <div class="flex items-center justify-between w-full">
       <NuxtLink
         :to="route.path.startsWith('/fr') ? '/fr' : '/'"
-        class="transition-opacity hover:opacity-85"
+        class="transition-opacity hover:opacity-85 no-underline"
       >
-        <img
-          src="/logo.png"
-          alt="mrbdrs"
-          class="h-10 w-auto select-none"
-        >
+        <span class="block text-2xl font-extrabold tracking-[-0.5px] text-foreground leading-none">
+          MRBDRS
+        </span>
+        <span class="block text-xs font-serif tracking-[-0.3px] text-muted leading-none mt-1">
+          digital solutions that works.
+        </span>
       </NuxtLink>
 
       <!-- Right-aligned clean controls -->
