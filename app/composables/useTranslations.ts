@@ -4,8 +4,8 @@ const messages = {
       home: 'Home',
       projects: 'Projects',
       blog: 'Blog',
-      about: 'About',
-      services: 'Services'
+      services: 'Services',
+      contact: 'Contact'
     },
     availability: {
       available: 'Available for new projects',
@@ -26,6 +26,10 @@ const messages = {
     back_to_blog: 'Blog',
     article: 'Article',
     footer_credits: '© 2026 Mattéo',
+    footer: {
+      built_with: 'Built with ♥ by Mattéo',
+      legal: 'Legal notice'
+    },
     services: {
       how_i_work: 'How I work',
       mission_types: 'Mission Types',
@@ -38,8 +42,8 @@ const messages = {
       home: 'Accueil',
       projects: 'Projets',
       blog: 'Blog',
-      about: 'À propos',
-      services: 'Services'
+      services: 'Services',
+      contact: 'Contact'
     },
     availability: {
       available: 'Disponible',
@@ -60,6 +64,10 @@ const messages = {
     back_to_blog: 'Blog',
     article: 'Article',
     footer_credits: '© 2026 Mattéo',
+    footer: {
+      built_with: 'Construit avec ♥ par Mattéo',
+      legal: 'Mentions légales'
+    },
     services: {
       how_i_work: 'Ma façon de travailler',
       mission_types: 'Types de missions',

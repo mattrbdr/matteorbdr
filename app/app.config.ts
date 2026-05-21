@@ -27,8 +27,8 @@ export default defineAppConfig({
         { label: 'nav.home', to: '/' },
         { label: 'nav.projects', to: '/projects' },
         { label: 'nav.blog', to: '/blog' },
-        { label: 'nav.about', to: '/about' },
-        { label: 'nav.services', to: '/services' }
+        { label: 'nav.services', to: '/services' },
+        { label: 'nav.contact', to: '/contact' }
       ]
     }
   },

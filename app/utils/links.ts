@@ -23,9 +23,9 @@ export const useNavLinks = () => {
       to: '/blog'
     },
     {
-      label: 'nav.about',
-      icon: 'i-lucide-user',
-      to: '/about'
+      label: 'nav.contact',
+      icon: 'i-lucide-mail',
+      to: '/contact'
     }
   ]
 

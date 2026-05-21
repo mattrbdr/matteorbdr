@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t, locale } = useTranslations()
 const { footer } = useAppConfig()
 </script>
 
@@ -12,7 +13,14 @@ const { footer } = useAppConfig()
     }"
   >
     <template #left>
-      {{ footer.credits }}
+      <span>{{ t('footer.built_with') }}</span>
+      <span class="mx-2 text-muted/50">·</span>
+      <NuxtLink
+        :to="locale === 'fr' ? '/fr/terms' : '/terms'"
+        class="text-muted transition-colors hover:text-primary"
+      >
+        {{ t('footer.legal') }}
+      </NuxtLink>
     </template>
 
     <template #right>

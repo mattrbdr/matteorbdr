@@ -46,13 +46,11 @@ export default defineNuxtConfig({
         '/blog',
         '/blog/welcome',
         '/projects',
-        '/about',
         '/services',
         '/fr',
         '/fr/blog',
         '/fr/blog/welcome',
         '/fr/projects',
-        '/fr/about',
         '/fr/services'
       ]
     },

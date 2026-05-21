@@ -226,20 +226,32 @@ export default defineContentConfig({
         links: z.array(createButtonSchema())
       })
     }),
-    about: defineCollection({
+    legal: defineCollection({
       type: 'page',
-      source: 'about.yml',
+      source: 'legal.yml',
       schema: z.object({
-        content: z.object({}),
-        images: z.array(createImageSchema())
+        content: z.object({})
       })
     }),
-    about_fr: defineCollection({
+    legal_fr: defineCollection({
       type: 'page',
-      source: 'fr/about.yml',
+      source: 'fr/legal.yml',
       schema: z.object({
-        content: z.object({}),
-        images: z.array(createImageSchema())
+        content: z.object({})
+      })
+    }),
+    contact: defineCollection({
+      type: 'page',
+      source: 'contact.yml',
+      schema: z.object({
+        content: z.object({})
+      })
+    }),
+    contact_fr: defineCollection({
+      type: 'page',
+      source: 'fr/contact.yml',
+      schema: z.object({
+        content: z.object({})
       })
     })
   }
