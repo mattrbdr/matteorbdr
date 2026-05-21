@@ -27,7 +27,7 @@ experience:
     - position: "Architect at"
       date: "2026 - Today"
       company:
-        name: "OpenValue"
+        name: "Open Value Pricing"
         logo: "i-simple-icons-raycast"
         url: "https://openvalue.tech"
         color: "#FF6363"
@@ -38,14 +38,14 @@ experience:
         logo: "i-simple-icons-linear"
         url: "https://ise.foundation"
         color: "#5E6AD2"
-    - position: "Developer & advisor at"
+    - position: "Business advisor"
       date: "2022 - 2025"
       company:
         name: "Seizart"
         logo: "i-simple-icons-nuxtdotjs"
         url: "https://seizart.io"
         color: "#00DC82"
-    - position: "Web developer at"
+    - position: "Freelance developer at"
       date: "2018 - Today"
       company:
         name: "MRBDRS"
