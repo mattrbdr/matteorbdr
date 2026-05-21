@@ -20,21 +20,14 @@ const formatRole = (position: string) => {
     return isFr ? 'créateur' : 'creator'
   }
 
-  if (normalized.includes('seizart') || normalized.includes('advisor') || normalized.includes('conseiller')) {
-    return isFr ? 'conseiller' : 'advisor'
-  }
-
   if (normalized.includes('founder') || normalized.includes('fondateur')) {
     return isFr ? 'fondateur' : 'founder'
   }
 
-  if (normalized.includes('developer') || normalized.includes('développeur')) {
-    return isFr ? 'développeur' : 'developer'
-  }
-
-  return normalized
+  return position
     .replace(/\s+(at|chez)$/i, '')
-    .split(/\s+/)[0]
+    .trim()
+    .toLowerCase()
 }
 </script>
 
@@ -61,7 +54,19 @@ const formatRole = (position: string) => {
           <p class="min-w-0 max-w-full text-wrap break-words leading-6 text-foreground">
             {{ formatRole(experience.position) }}
             <span class="font-semibold text-foreground"> · </span>
-            <span class="text-muted">
+            <a
+              v-if="experience.company.url && experience.company.url !== '#'"
+              :href="experience.company.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted transition-colors hover:text-primary"
+            >
+              {{ experience.company.name }}
+            </a>
+            <span
+              v-else
+              class="text-muted"
+            >
               {{ experience.company.name }}
             </span>
           </p>
