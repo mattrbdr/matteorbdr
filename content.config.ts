@@ -198,7 +198,10 @@ export default defineContentConfig({
           title: z.string(),
           subtitle: z.string(),
           description: z.string(),
-          items: z.array(z.string()),
+          items: z.array(z.object({
+            label: z.string(),
+            content: z.string()
+          })),
           good_for: z.string().optional(),
           pricing: z.string().optional()
         })).optional(),
@@ -217,7 +220,10 @@ export default defineContentConfig({
           title: z.string(),
           subtitle: z.string(),
           description: z.string(),
-          items: z.array(z.string()),
+          items: z.array(z.object({
+            label: z.string(),
+            content: z.string()
+          })),
           good_for: z.string().optional(),
           pricing: z.string().optional()
         })).optional(),

@@ -39,58 +39,63 @@ const emailLabel = computed(() => {
         <p class="mt-6 text-balance leading-7 text-muted sm:text-base">
           {{ page.hero_text }}
         </p>
-        <UButton
+        <ULink
           :to="global.meetingLink"
-          size="lg"
-          class="mt-8"
+          class="mt-8 inline-block font-medium text-primary underline-offset-4 hover:underline"
         >
           {{ page.links?.[0]?.label || (isFr ? 'Discutons' : "Let's talk") }}
-        </UButton>
+        </ULink>
       </div>
     </section>
 
-    <section class="mt-20 space-y-6 px-4 sm:px-6 lg:px-0 sm:mt-28">
-      <UCard
-        v-for="offering in page.offerings"
-        :key="offering.title"
-        variant="soft"
-      >
-        <template #header>
-          <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+    <section class="mt-20 px-4 sm:px-6 lg:px-0 sm:mt-28">
+      <div class="space-y-12">
+        <article
+          v-for="(offering, index) in page.offerings"
+          :key="offering.title"
+          class="rounded-xl border border-default/5 bg-elevated/10 p-6 sm:p-8"
+        >
+          <span class="text-xs font-medium text-muted">
             {{ offering.subtitle }}
           </span>
-        </template>
 
-        <template #title>
-          {{ offering.title }}
-        </template>
+          <h2 class="mt-1.5 font-serif text-2xl leading-tight text-foreground">
+            {{ offering.title }}
+          </h2>
 
-        <p class="text-sm leading-6 text-muted">
-          {{ offering.description }}
-        </p>
+          <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            <p class="text-sm leading-6 text-muted">
+              {{ offering.description }}
+            </p>
 
-        <ul class="mt-6 space-y-2">
-          <li
-            v-for="item in offering.items"
-            :key="item"
-            class="flex items-start gap-2 text-sm leading-6 text-muted"
-          >
-            <span class="mt-[7px] inline-block size-1 shrink-0 rounded-full bg-foreground/30" />
-            {{ item }}
-          </li>
-        </ul>
-
-        <div class="mt-6 flex items-center gap-1.5 text-xs text-muted">
-          <span class="i-lucide-info size-3.5 shrink-0" />
-          {{ offering.good_for }}
-        </div>
-
-        <template #footer>
-          <div class="text-sm font-medium text-foreground">
-            {{ offering.pricing }}
+            <div class="rounded-lg border border-default/10 bg-elevated/20 px-4 py-3">
+              <div class="text-sm font-medium text-foreground">
+                {{ offering.pricing }}
+              </div>
+              <p v-if="offering.good_for" class="mt-1 text-xs text-muted/60 leading-5">
+                {{ offering.good_for }}
+              </p>
+            </div>
           </div>
-        </template>
-      </UCard>
+
+          <UAccordion
+            :items="offering.items"
+            type="multiple"
+            :unmount-on-hide="false"
+            class="mt-8"
+            :ui="{
+              item: 'border-0 border-b border-default/10 last:border-b-0',
+              trigger: 'py-2.5 text-sm text-muted hover:text-foreground transition-colors font-normal',
+              body: 'text-sm text-muted/70 pb-4 leading-6',
+              trailingIcon: 'size-4 text-muted/40 group-data-[state=open]:text-muted/70'
+            }"
+          >
+            <template #body="{ item }">
+              {{ item.content }}
+            </template>
+          </UAccordion>
+        </article>
+      </div>
     </section>
 
     <section class="mt-16 rounded-xl border border-default/50 bg-elevated/30 px-6 py-8 sm:px-8 lg:px-0">
@@ -106,14 +111,12 @@ const emailLabel = computed(() => {
       <p class="text-balance text-lg leading-7 text-foreground sm:text-xl">
         {{ page.cta_bottom_text }}
       </p>
-      <UButton
+      <ULink
         :to="emailLink"
-        variant="outline"
-        size="lg"
-        class="mt-6"
+        class="mt-6 inline-block font-medium text-primary underline-offset-4 hover:underline"
       >
         {{ emailLabel }}
-      </UButton>
+      </ULink>
     </section>
   </UPage>
 </template>
