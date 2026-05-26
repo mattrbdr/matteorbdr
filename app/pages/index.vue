@@ -14,11 +14,11 @@ if (!page.value) {
   })
 }
 
+const title = page.value?.seo?.title || page.value?.title
+const description = page.value?.seo?.description || page.value?.description
+
 useSeoMeta({
-  title: 'Mattéo | Developer & Web Architect',
-  ogTitle: 'Mattéo | Developer & Web Architect',
-  description: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
-  ogDescription: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
+  title, ogTitle: title, description, ogDescription: description,
   ogImage: '/og-image.png'
 })
 </script>

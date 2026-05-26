@@ -51,7 +51,7 @@ const emailLabel = computed(() => {
     <section class="mt-20 px-4 sm:px-6 lg:px-0 sm:mt-28">
       <div class="space-y-12">
         <article
-          v-for="(offering, index) in page.offerings"
+          v-for="offering in page.offerings"
           :key="offering.title"
           class="rounded-xl border border-default/5 bg-elevated/10 p-6 sm:p-8"
         >
@@ -72,7 +72,10 @@ const emailLabel = computed(() => {
               <div class="text-sm font-medium text-foreground">
                 {{ offering.pricing }}
               </div>
-              <p v-if="offering.good_for" class="mt-1 text-xs text-muted/60 leading-5">
+              <p
+                v-if="offering.good_for"
+                class="mt-1 text-xs text-muted/60 leading-5"
+              >
                 {{ offering.good_for }}
               </p>
             </div>

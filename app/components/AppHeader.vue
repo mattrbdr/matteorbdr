@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui";
+import type { NavigationMenuItem } from '@nuxt/ui'
 
 const props = defineProps<{
-  links: NavigationMenuItem[];
-}>();
+  links: NavigationMenuItem[]
+}>()
 
-const { t } = useTranslations();
-const route = useRoute();
+const { t } = useTranslations()
+const route = useRoute()
 
 const translatedLinks = computed(() => {
   return (
     props?.links?.map((link) => {
       // If the path starts with /fr, prefix the link's `to` path with `/fr`
-      const toPath = route.path.startsWith("/fr")
-        ? `/fr${link.to === "/" ? "" : link.to}`
-        : link.to;
+      const toPath = route.path.startsWith('/fr')
+        ? `/fr${link.to === '/' ? '' : link.to}`
+        : link.to
 
       return {
         ...link,
-        to: toPath || "/",
-        label: link.label ? t(link.label as string) : link.label,
-      };
+        to: toPath || '/',
+        label: link.label ? t(link.label as string) : link.label
+      }
     }) || []
-  );
-});
+  )
+})
 </script>
 
 <template>
@@ -36,7 +36,11 @@ const translatedLinks = computed(() => {
         :to="route.path.startsWith('/fr') ? '/fr' : '/'"
         class="transition-opacity hover:opacity-85"
       >
-        <img src="/logo.webp" alt="mrbdrs" class="h-10 w-auto select-none" />
+        <img
+          src="/logo.webp"
+          alt="mrbdrs"
+          class="h-10 w-auto select-none"
+        >
       </NuxtLink>
 
       <!-- Right-aligned clean controls -->

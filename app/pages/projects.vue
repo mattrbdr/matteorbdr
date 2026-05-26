@@ -64,7 +64,7 @@ const detailsLabel = computed(() => locale.value === 'fr' ? 'Voir' : 'View')
       :links="page.links"
       :ui="{
         container: 'py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-0',
-            title: 'mx-0! text-left',
+        title: 'mx-0! text-left',
         description: 'mx-0! text-left',
         links: 'justify-start'
       }"
