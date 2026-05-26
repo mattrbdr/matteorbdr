@@ -1,0 +1,15 @@
+title: "Enfant Reveur E Commerce Shop"
+description: "Site e-commerce headless WordPress + WooCommerce développé pour une jeune marque de mode lyonnaise. La marque a malheureusement cessé son activité en 2024."
+image: ""
+url: "#"
+tags:
+  - "Tech / Dev"
+  - "E-commerce"
+technologies:
+  - "WordPress"
+  - "WooCommerce"
+  - "PHP"
+  - "JavaScript"
+date: "2024-01-01"
+status: completed
+client: true

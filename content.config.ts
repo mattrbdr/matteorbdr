@@ -122,7 +122,8 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         technologies: z.array(z.string()).optional(),
         date: z.date(),
-        status: z.enum(['in_progress', 'completed', 'archived']).optional()
+        status: z.enum(['in_progress', 'completed', 'archived']).optional(),
+        client: z.boolean().optional()
       })
     }),
     projects_fr: defineCollection({
@@ -137,7 +138,8 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         technologies: z.array(z.string()).optional(),
         date: z.date(),
-        status: z.enum(['in_progress', 'completed', 'archived']).optional()
+        status: z.enum(['in_progress', 'completed', 'archived']).optional(),
+        client: z.boolean().optional()
       })
     }),
     blog: defineCollection({
