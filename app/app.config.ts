@@ -49,12 +49,6 @@ export default defineAppConfig({
         'aria-label': 'Instagram'
       },
       {
-        'icon': 'i-simple-icons-x',
-        'to': 'https://x.com/bymatteorbd',
-        'target': '_blank',
-        'aria-label': 'X'
-      },
-      {
         'icon': 'i-simple-icons-github',
         'to': 'https://github.com/mattrbdr/',
         'target': '_blank',

@@ -13,12 +13,6 @@ const emailUrl = computed(() => {
   return `mailto:?subject=${subject}&body=${body}`
 })
 
-const twitterUrl = computed(() => {
-  const text = encodeURIComponent(props.title)
-  const url = encodeURIComponent(props.url)
-  return `https://twitter.com/intent/tweet?text=${text}&url=${url}`
-})
-
 const facebookUrl = computed(() => {
   const url = encodeURIComponent(props.url)
   return `https://www.facebook.com/sharer/sharer.php?u=${url}`
@@ -38,17 +32,6 @@ const copyLink = async () => {
 <template>
   <div class="flex flex-wrap items-center gap-3">
     <span class="text-sm text-muted shrink-0">{{ t('share') }}</span>
-    <UButton
-      variant="ghost"
-      size="sm"
-      color="neutral"
-      :label="t('share_twitter')"
-      icon="i-lucide-twitter"
-      :to="twitterUrl"
-      target="_blank"
-      class="shrink-0 rounded-md hover:bg-transparent hover:text-primary"
-      aria-label="Share on X (Twitter)"
-    />
     <UButton
       variant="ghost"
       size="sm"
