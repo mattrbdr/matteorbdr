@@ -46,7 +46,7 @@ const statusOptions = computed(() => [
   { label: locale.value === 'fr' ? 'Tous les statuts' : 'All statuses', value: '' },
   { label: locale.value === 'fr' ? 'En cours' : 'In progress', value: 'in_progress' },
   { label: locale.value === 'fr' ? 'Terminé' : 'Completed', value: 'completed' },
-  { label: locale.value === 'fr' ? 'Archivé' : 'Archived', value: 'archived' },
+  { label: locale.value === 'fr' ? 'Archivé' : 'Archived', value: 'archived' }
 ])
 
 const filteredProjects = computed(() => {
@@ -154,10 +154,8 @@ const tagsLabel = computed(() => t('technologies'))
 const technologiesLabel = computed(() => locale.value === 'fr' ? 'Technologies' : 'Technologies')
 const detailsLabel = computed(() => locale.value === 'fr' ? 'Voir' : 'View')
 const noProjectsLabel = computed(() => locale.value === 'fr' ? 'Aucun projet trouvé' : 'No projects found')
-const allLabel = computed(() => locale.value === 'fr' ? 'Tout' : 'All')
 const clearLabel = computed(() => locale.value === 'fr' ? 'Tout voir' : 'Show all')
 const filterByTagLabel = computed(() => locale.value === 'fr' ? 'Catégorie' : 'Category')
-const filterByTechLabel = computed(() => t('technologies'))
 const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Status')
 </script>
 
@@ -228,7 +226,10 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           </button>
         </div>
 
-        <div v-if="allTags.length" class="flex flex-wrap items-center gap-2">
+        <div
+          v-if="allTags.length"
+          class="flex flex-wrap items-center gap-2"
+        >
           <span class="text-xs font-medium text-muted">{{ filterByTagLabel }}</span>
           <div class="flex flex-wrap gap-1.5">
             <UButton
@@ -243,7 +244,10 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           </div>
         </div>
 
-        <div v-if="allTechnologies.length" class="flex flex-wrap items-center gap-2">
+        <div
+          v-if="allTechnologies.length"
+          class="flex flex-wrap items-center gap-2"
+        >
           <span class="text-xs font-medium text-muted">{{ technologiesLabel }}</span>
           <div class="flex flex-wrap gap-1.5">
             <UButton
@@ -286,7 +290,10 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
                   {{ tag }}
                 </button>
               </div>
-              <div v-if="project.technologies?.length" class="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5">
+              <div
+                v-if="project.technologies?.length"
+                class="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5"
+              >
                 <button
                   v-for="tech in project.technologies.slice(0, 3)"
                   :key="tech"
@@ -324,9 +331,18 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           <p class="text-muted">
             {{ selectedProject.description }}
           </p>
-          <div v-if="selectedProject?.status" class="flex items-center gap-2">
-            <span class="size-2 rounded-full" :class="statusDot(selectedProject.status)" />
-            <span class="text-sm font-bold" :class="statusColor(selectedProject.status)">{{ statusLabel(selectedProject.status) }}</span>
+          <div
+            v-if="selectedProject?.status"
+            class="flex items-center gap-2"
+          >
+            <span
+              class="size-2 rounded-full"
+              :class="statusDot(selectedProject.status)"
+            />
+            <span
+              class="text-sm font-bold"
+              :class="statusColor(selectedProject.status)"
+            >{{ statusLabel(selectedProject.status) }}</span>
           </div>
           <div>
             <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>
@@ -402,9 +418,18 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           <p class="text-muted">
             {{ selectedProject.description }}
           </p>
-          <div v-if="selectedProject?.status" class="flex items-center gap-2">
-            <span class="size-2 rounded-full" :class="statusDot(selectedProject.status)" />
-            <span class="text-sm font-bold" :class="statusColor(selectedProject.status)">{{ statusLabel(selectedProject.status) }}</span>
+          <div
+            v-if="selectedProject?.status"
+            class="flex items-center gap-2"
+          >
+            <span
+              class="size-2 rounded-full"
+              :class="statusDot(selectedProject.status)"
+            />
+            <span
+              class="text-sm font-bold"
+              :class="statusColor(selectedProject.status)"
+            >{{ statusLabel(selectedProject.status) }}</span>
           </div>
           <div>
             <span class="text-sm font-medium mb-2 block">{{ tagsLabel }}</span>

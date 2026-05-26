@@ -5,7 +5,9 @@ const { navLinks } = useNavLinks()
 const color = computed(() =>
   colorMode.value === 'dark' ? '#020618' : 'white'
 )
-const { app: { baseURL } } = useRuntimeConfig()
+const {
+  app: { baseURL }
+} = useRuntimeConfig()
 
 useHead({
   meta: [
@@ -21,7 +23,7 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s',
+  titleTemplate: '%s - Portfolio',
   twitterCard: 'summary_large_image'
 })
 
