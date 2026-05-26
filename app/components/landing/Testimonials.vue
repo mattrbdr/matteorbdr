@@ -9,36 +9,47 @@ defineProps<{
 <template>
   <UPageSection
     :ui="{
-      container: 'px-0 pt-0!'
+      container: 'px-4 sm:px-6 lg:px-0 pt-0!'
     }"
   >
     <UCarousel
       v-slot="{ item }"
       :items="page.testimonials"
-      :autoplay="{ delay: 4000 }"
+      :autoplay="{ delay: 5000 }"
       loop
       dots
+      class="mt-8"
       :ui="{
-        viewport: '-mx-4 sm:-mx-12 lg:-mx-16 bg-elevated/50 max-w-(--ui-container)'
+        viewport: '-mx-4 sm:-mx-6 lg:-mx-0',
+        item: 'basis-full',
+        dots: 'mt-8 gap-2'
       }"
     >
-      <UPageCTA
-        :description="item.quote"
-        variant="naked"
-        class="rounded-none"
-        :ui="{
-          container: 'sm:py-12 lg:py-12 gap-8',
-          description: 'text-base! text-balance before:content-[open-quote] before:text-5xl lg:before:text-7xl before:inline-block before:text-dimmed before:absolute before:-ml-6 lg:before:-ml-10 before:-mt-2 lg:before:-mt-4 after:content-[close-quote] after:text-5xl lg:after:text-7xl after:inline-block after:text-dimmed after:absolute after:mt-1 lg:after:mt-0 after:ml-1 lg:after:ml-2'
-        }"
-      >
-        <div class="pt-6">
-          <UUser
-            v-bind="item.author"
-            size="xl"
-            class="justify-center"
-          />
+      <div class="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div class="relative rounded-xl border border-default/5 bg-elevated/30 p-6 sm:p-8 lg:p-10">
+          <svg
+            class="absolute top-4 left-4 sm:top-6 sm:left-6 w-8 h-8 sm:w-10 sm:h-10 text-dimmed/30"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+          </svg>
+          <p class="text-sm sm:text-base lg:text-lg leading-relaxed text-pretty mt-4 sm:mt-6">
+            {{ item.quote }}
+          </p>
+          <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-default/5">
+            <p class="text-sm font-medium">
+              {{ item.author.name }}
+            </p>
+            <p
+              v-if="item.author.description"
+              class="text-xs text-muted mt-0.5"
+            >
+              {{ item.author.description }}
+            </p>
+          </div>
         </div>
-      </UPageCTA>
+      </div>
     </UCarousel>
   </UPageSection>
 </template>
