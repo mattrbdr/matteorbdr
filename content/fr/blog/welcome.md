@@ -9,7 +9,7 @@ author:
   avatar: /matteorbdr.webp
 ---
 
-Salut, je suis Mattéo, développeur freelance.
+Salut, je suis Mattéo - développeur freelance.
 
 J'interviens sur des produits et des systèmes existants pour les simplifier, les moderniser et les rendre plus efficaces. Je construis aussi des outils sur mesure quand il faut repartir de zéro.
 

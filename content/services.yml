@@ -6,14 +6,14 @@ hero_text: "I work on existing products that need fixing, and build new ones whe
 offerings:
   - title: "Audit & Technical Scoping"
     subtitle: "Starting point"
-    description: "A short, fixed-price engagement before any development. Useful when you're stuck, overwhelmed, or not sure what to build or fix next."
+    description: "A short, fixed-price engagement before any development. Useful when you're stuck, overwhelmed, or not sure what to build - or fix - next."
     items:
       - label: "Full audit of your stack and architecture, no blind spots"
-        content: "I analyze your entire codebase, infrastructure, and workflows. You get a complete map of what's running, what's connected, and where the hidden bottlenecks are. Covers any stack: React, Vue, Node, PHP, Python, WordPress, and more."
+        content: "I analyze your entire codebase, infrastructure, and workflows. You get a complete map of what's running, what's connected, and where the hidden bottlenecks are. Covers any stack - React, Vue, Node, PHP, Python, WordPress, and more."
       - label: "Clear diagnosis: what's blocking you vs. what's just noise"
         content: "Not every problem needs fixing. I separate critical blockers from cosmetic issues so you invest where it actually matters. Deliverable: a written report with severity levels and impact assessment."
       - label: "Actionable architecture proposal with prioritized next steps"
-        content: "A concrete plan with what to do first, second, and third, including estimated effort and expected outcomes. Each step is specific and executable, with no vague recommendations."
+        content: "A concrete plan with what to do first, second, and third, including estimated effort and expected outcomes. Each step is specific and executable - no vague recommendations."
       - label: "Fully documented, executable with or without me"
         content: "Everything is documented so your team can take over or you can hire someone else. No dependency on me to keep things moving. You own the plan completely."
     good_for: "Good if you have something running but don't know where to start."
@@ -21,12 +21,12 @@ offerings:
 
   - title: "System Modernisation"
     subtitle: "Existing product"
-    description: "For products that work but are slowing everything down. I take over the existing codebase and fix what's actually broken, without a full rewrite unless that's genuinely the only sane path."
+    description: "For products that work but are slowing everything down. I take over the existing codebase and fix what's actually broken - no full rewrite unless that's genuinely the only sane path."
     items:
       - label: "Legacy migration of WordPress, PHP, or outdated stacks, without disrupting your business"
         content: "I handle the migration end-to-end while your product stays live. No downtime, no data loss, no customer impact. The result is a modern, maintainable stack your team can work with."
       - label: "Performance gains and technical debt cleanup, not a full rewrite"
-        content: "I identify the highest-impact improvements (slow queries, bloated dependencies, inefficient architecture) and fix them surgically. You get measurable speed improvements without the risk of a rewrite."
+        content: "I identify the highest-impact improvements - slow queries, bloated dependencies, inefficient architecture - and fix them surgically. You get measurable speed improvements without the risk of a rewrite."
       - label: "New features shipped on the architecture you already have"
         content: "I add new capabilities to your existing codebase without breaking what works. Features are designed to fit your current architecture, not to require a full redesign."
       - label: "Complete handover documentation, no vendor lock-in"
@@ -36,12 +36,12 @@ offerings:
 
   - title: "Custom Build"
     subtitle: "From scratch"
-    description: "For ideas that don't exist yet and need a solid foundation. I design and develop the whole system, from architecture to production, without unnecessary complexity."
+    description: "For ideas that don't exist yet and need a solid foundation. I design and develop the whole system - from architecture to production - without unnecessary complexity."
     items:
       - label: "Product architecture designed for what you actually need, not what's trendy"
         content: "I design the architecture based on your actual use cases, traffic patterns, and business goals. No over-engineering, no unnecessary microservices, no hype-driven decisions."
       - label: "End-to-end delivery: frontend, backend, and infrastructure"
-        content: "I handle everything from the UI to the database to deployment. Frontend (Nuxt, Vue, or React), backend (Node, PHP, or Python), infrastructure (cloud, CI/CD, monitoring). All in one package."
+        content: "I handle everything from the UI to the database to deployment. Frontend (Nuxt, Vue, or React), backend (Node, PHP, or Python), infrastructure (cloud, CI/CD, monitoring) - all in one package."
       - label: "Production deployment and first iterations included"
         content: "I deploy to production and support the first iterations. You get a live product with real users from day one, plus monitoring and error tracking set up."
       - label: "Full ownership transfer, you own everything at the end"
@@ -49,9 +49,9 @@ offerings:
     good_for: "Good if you have a clear idea and need someone to make it real."
     pricing: "Fixed scope or monthly retainer"
 
-ai_note: "On AI & automation. These aren't a separate service. They're capabilities I apply across all three when they genuinely help. Workflow automation, smart data processing, LLM integrations. I'll tell you directly if it's overkill for your case."
+ai_note: "On AI & automation. These aren't a separate service - they're capabilities I apply across all three when they genuinely help. Workflow automation, smart data processing, LLM integrations. I'll tell you directly if it's overkill for your case."
 
-cta_bottom_text: "Not sure which of these applies to you? Start with a free 30-minute call, with no pitch and no pressure. We'll figure out what you actually need."
+cta_bottom_text: "Not sure which of these applies to you? Start with a free 30-minute call - no pitch, no pressure. We'll figure out what you actually need."
 
 links:
   - label: "Let's talk"

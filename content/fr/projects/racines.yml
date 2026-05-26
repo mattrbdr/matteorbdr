@@ -1,0 +1,16 @@
+title: "Racines"
+description: "Plateforme SaaS de circuits courts connectant producteurs, commerçants, citoyens et collectivités. 0% de commission pour les producteurs, données territoriales en temps réel et pricing équitable via le moteur OpenValue intégré."
+image: ""
+url: "https://racinesapp.com"
+tags:
+  - "Tech / Dev"
+  - "SaaS"
+technologies:
+  - "TypeScript"
+  - "Vue"
+  - "Nuxt"
+  - "AdonisJS"
+  - "MariaDB"
+  - "Redis"
+date: "2025-01-01"
+status: in_progress

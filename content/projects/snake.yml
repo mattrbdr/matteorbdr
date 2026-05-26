@@ -1,0 +1,13 @@
+title: "Snake"
+description: "Classic Snake game built with HTML and CSS. Coded live on YouTube in 2017 as a fun side project."
+image: ""
+url: "https://github.com/mattrbdr/MySnake"
+github: "https://github.com/mattrbdr/MySnake"
+tags:
+  - "Tech / Dev"
+  - "Game"
+technologies:
+  - "HTML"
+  - "CSS"
+date: "2017-08-01"
+status: completed

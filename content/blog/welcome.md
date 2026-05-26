@@ -9,7 +9,7 @@ author:
   avatar: /matteorbdr.webp
 ---
 
-Hello, I'm Mattéo, a freelance developer.
+Hello, I'm Mattéo - freelance developer.
 
 I work on existing products and systems to simplify, modernize, and make them more effective. I also build custom tools when starting from scratch is necessary.
 

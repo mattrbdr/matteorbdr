@@ -1,0 +1,20 @@
+title: "C.A.S.E."
+description: "Centralized Analysis & Secure Evidence - une plateforme Trust Layer qui transforme des fichiers bruts en dossiers horodatés et vérifiés cryptographiquement, prêts pour des revues formelles (juridique, conformité, assurance). Ingestion SHA-256 avec chaîne de traçabilité complète, extraction de métadonnées, OCR, transcription audio/vidéo, CASE READINESS SCORE™, snapshots immutables, logs d'audit append-only et moteur de transmission certifiée."
+image: ""
+url: "#"
+tags:
+  - "Tech / Dev"
+  - "SaaS"
+  - "Sécurité"
+technologies:
+  - "AdonisJS"
+  - "Vue"
+  - "Inertia.js"
+  - "TailwindCSS"
+  - "TypeScript"
+  - "SQLite"
+  - "MySQL"
+  - "Redis"
+  - "Vite"
+date: "2026-03-01"
+status: in_progress

@@ -6,10 +6,10 @@ hero_text: "Je travaille sur des produits existants qui ont besoin d'être corri
 offerings:
   - title: "Audit & Cadrage Technique"
     subtitle: "Point de départ"
-    description: "Un engagement court à prix fixe avant tout développement. Utile quand vous êtes bloqué, débordé, ou pas sûr de quoi construire ou corriger ensuite."
+    description: "Un engagement court à prix fixe avant tout développement. Utile quand vous êtes bloqué, débordé, ou pas sûr de quoi construire - ou corriger - ensuite."
     items:
       - label: "Audit complet de votre stack et architecture, sans angles morts"
-        content: "J'analyse l'intégralité de votre codebase, infrastructure et workflows. Vous obtenez une carte complète de ce qui tourne, ce qui est connecté, et où se cachent les goulots d'étranglement. Tous les stacks sont couverts : React, Vue, Node, PHP, Python, WordPress, etc."
+        content: "J'analyse l'intégralité de votre codebase, infrastructure et workflows. Vous obtenez une carte complète de ce qui tourne, ce qui est connecté, et où se cachent les goulots d'étranglement. Tous les stacks sont couverts - React, Vue, Node, PHP, Python, WordPress, etc."
       - label: "Diagnostic clair : ce qui bloque vraiment vs. ce qui n'est que du bruit"
         content: "Tous les problèmes ne méritent pas d'être corrigés. Je sépare les blocages critiques des améliorations cosmétiques pour que vous investissiez là où ça compte vraiment. Livrable : un rapport écrit avec niveaux de sévérité."
       - label: "Proposition d'architecture actionnable avec priorités claires"
@@ -21,12 +21,12 @@ offerings:
 
   - title: "Modernisation de Système"
     subtitle: "Produit existant"
-    description: "Pour les produits qui fonctionnent mais ralentissent tout. Je reprends la codebase existante et corrige ce qui est vraiment cassé, sans réécriture complète, sauf si c'est vraiment la seule voie sensée."
+    description: "Pour les produits qui fonctionnent mais ralentissent tout. Je reprends la codebase existante et corrige ce qui est vraiment cassé - pas de réécriture complète, sauf si c'est vraiment la seule voie sensée."
     items:
       - label: "Migration legacy de WordPress, PHP, ou stacks obsolètes, sans interrompre votre activité"
         content: "Je gère la migration de bout en bout pendant que votre produit reste en ligne. Zéro temps d'arrêt, zéro perte de données, zéro impact client. Le résultat est un stack moderne et maintenable."
       - label: "Gains de performance et réduction de dette technique, pas de réécriture complète"
-        content: "J'identifie les améliorations à plus fort impact (requêtes lentes, dépendances obèses, architecture inefficace) et les corrige chirurgicalement. Vous obtenez des gains mesurables sans le risque d'une réécriture."
+        content: "J'identifie les améliorations à plus fort impact - requêtes lentes, dépendances obèses, architecture inefficace - et les corrige chirurgicalement. Vous obtenez des gains mesurables sans le risque d'une réécriture."
       - label: "Nouvelles fonctionnalités livrées sur l'architecture existante"
         content: "J'ajoute de nouvelles capacités à votre codebase existante sans casser ce qui fonctionne. Les fonctionnalités sont conçues pour s'intégrer à votre architecture actuelle."
       - label: "Documentation de passation complète, aucune dépendance"
@@ -36,12 +36,12 @@ offerings:
 
   - title: "Construction sur Mesure"
     subtitle: "From scratch"
-    description: "Pour les idées qui n'existent pas encore et ont besoin d'une base solide. Je conçois et développe l'ensemble du système, de l'architecture à la mise en production, sans complexité inutile."
+    description: "Pour les idées qui n'existent pas encore et ont besoin d'une base solide. Je conçois et développe l'ensemble du système - de l'architecture à la mise en production - sans complexité inutile."
     items:
       - label: "Architecture produit conçue pour vos vrais besoins, pas pour la hype"
         content: "Je conçois l'architecture à partir de vos cas d'usage réels, de vos schémas de trafic et de vos objectifs métier. Pas de sur-engineering, pas de microservices inutiles, pas de décisions dictées par les tendances."
       - label: "Livraison de bout en bout : frontend, backend, infrastructure"
-        content: "Je gère tout, de l'interface utilisateur à la base de données jusqu'au déploiement. Frontend (Nuxt, Vue ou React), backend (Node, PHP ou Python), infrastructure (cloud, CI/CD, monitoring). Le tout en un seul package."
+        content: "Je gère tout, de l'interface utilisateur à la base de données jusqu'au déploiement. Frontend (Nuxt, Vue ou React), backend (Node, PHP ou Python), infrastructure (cloud, CI/CD, monitoring) - le tout en un seul package."
       - label: "Déploiement en production et premières itérations inclus"
         content: "Je déploie en production et accompagne les premières itérations. Vous avez un produit live avec de vrais utilisateurs dès le premier jour, avec monitoring et suivi d'erreurs en place."
       - label: "Propriété complète, vous possédez tout à la fin"
@@ -49,9 +49,9 @@ offerings:
     good_for: "Idéal si vous avez une idée claire et avez besoin de quelqu'un pour la concrétiser."
     pricing: "Périmètre fixé ou forfait mensuel"
 
-ai_note: "Sur l'IA & l'automatisation. Ce n'est pas un service séparé. Ce sont des capacités que j'applique aux trois offres quand elles aident vraiment. Automatisation de workflows, traitement intelligent de données, intégrations LLM. Je vous dirai directement si c'est overkill pour votre cas."
+ai_note: "Sur l'IA & l'automatisation. Ce n'est pas un service séparé - ce sont des capacités que j'applique aux trois offres quand elles aident vraiment. Automatisation de workflows, traitement intelligent de données, intégrations LLM. Je vous dirai directement si c'est overkill pour votre cas."
 
-cta_bottom_text: "Vous ne savez pas laquelle de ces offres vous correspond ? Commencez par un appel gratuit de 30 minutes, sans pitch ni pression. On déterminera ensemble ce dont vous avez vraiment besoin."
+cta_bottom_text: "Vous ne savez pas laquelle de ces offres vous correspond ? Commencez par un appel gratuit de 30 minutes - sans pitch, sans pression. On déterminera ensemble ce dont vous avez vraiment besoin."
 
 links:
   - label: "Discutons"

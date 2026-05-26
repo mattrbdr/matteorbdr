@@ -5,5 +5,9 @@ url: "https://github.com/mattrbdr/XDDL-FaceBiometic"
 tags:
   - "Tech / Dev"
   - "Autre"
+technologies:
+  - "Python"
+  - "OpenCV"
+  - "Scikit-image"
 date: "2025-05-23"
-status: "archived"
+status: "completed"

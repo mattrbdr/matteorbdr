@@ -5,5 +5,10 @@ url: "https://github.com/mattrbdr/caudex"
 tags:
   - "Tech / Dev"
   - "Open-source"
+technologies:
+  - "Rust"
+  - "Tauri"
+  - "Svelte"
+  - "SQLite"
 date: "2026-04-14"
 status: in_progress

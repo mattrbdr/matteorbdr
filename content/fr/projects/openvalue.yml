@@ -1,10 +1,15 @@
 title: "OpenValue"
-description: "Moteur de calcul de prix déterministe avec intégrité cryptographique, sans blockchain, juste des maths."
+description: "Moteur de calcul de prix déterministe avec intégrité cryptographique - pas de blockchain, juste des maths."
 image: ""
 url: "https://racinesapp.com/open-value"
 tags:
   - "Tech / Dev"
   - "Architecture logicielle"
   - "Finance / Business"
+technologies:
+  - "TypeScript"
+  - "Rust"
+  - "JavaScript"
+  - "Shell"
 date: "2026-05-14"
 status: in_progress

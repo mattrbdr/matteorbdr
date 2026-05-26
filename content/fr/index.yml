@@ -1,5 +1,5 @@
 seo:
-  title: "Mattéo - Web, Al & Digital 360° Freelance • Fondateur de racinesapp.com"
+  title: "Mattéo - Développeur Fullstack"
   description: "Bonjour, je suis Mattéo. Je conçois et améliore des systèmes techniques qui doivent vraiment fonctionner."
 title: "Salut, je suis Mattéo, développeur freelance, je transforme des idées floues en produits qui tournent."
 description: "J'interviens sur des produits et des systèmes existants pour les simplifier, les moderniser et les rendre plus efficaces. Je construis aussi des outils sur mesure quand il faut repartir de zéro. Mon objectif est simple : réduire la complexité et augmenter l'impact."
@@ -12,7 +12,7 @@ about:
   title: "À propos"
   description: |
     Je construis des choses sur internet depuis que j'ai l'âge de les casser.
-    Je travaille aujourd'hui en freelance sur des produits qui ont besoin d'être corrigés, modernisés, ou construits de zéro. Mon projet principal est Racines, une plateforme SaaS de circuits courts que j'ai conçue et livrée seul, de l'architecture au déploiement. C'est là que je teste tout ce que j'applique ensuite avec mes clients.
+    Je travaille aujourd'hui en freelance sur des produits qui ont besoin d'être corrigés, modernisés, ou construits de zéro. Mon projet principal est Racines - une plateforme SaaS de circuits courts que j'ai conçue et livrée seul, de l'architecture au déploiement. C'est là que je teste tout ce que j'applique ensuite avec mes clients.
     Ce qui m'importe vraiment dans une mission : comprendre le système avant de toucher au code. Et livrer quelque chose que l'autre côté peut maintenir sans moi.
 experience:
   title: Expériences
@@ -31,6 +31,11 @@ experience:
         logo: "i-simple-icons-raycast"
         url: "https://racinesapp.com/en/open-value"
         color: "#FF6363"
+    - position: "Développeur commercial"
+      date: "2023"
+      company:
+        name: "Geninc"
+        url: "#"
     - position: "Développeur web freelance chez"
       date: "2022 - 2023"
       company:
@@ -52,12 +57,17 @@ experience:
         logo: "i-simple-icons-nuxtdotjs"
         url: "#"
         color: "#00DC82"
+    - position: "Fondateur & Président"
+      date: "2020"
+      company:
+        name: "Dev&Prod"
+        url: "#"
 testimonials:
   - quote: "Mattéo a travaillé sur deux projets pour ISE : la refonte du site, et la mise en place d'un outil de sondage des listes candidates aux élections européennes dans les 27 pays de l'UE. Il a rempli la mission avec une grande efficacité et beaucoup de souplesse. Je ne peux que me féliciter de la qualité de notre collaboration."
     author:
       name: "Martin Andler"
       description: "Professeur émérite UVSQ · Président, Initiative for Science in Europe"
-  - quote: "Du site à la boutique en ligne, en passant par toute la mise en conformité légale et technique, Mattéo a géré l'ensemble du lancement. Efficace, rigoureux, et toujours capable d'expliquer clairement ce qu'il fait pour qu'on puisse s'en emparer après lui."
+  - quote: "Du site à la boutique en ligne, en passant par toute la mise en conformité légale et technique - Mattéo a géré l'ensemble du lancement. Efficace, rigoureux, et toujours capable d'expliquer clairement ce qu'il fait pour qu'on puisse s'en emparer après lui."
     author:
       name: "Jules Taffoirin"
       description: "Fondateur · Seizart"
@@ -83,4 +93,4 @@ faq:
         - label: Comment fonctionnent tes tarifs ?
           content: "TJM pour les missions courtes. Forfait pour les projets cadrés. Tarification ajustée selon le client et les objectifs."
         - label: Quel budget minimum ?
-          content: "Il n'y a pas de minimum strict. J'adapte chaque mission au profil du client, à son contexte et à ses objectifs. Je travaille avec tout type de structures, comme des PME, des associations, des institutions, des petites équipes ou des organisations plus larges. L'essentiel, c'est qu'il y ait un besoin clair et un projet qui mérite d'être fait correctement."
+          content: "Il n'y a pas de minimum strict. J'adapte chaque mission au profil du client, à son contexte et à ses objectifs. Je travaille avec tout type de structures - PME, associations, institutions, petites équipes ou organisations plus larges. L'essentiel, c'est qu'il y ait un besoin clair et un projet qui mérite d'être fait correctement."

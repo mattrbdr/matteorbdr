@@ -1,0 +1,16 @@
+title: "Racines"
+description: "Short supply chain SaaS platform connecting producers, merchants, citizens, and local authorities. 0% commission for producers, real-time territorial data, and fair pricing through an integrated OpenValue engine."
+image: ""
+url: "https://racinesapp.com"
+tags:
+  - "Tech / Dev"
+  - "SaaS"
+technologies:
+  - "TypeScript"
+  - "Vue"
+  - "Nuxt"
+  - "AdonisJS"
+  - "MariaDB"
+  - "Redis"
+date: "2025-01-01"
+status: in_progress

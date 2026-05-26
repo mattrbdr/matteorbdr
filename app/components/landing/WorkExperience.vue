@@ -20,12 +20,23 @@ const formatRole = (position: string) => {
     return isFr ? 'créateur' : 'creator'
   }
 
+  if (normalized.includes('president') || normalized.includes('président')) {
+    return isFr ? 'fondateur, président' : 'founder, president'
+  }
+
   if (normalized.includes('founder') || normalized.includes('fondateur')) {
     return isFr ? 'fondateur' : 'founder'
   }
 
   if (normalized.includes('seizart') || normalized.includes('advisor') || normalized.includes('conseiller')) {
     return isFr ? 'conseiller' : 'business advisor'
+  }
+
+  if (normalized.includes('business developer') || normalized.includes('commercial')) {
+    return position
+      .replace(/\s+(at|chez)$/i, '')
+      .trim()
+      .toLowerCase()
   }
 
   return position

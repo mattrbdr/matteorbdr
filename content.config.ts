@@ -52,8 +52,8 @@ export default defineContentConfig({
             company: z.object({
               name: z.string(),
               url: z.string(),
-              logo: z.string().editor({ input: 'icon' }),
-              color: z.string()
+              logo: z.string().editor({ input: 'icon' }).optional(),
+              color: z.string().optional()
             })
           }))
         }),
@@ -89,8 +89,8 @@ export default defineContentConfig({
             company: z.object({
               name: z.string(),
               url: z.string(),
-              logo: z.string().editor({ input: 'icon' }),
-              color: z.string()
+              logo: z.string().editor({ input: 'icon' }).optional(),
+              color: z.string().optional()
             })
           }))
         }),
@@ -120,6 +120,7 @@ export default defineContentConfig({
         url: z.string().nonempty(),
         github: z.string().optional(),
         tags: z.array(z.string()),
+        technologies: z.array(z.string()).optional(),
         date: z.date(),
         status: z.enum(['in_progress', 'completed', 'archived']).optional()
       })
@@ -134,6 +135,7 @@ export default defineContentConfig({
         url: z.string().nonempty(),
         github: z.string().optional(),
         tags: z.array(z.string()),
+        technologies: z.array(z.string()).optional(),
         date: z.date(),
         status: z.enum(['in_progress', 'completed', 'archived']).optional()
       })

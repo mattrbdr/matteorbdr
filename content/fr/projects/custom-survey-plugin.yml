@@ -1,0 +1,15 @@
+title: "Custom Survey Plugin"
+description: "Plugin WordPress pour créer et gérer des sondages avec participants, questions et réponses. Support du bloc Gutenberg, affichage personnalisable et filtrage côté front-end."
+image: ""
+url: "https://github.com/mattrbdr/custom-survey-plugin"
+github: "https://github.com/mattrbdr/custom-survey-plugin"
+tags:
+  - "Tech / Dev"
+  - "WordPress"
+  - "Open-source"
+technologies:
+  - "PHP"
+  - "JavaScript"
+  - "CSS"
+date: "2024-06-01"
+status: completed
