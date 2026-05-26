@@ -12,7 +12,7 @@ about:
   title: "About me"
   description: |
     I've been building things on the internet since I was old enough to break them.
-    I now work freelance on products that need fixing, modernizing, or building from scratch. My main project is Racines — a SaaS platform for short supply chains that I designed and shipped solo, from architecture to deployment. That's where I test everything I then apply with clients.
+    I now work freelance on products that need fixing, modernizing, or building from scratch. My main project is Racines, a SaaS platform for short supply chains that I designed and shipped solo, from architecture to deployment. That's where I test everything I then apply with clients.
     What I actually care about in a mission: understanding the system before touching the code. And handing over something the other side can maintain without me.
 experience:
   title: "Experiences"
@@ -57,7 +57,7 @@ testimonials:
     author:
       name: "Martin Andler"
       description: "Professor Emeritus UVSQ · President, Initiative for Science in Europe"
-  - quote: "From the website to the online store, through all the legal and technical compliance — Mattéo managed the entire launch. Efficient, rigorous, and always able to clearly explain what he does so that we can take over after him."
+  - quote: "From the website to the online store, including all the legal and technical compliance, Mattéo managed the entire launch. Efficient, rigorous, and always able to clearly explain what he does so that we can take over after him."
     author:
       name: "Jules Taffoirin"
       description: "Founder · Seizart"
@@ -83,4 +83,4 @@ faq:
         - label: "How do your rates work?"
           content: "Day rate for short missions. Fixed price for scoped projects. Pricing adjusted according to client and objectives."
         - label: "What's the minimum budget?"
-          content: "There's no strict minimum. I adapt each mission to the client's profile, context, and objectives. I work with all types of structures — SMEs, associations, institutions, small teams or larger organizations. The key is having a clear need and a project that deserves to be done properly."
+          content: "There's no strict minimum. I adapt each mission to the client's profile, context, and objectives. I work with all types of structures, including SMEs, associations, institutions, small teams, and larger organizations. The key is having a clear need and a project that deserves to be done properly."

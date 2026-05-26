@@ -15,8 +15,8 @@ if (!page.value) {
 }
 
 useSeoMeta({
-  title: 'Mattéo — Developer & Web Architect',
-  ogTitle: 'Mattéo — Developer & Web Architect',
+  title: 'Mattéo | Developer & Web Architect',
+  ogTitle: 'Mattéo | Developer & Web Architect',
   description: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
   ogDescription: 'I help simplify, modernize and optimize web systems, turning ideas and existing products into reliable, effective solutions. For consults, audits and custom builds.',
   ogImage: '/og-image.png'
