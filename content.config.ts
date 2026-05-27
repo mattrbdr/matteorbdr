@@ -70,6 +70,19 @@ export default defineContentConfig({
                 })
               )
             }))
+        }),
+        certifications: createBaseSchema().extend({
+          items: z.array(z.object({
+            title: z.string(),
+            issuer: z.object({
+              name: z.string(),
+              url: z.string().optional()
+            }),
+            date: z.string(),
+            credentialId: z.string().optional(),
+            url: z.string().optional(),
+            skills: z.array(z.string()).optional()
+          }))
         })
       })
     }),
@@ -107,6 +120,19 @@ export default defineContentConfig({
                 })
               )
             }))
+        }),
+        certifications: createBaseSchema().extend({
+          items: z.array(z.object({
+            title: z.string(),
+            issuer: z.object({
+              name: z.string(),
+              url: z.string().optional()
+            }),
+            date: z.string(),
+            credentialId: z.string().optional(),
+            url: z.string().optional(),
+            skills: z.array(z.string()).optional()
+          }))
         })
       })
     }),

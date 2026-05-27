@@ -74,6 +74,49 @@ testimonials:
 blog:
   title: "Latest articles"
   description: "Some of my recent thoughts on design, development, and the tech industry."
+certifications:
+  title: "Certifications"
+  items:
+    - title: "AI Fluency for Nonprofits"
+      issuer:
+        name: "Anthropic"
+      date: "Mar 2026"
+    - title: "AI Fluency Framework & Foundations"
+      issuer:
+        name: "Anthropic"
+      date: "Mar 2026"
+    - title: "AI Fluency for Educators"
+      issuer:
+        name: "Anthropic"
+      date: "Mar 2026"
+    - title: "MOOC - Become an entrepreneur of change"
+      issuer:
+        name: "HEC Paris"
+      date: "May 2025"
+    - title: "BCG - Strategy Consulting"
+      issuer:
+        name: "Boston Consulting Group (BCG)"
+      date: "Feb 2025"
+    - title: "The strategy of content marketing"
+      issuer:
+        name: "University of California, Davis"
+      date: "Jan 2025"
+    - title: "ABCs of climate and biodiversity"
+      issuer:
+        name: "CNED"
+      date: "Jan 2025"
+    - title: "Introduction to Human Psychology"
+      issuer:
+        name: "Yale University"
+      date: "Jul 2024"
+    - title: "Resilient Leadership"
+      issuer:
+        name: "Harvard Business School"
+      date: "Dec 2023"
+    - title: "Fundamentals of digital marketing"
+      issuer:
+        name: "Google Digital Garage"
+      date: "Apr 2023"
 faq:
   title: "Common questions"
   description: "Answers to questions I often get asked."

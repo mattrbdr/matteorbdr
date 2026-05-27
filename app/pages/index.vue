@@ -24,13 +24,19 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage v-if="page">
+  <UPage
+    v-if="page"
+    :ui="{ center: 'space-y-8 sm:space-y-12 lg:space-y-16' }"
+  >
     <LandingHero :page />
     <section class="px-4 sm:px-6 lg:px-0">
       <div class="grid gap-10 lg:grid-cols-2">
         <LandingAbout :page />
         <LandingWorkExperience :page />
       </div>
+    </section>
+    <section class="px-4 sm:px-6 lg:px-0">
+      <LandingCertifications :page />
     </section>
     <section class="px-4 sm:px-6 lg:px-0">
       <LandingBlog :page />
