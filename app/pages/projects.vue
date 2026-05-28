@@ -374,6 +374,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
       <template #footer>
         <div class="flex gap-3">
           <UButton
+            v-if="selectedProject?.url"
             :label="viewLiveLabel"
             :to="selectedProject?.url"
             target="_blank"
@@ -457,6 +458,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           </div>
           <div class="flex gap-3 pt-4">
             <UButton
+              v-if="selectedProject?.url"
               :label="viewLiveLabel"
               :to="selectedProject.url"
               target="_blank"
@@ -465,7 +467,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
               class="px-0"
             />
             <UButton
-              v-if="selectedProject.github"
+              v-if="selectedProject?.github"
               :label="viewGithubLabel"
               :to="selectedProject.github"
               target="_blank"
