@@ -147,16 +147,16 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -vv \
             ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
+            cd ~
+            mkdir -p "${BACKUP_PATH}"
 
-            mkdir -p "${REMOTE_PATH}" "${BACKUP_PATH}"
-            mkdir -p "${BACKUP_PATH}/${BACKUP_NAME}"
-
-            if [ "$(find "${REMOTE_PATH}" -mindepth 1 -maxdepth 1 | wc -l)" -gt 0 ]; then
+            if [ -d "${REMOTE_PATH}" ]; then
               echo "Backing up current production files"
-              cp -a "${REMOTE_PATH}/." "${BACKUP_PATH}/${BACKUP_NAME}/"
+              cp -r "${REMOTE_PATH}" "${BACKUP_PATH}/${BACKUP_NAME}"
               echo "Backup created: ${BACKUP_PATH}/${BACKUP_NAME}"
             else
-              echo "Remote production path is empty. Keeping empty backup folder."
+              echo "Creating remote production path"
+              mkdir -p "${REMOTE_PATH}"
             fi
           EOF
 
@@ -166,7 +166,7 @@ jobs:
           rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
             --exclude=".git" --exclude="tmp" --exclude="node_modules" --exclude="**/node_modules" \
             -av --delete production/site/ \
-            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}:${REMOTE_PATH}/
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}:/home/${{ secrets.CPANEL_USER }}/${REMOTE_PATH}/
 
       - name: Verify remote deployment and cleanup backups
         id: remote
@@ -174,6 +174,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
             ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
+            cd ~
 
             test -f "${REMOTE_PATH}/index.html"
             echo "Remote index.html found"
@@ -192,6 +193,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
             ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
+            cd ~
 
             BACKUP_NAME="${{ steps.backup.outputs.backup_name }}"
             if [ ! -d "${BACKUP_PATH}/${BACKUP_NAME}" ]; then
@@ -199,9 +201,8 @@ jobs:
               exit 1
             fi
 
-            mkdir -p "${REMOTE_PATH}"
-            find "${REMOTE_PATH}" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
-            cp -a "${BACKUP_PATH}/${BACKUP_NAME}/." "${REMOTE_PATH}/"
+            rm -rf "${REMOTE_PATH}"
+            cp -r "${BACKUP_PATH}/${BACKUP_NAME}" "${REMOTE_PATH}"
             echo "Rollback completed from ${BACKUP_PATH}/${BACKUP_NAME}"
           EOF
 
