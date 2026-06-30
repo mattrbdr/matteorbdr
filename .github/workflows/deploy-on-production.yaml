@@ -102,67 +102,116 @@ jobs:
             exit 1
           fi
 
-      - name: Get runner public IP
+      - name: Prepare deployment artifact
+        run: |
+          set -euo pipefail
+          rm -rf production
+          mkdir -p production/site
+          cp -a "${BUILD_OUTPUT}/." production/site/
+
+      - name: Get runner's public IP
         id: ip
-        run: |
-          set -euo pipefail
-          IPV4="$(curl -fsSL https://api.ipify.org)"
-          echo "ipv4=${IPV4}" >> "$GITHUB_OUTPUT"
+        uses: haythem/public-ip@v1.3
 
-      - name: Whitelist runner IP
+      - name: Removing all whitelisted IP
         run: |
-          set -euo pipefail
-          curl -fsS -m 45 \
-            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-            "https://${CPANEL_HOST}:2083/execute/SshWhitelist/add?address=${{ steps.ip.outputs.ipv4 }}&port=22"
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/remove_all'
 
-      - name: Install SSH key
+      - name: Whitelisting the runner IP
         run: |
-          set -euo pipefail
-          install -m 700 -d ~/.ssh
-          printf "%s\n" "${SSH_KEY}" > ~/.ssh/id_rsa
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/add?address=${{ steps.ip.outputs.ipv4 }}&port=22'
+
+      - name: Ensure runner IP is whitelisted
+        run: |
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/list' | grep ${{ steps.ip.outputs.ipv4 }}
+
+      - name: Installing the SSH Key
+        run: |
+          eval $(ssh-agent -s)
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf "%s\n" "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 0400 ~/.ssh/id_rsa
-          ssh-keyscan -H "${CPANEL_HOST}" >> ~/.ssh/known_hosts
+          ssh-add ~/.ssh/id_rsa
 
       - name: Backup current production
+        id: backup
         run: |
           set -euo pipefail
-          BACKUP_NAME="production-$(date -u +%Y%m%d-%H%M%S)"
+          BACKUP_NAME="production-backup-$(date +%Y%m%d-%H%M%S)"
+          echo "backup_name=${BACKUP_NAME}" >> "$GITHUB_OUTPUT"
 
-          ssh -i ~/.ssh/id_rsa "${CPANEL_USER}@${CPANEL_HOST}" \
-            "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' KEEP_BACKUPS='${KEEP_BACKUPS}' BACKUP_NAME='${BACKUP_NAME}' bash -s" <<'EOF'
-          set -euo pipefail
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -vv \
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
+            set -euo pipefail
+            cd ~
+            mkdir -p "${BACKUP_PATH}"
 
-          mkdir -p "${REMOTE_PATH}" "${BACKUP_PATH}"
-
-          if [ "$(find "${REMOTE_PATH}" -mindepth 1 -maxdepth 1 | wc -l)" -gt 0 ]; then
-            mkdir -p "${BACKUP_PATH}/${BACKUP_NAME}"
-            cp -a "${REMOTE_PATH}/." "${BACKUP_PATH}/${BACKUP_NAME}/"
-            echo "Backup created: ${BACKUP_PATH}/${BACKUP_NAME}"
-          else
-            echo "Remote path is empty, skipping backup."
-          fi
-
-          ls -1dt "${BACKUP_PATH}"/production-* 2>/dev/null \
-            | tail -n +"$((KEEP_BACKUPS + 1))" \
-            | xargs -r rm -rf
+            if [ -d "${REMOTE_PATH}" ]; then
+              echo "Backing up current production files"
+              cp -r "${REMOTE_PATH}" "${BACKUP_PATH}/${BACKUP_NAME}"
+              echo "Backup created: ${BACKUP_PATH}/${BACKUP_NAME}"
+            else
+              echo "Creating remote production path"
+              mkdir -p "${REMOTE_PATH}"
+            fi
           EOF
 
       - name: Deploy static files with rsync
         run: |
           set -euo pipefail
-          rsync -az --delete --timeout=60 \
-            -e "ssh -i ~/.ssh/id_rsa" \
-            "${BUILD_OUTPUT}/" \
-            "${CPANEL_USER}@${CPANEL_HOST}:${REMOTE_PATH}/"
+          rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
+            --exclude=".git" --exclude="tmp" --exclude="node_modules" --exclude="**/node_modules" \
+            -av --delete production/site/ \
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}:/home/${{ secrets.CPANEL_USER }}/${REMOTE_PATH}/
+
+      - name: Verify remote deployment and cleanup backups
+        id: remote
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
+            set -euo pipefail
+            cd ~
+
+            test -f "${REMOTE_PATH}/index.html"
+            echo "Remote index.html found"
+
+            if [ -d "${BACKUP_PATH}" ]; then
+              cd "${BACKUP_PATH}"
+              ls -t | tail -n +"$((KEEP_BACKUPS + 1))" | xargs -r rm -rf
+              echo "Old backups cleaned"
+            fi
+          EOF
+
+      - name: Rollback production on failure
+        id: rollback
+        if: failure() && steps.backup.outputs.backup_name != ''
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
+            set -euo pipefail
+            cd ~
+
+            BACKUP_NAME="${{ steps.backup.outputs.backup_name }}"
+            if [ ! -d "${BACKUP_PATH}/${BACKUP_NAME}" ]; then
+              echo "Backup not found: ${BACKUP_PATH}/${BACKUP_NAME}"
+              exit 1
+            fi
+
+            rm -rf "${REMOTE_PATH}"
+            cp -r "${BACKUP_PATH}/${BACKUP_NAME}" "${REMOTE_PATH}"
+            echo "Rollback completed from ${BACKUP_PATH}/${BACKUP_NAME}"
+          EOF
 
       - name: Remove runner IP from whitelist
-        if: always() && steps.ip.outputs.ipv4 != ''
-        run: |
-          curl -fsS -m 45 \
-            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-            "https://${CPANEL_HOST}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22" || true
-
-      - name: Clean SSH key
         if: always()
-        run: rm -rf ~/.ssh
+        run: |
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22' || true
+
+      - name: Cleaning SSH keys
+        if: always()
+        run: rm -fr ~/.ssh
