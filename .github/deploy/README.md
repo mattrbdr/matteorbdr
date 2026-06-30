@@ -9,12 +9,11 @@ The host-side deployment flow follows the O2Switch/cPanel workflow:
 3. Whitelist the GitHub runner IP on port `22`.
 4. Verify that the runner IP is whitelisted.
 5. Install the SSH key.
-6. Import and authorize the derived public SSH key in cPanel.
-7. Back up the current remote production folder.
-8. Deploy static files with `rsync --delete`.
-9. Verify the remote `index.html` and clean old backups.
-10. Roll back from the backup if deployment fails.
-11. Remove the runner IP from the whitelist and clean local SSH keys.
+6. Back up the current remote production folder.
+7. Deploy static files with `rsync --delete`.
+8. Verify the remote `index.html` and clean old backups.
+9. Roll back from the backup if deployment fails.
+10. Remove the runner IP from the whitelist and clean local SSH keys.
 
 Customize non-sensitive settings in `o2switch-production.env`:
 
@@ -33,11 +32,9 @@ Required GitHub Actions secrets:
 - `SSH_KEY`
 
 `SSH_KEY` must be the private key whose public key is authorized for SSH access in O2Switch/cPanel.
-It can be stored as a multiline secret or with literal `\n` line breaks; the workflow normalizes both formats.
+Store it as a multiline secret, exactly like the private key file.
 Use an unencrypted deploy key for GitHub Actions, because the runner cannot type an interactive passphrase.
 If the workflow fails with `Permission denied (publickey,...)` after `Offering public key`, the cPanel API token and IP whitelist are working, but `CPANEL_USER`, `CPANEL_HOST`, or `SSH_KEY` is not accepted by the SSH server.
-The workflow prints the public key and fingerprint derived from `SSH_KEY`; authorize that public key in cPanel for the same user as `CPANEL_USER`.
-The workflow also attempts to import and authorize that public key automatically through cPanel API 2 before opening the SSH connection.
 The workflow intentionally calls cPanel `SshWhitelist/remove_all`, matching the working O2Switch example.
 
 To prevent anyone else from pushing/deploying, also configure GitHub repository settings:

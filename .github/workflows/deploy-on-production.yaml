@@ -115,69 +115,27 @@ jobs:
 
       - name: Removing all whitelisted IP
         run: |
-          curl -sm 45 -H"Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-          "https://${CPANEL_HOST}:2083/execute/SshWhitelist/remove_all"
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/remove_all'
 
       - name: Whitelisting the runner IP
         run: |
-          curl -sm 45 -H"Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-          "https://${CPANEL_HOST}:2083/execute/SshWhitelist/add?address=${{ steps.ip.outputs.ipv4 }}&port=22"
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/add?address=${{ steps.ip.outputs.ipv4 }}&port=22'
 
       - name: Ensure runner IP is whitelisted
         run: |
-          curl -sm 45 -H"Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-          "https://${CPANEL_HOST}:2083/execute/SshWhitelist/list" | grep "${{ steps.ip.outputs.ipv4 }}"
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/list' | grep ${{ steps.ip.outputs.ipv4 }}
 
       - name: Installing the SSH Key
         run: |
-          set -euo pipefail
-          eval "$(ssh-agent -s)"
+          eval $(ssh-agent -s)
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf "%s" "${SSH_KEY}" | perl -pe 's/\\n/\n/g; s/\r//g' > ~/.ssh/id_rsa
-          printf "\n" >> ~/.ssh/id_rsa
+          printf "%s\n" "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 0400 ~/.ssh/id_rsa
-          if ! grep -Eq '^-----BEGIN (OPENSSH|RSA|EC|DSA) PRIVATE KEY-----$' ~/.ssh/id_rsa; then
-            echo "SSH_KEY must contain a private SSH key, not a public key."
-            echo "Expected a header like: -----BEGIN OPENSSH PRIVATE KEY-----"
-            exit 1
-          fi
-          ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
-          echo "SSH public key fingerprint:"
-          ssh-keygen -lf ~/.ssh/id_rsa.pub
-          echo "SSH public key to authorize in cPanel:"
-          cat ~/.ssh/id_rsa.pub
           ssh-add ~/.ssh/id_rsa
-
-      - name: Authorize SSH key in cPanel
-        run: |
-          set -euo pipefail
-          KEY_NAME="github_actions_deploy"
-          PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
-
-          curl -fsS -m 45 -G \
-            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-            --data-urlencode "cpanel_jsonapi_user=${CPANEL_USER}" \
-            --data-urlencode "cpanel_jsonapi_apiversion=2" \
-            --data-urlencode "cpanel_jsonapi_module=SSH" \
-            --data-urlencode "cpanel_jsonapi_func=importkey" \
-            --data-urlencode "name=${KEY_NAME}" \
-            --data-urlencode "key=${PUBLIC_KEY}" \
-            "https://${CPANEL_HOST}:2083/json-api/cpanel" \
-            | tee /tmp/cpanel-import-key.json
-          node -e "const fs=require('node:fs'); const p='/tmp/cpanel-import-key.json'; const json=JSON.parse(fs.readFileSync(p,'utf8')); const result=json?.cpanelresult?.event?.result ?? json?.status; if (result === 0 || result === '0') { console.error(JSON.stringify(json, null, 2)); process.exit(1); }"
-
-          curl -fsS -m 45 -G \
-            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-            --data-urlencode "cpanel_jsonapi_user=${CPANEL_USER}" \
-            --data-urlencode "cpanel_jsonapi_apiversion=2" \
-            --data-urlencode "cpanel_jsonapi_module=SSH" \
-            --data-urlencode "cpanel_jsonapi_func=authkey" \
-            --data-urlencode "key=${KEY_NAME}" \
-            --data-urlencode "action=authorize" \
-            "https://${CPANEL_HOST}:2083/json-api/cpanel" \
-            | tee /tmp/cpanel-authorize-key.json
-          node -e "const fs=require('node:fs'); const p='/tmp/cpanel-authorize-key.json'; const json=JSON.parse(fs.readFileSync(p,'utf8')); const result=json?.cpanelresult?.event?.result ?? json?.status; if (result === 0 || result === '0') { console.error(JSON.stringify(json, null, 2)); process.exit(1); }"
 
       - name: Backup current production
         id: backup
@@ -186,11 +144,8 @@ jobs:
           BACKUP_NAME="production-backup-$(date +%Y%m%d-%H%M%S)"
           echo "backup_name=${BACKUP_NAME}" >> "$GITHUB_OUTPUT"
 
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-            -o BatchMode=yes \
-            -vv \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
-            "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' BACKUP_NAME='${BACKUP_NAME}' bash -s" <<'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -vv \
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
 
             mkdir -p "${REMOTE_PATH}" "${BACKUP_PATH}"
@@ -208,18 +163,16 @@ jobs:
       - name: Deploy static files with rsync
         run: |
           set -euo pipefail
-          rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -o BatchMode=yes -i ~/.ssh/id_rsa" \
+          rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
             --exclude=".git" --exclude="tmp" --exclude="node_modules" --exclude="**/node_modules" \
             -av --delete production/site/ \
-            "${CPANEL_USER}@${CPANEL_HOST}:${REMOTE_PATH}/"
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}:${REMOTE_PATH}/
 
       - name: Verify remote deployment and cleanup backups
         id: remote
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-            -o BatchMode=yes \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
-            "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' KEEP_BACKUPS='${KEEP_BACKUPS}' bash -s" <<'EOF'
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
 
             test -f "${REMOTE_PATH}/index.html"
@@ -237,11 +190,10 @@ jobs:
         if: failure() && steps.backup.outputs.backup_name != ''
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-            -o BatchMode=yes \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
-            "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' BACKUP_NAME='${{ steps.backup.outputs.backup_name }}' bash -s" <<'EOF'
+            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} << EOF
             set -euo pipefail
 
+            BACKUP_NAME="${{ steps.backup.outputs.backup_name }}"
             if [ ! -d "${BACKUP_PATH}/${BACKUP_NAME}" ]; then
               echo "Backup not found: ${BACKUP_PATH}/${BACKUP_NAME}"
               exit 1
@@ -256,8 +208,8 @@ jobs:
       - name: Remove runner IP from whitelist
         if: always()
         run: |
-          curl -sm 45 -H"Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-          "https://${CPANEL_HOST}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22" || true
+          curl -sm 45 -H'Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}' \
+          'https://${{ secrets.CPANEL_HOST }}:2083/execute/SshWhitelist/remove?address=${{ steps.ip.outputs.ipv4 }}&port=22' || true
 
       - name: Cleaning SSH keys
         if: always()
