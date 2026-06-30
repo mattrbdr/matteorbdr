@@ -145,6 +145,8 @@ jobs:
           ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
           echo "SSH public key fingerprint:"
           ssh-keygen -lf ~/.ssh/id_rsa.pub
+          echo "SSH public key to authorize in cPanel:"
+          cat ~/.ssh/id_rsa.pub
           ssh-add ~/.ssh/id_rsa
 
       - name: Backup current production
@@ -155,6 +157,7 @@ jobs:
           echo "backup_name=${BACKUP_NAME}" >> "$GITHUB_OUTPUT"
 
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
+            -vv \
             "${CPANEL_USER}@${CPANEL_HOST}" \
             "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' BACKUP_NAME='${BACKUP_NAME}' bash -s" <<'EOF'
             set -euo pipefail

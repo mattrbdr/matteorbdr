@@ -35,7 +35,7 @@ Required GitHub Actions secrets:
 It can be stored as a multiline secret or with literal `\n` line breaks; the workflow normalizes both formats.
 Use an unencrypted deploy key for GitHub Actions, because the runner cannot type an interactive passphrase.
 If the workflow fails with `Permission denied (publickey,...)`, the cPanel API token and IP whitelist are working, but `CPANEL_USER`, `CPANEL_HOST`, or `SSH_KEY` is not accepted by the SSH server.
-The workflow prints the public key fingerprint derived from `SSH_KEY`; compare it with the authorized key in cPanel.
+The workflow prints the public key and fingerprint derived from `SSH_KEY`; authorize that public key in cPanel for the same user as `CPANEL_USER`.
 The workflow intentionally calls cPanel `SshWhitelist/remove_all`, matching the working O2Switch example.
 
 To prevent anyone else from pushing/deploying, also configure GitHub repository settings:
