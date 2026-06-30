@@ -149,6 +149,36 @@ jobs:
           cat ~/.ssh/id_rsa.pub
           ssh-add ~/.ssh/id_rsa
 
+      - name: Authorize SSH key in cPanel
+        run: |
+          set -euo pipefail
+          KEY_NAME="github_actions_deploy"
+          PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+
+          curl -fsS -m 45 -G \
+            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
+            --data-urlencode "cpanel_jsonapi_user=${CPANEL_USER}" \
+            --data-urlencode "cpanel_jsonapi_apiversion=2" \
+            --data-urlencode "cpanel_jsonapi_module=SSH" \
+            --data-urlencode "cpanel_jsonapi_func=importkey" \
+            --data-urlencode "name=${KEY_NAME}" \
+            --data-urlencode "key=${PUBLIC_KEY}" \
+            "https://${CPANEL_HOST}:2083/json-api/cpanel" \
+            | tee /tmp/cpanel-import-key.json
+          node -e "const fs=require('node:fs'); const p='/tmp/cpanel-import-key.json'; const json=JSON.parse(fs.readFileSync(p,'utf8')); const result=json?.cpanelresult?.event?.result ?? json?.status; if (result === 0 || result === '0') { console.error(JSON.stringify(json, null, 2)); process.exit(1); }"
+
+          curl -fsS -m 45 -G \
+            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
+            --data-urlencode "cpanel_jsonapi_user=${CPANEL_USER}" \
+            --data-urlencode "cpanel_jsonapi_apiversion=2" \
+            --data-urlencode "cpanel_jsonapi_module=SSH" \
+            --data-urlencode "cpanel_jsonapi_func=authkey" \
+            --data-urlencode "key=${KEY_NAME}" \
+            --data-urlencode "action=authorize" \
+            "https://${CPANEL_HOST}:2083/json-api/cpanel" \
+            | tee /tmp/cpanel-authorize-key.json
+          node -e "const fs=require('node:fs'); const p='/tmp/cpanel-authorize-key.json'; const json=JSON.parse(fs.readFileSync(p,'utf8')); const result=json?.cpanelresult?.event?.result ?? json?.status; if (result === 0 || result === '0') { console.error(JSON.stringify(json, null, 2)); process.exit(1); }"
+
       - name: Backup current production
         id: backup
         run: |
