@@ -131,7 +131,7 @@ jobs:
           ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
           echo "SSH public key fingerprint:"
           ssh-keygen -lf ~/.ssh/id_rsa.pub
-          ssh-keyscan -p 22 -H "${CPANEL_HOST}" >> ~/.ssh/known_hosts
+          ssh-keyscan -T 10 -p 22 -H "${CPANEL_HOST}" >> ~/.ssh/known_hosts || true
 
       - name: Check SSH connection
         run: |
@@ -139,6 +139,7 @@ jobs:
           ssh -p 22 \
             -o BatchMode=yes \
             -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=accept-new \
             -i ~/.ssh/id_rsa \
             "${CPANEL_USER}@${CPANEL_HOST}" \
             "pwd && whoami"
@@ -148,7 +149,7 @@ jobs:
           set -euo pipefail
           BACKUP_NAME="production-$(date -u +%Y%m%d-%H%M%S)"
 
-          ssh -p 22 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa "${CPANEL_USER}@${CPANEL_HOST}" \
+          ssh -p 22 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_rsa "${CPANEL_USER}@${CPANEL_HOST}" \
             "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' KEEP_BACKUPS='${KEEP_BACKUPS}' BACKUP_NAME='${BACKUP_NAME}' bash -s" <<'EOF'
           set -euo pipefail
 
@@ -171,7 +172,7 @@ jobs:
         run: |
           set -euo pipefail
           rsync -az --delete --timeout=60 \
-            -e "ssh -p 22 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa" \
+            -e "ssh -p 22 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_rsa" \
             "${BUILD_OUTPUT}/" \
             "${CPANEL_USER}@${CPANEL_HOST}:${REMOTE_PATH}/"
 
