@@ -120,8 +120,14 @@ jobs:
         run: |
           set -euo pipefail
           install -m 700 -d ~/.ssh
-          printf "%s\n" "${SSH_KEY}" > ~/.ssh/id_rsa
+          printf "%s" "${SSH_KEY}" | perl -pe 's/\\n/\n/g; s/\r//g' > ~/.ssh/id_rsa
+          printf "\n" >> ~/.ssh/id_rsa
           chmod 0400 ~/.ssh/id_rsa
+          if ! grep -Eq '^-----BEGIN (OPENSSH|RSA|EC|DSA) PRIVATE KEY-----$' ~/.ssh/id_rsa; then
+            echo "SSH_KEY must contain a private SSH key, not a public key."
+            echo "Expected a header like: -----BEGIN OPENSSH PRIVATE KEY-----"
+            exit 1
+          fi
           ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
           echo "SSH public key fingerprint:"
           ssh-keygen -lf ~/.ssh/id_rsa.pub

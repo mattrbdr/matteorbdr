@@ -19,6 +19,8 @@ Required GitHub Actions secrets:
 - `SSH_KEY`
 
 `SSH_KEY` must be the private key whose public key is authorized for SSH access in O2Switch/cPanel.
+It can be stored as a multiline secret or with literal `\n` line breaks; the workflow normalizes both formats.
+Use an unencrypted deploy key for GitHub Actions, because the runner cannot type an interactive passphrase.
 If the workflow fails with `Permission denied (publickey,...)`, the cPanel API token and IP whitelist are working, but `CPANEL_USER`, `CPANEL_HOST`, or `SSH_KEY` is not accepted by the SSH server.
 The workflow prints the public key fingerprint derived from `SSH_KEY`; compare it with the authorized key in cPanel.
 
