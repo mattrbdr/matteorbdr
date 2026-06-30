@@ -31,6 +31,7 @@ jobs:
       CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
       CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
       SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -78,6 +79,8 @@ jobs:
               exit 1
             fi
           done
+
+          echo "SSH_USER=${SSH_USER:-${CPANEL_USER}}" >> "$GITHUB_ENV"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -157,8 +160,9 @@ jobs:
           echo "backup_name=${BACKUP_NAME}" >> "$GITHUB_OUTPUT"
 
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
+            -o BatchMode=yes \
             -vv \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
+            "${SSH_USER}@${CPANEL_HOST}" \
             "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' BACKUP_NAME='${BACKUP_NAME}' bash -s" <<'EOF'
             set -euo pipefail
 
@@ -177,16 +181,17 @@ jobs:
       - name: Deploy static files with rsync
         run: |
           set -euo pipefail
-          rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
+          rsync --timeout=60 -e "ssh -o StrictHostKeyChecking=no -o BatchMode=yes -i ~/.ssh/id_rsa" \
             --exclude=".git" --exclude="tmp" --exclude="node_modules" --exclude="**/node_modules" \
             -av --delete production/site/ \
-            "${CPANEL_USER}@${CPANEL_HOST}:${REMOTE_PATH}/"
+            "${SSH_USER}@${CPANEL_HOST}:${REMOTE_PATH}/"
 
       - name: Verify remote deployment and cleanup backups
         id: remote
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
+            -o BatchMode=yes \
+            "${SSH_USER}@${CPANEL_HOST}" \
             "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' KEEP_BACKUPS='${KEEP_BACKUPS}' bash -s" <<'EOF'
             set -euo pipefail
 
@@ -205,7 +210,8 @@ jobs:
         if: failure() && steps.backup.outputs.backup_name != ''
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-            "${CPANEL_USER}@${CPANEL_HOST}" \
+            -o BatchMode=yes \
+            "${SSH_USER}@${CPANEL_HOST}" \
             "REMOTE_PATH='${REMOTE_PATH}' BACKUP_PATH='${BACKUP_PATH}' BACKUP_NAME='${{ steps.backup.outputs.backup_name }}' bash -s" <<'EOF'
             set -euo pipefail
 

@@ -31,11 +31,15 @@ Required GitHub Actions secrets:
 - `CPANEL_API_TOKEN`
 - `SSH_KEY`
 
+Optional GitHub Actions secrets:
+
+- `SSH_USER`: SSH login when it differs from `CPANEL_USER`.
+
 `SSH_KEY` must be the private key whose public key is authorized for SSH access in O2Switch/cPanel.
 It can be stored as a multiline secret or with literal `\n` line breaks; the workflow normalizes both formats.
 Use an unencrypted deploy key for GitHub Actions, because the runner cannot type an interactive passphrase.
-If the workflow fails with `Permission denied (publickey,...)`, the cPanel API token and IP whitelist are working, but `CPANEL_USER`, `CPANEL_HOST`, or `SSH_KEY` is not accepted by the SSH server.
-The workflow prints the public key and fingerprint derived from `SSH_KEY`; authorize that public key in cPanel for the same user as `CPANEL_USER`.
+If the workflow fails with `Permission denied (publickey,...)` after `Offering public key`, the cPanel API token and IP whitelist are working, but `SSH_USER`, `CPANEL_HOST`, or `SSH_KEY` is not accepted by the SSH server.
+The workflow prints the public key and fingerprint derived from `SSH_KEY`; authorize that public key in cPanel for the same user as `SSH_USER` or set `SSH_USER` to the correct SSH login.
 The workflow intentionally calls cPanel `SshWhitelist/remove_all`, matching the working O2Switch example.
 
 To prevent anyone else from pushing/deploying, also configure GitHub repository settings:
