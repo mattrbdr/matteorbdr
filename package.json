@@ -32,5 +32,10 @@
     "eslint": "^10.3.0",
     "typescript": "^6.0.3",
     "vue-tsc": "^3.2.8"
+  },
+  "overrides": {
+    "fontless": {
+      "esbuild": "0.28.1"
+    }
   }
 }
