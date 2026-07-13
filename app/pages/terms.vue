@@ -39,9 +39,7 @@ defineOgImage('Portfolio', { title, description })
     >
       <MDC
         :value="page.content"
-        class="prose max-w-none
-               prose-headings:font-medium prose-headings:tracking-tight
-               prose-p:leading-7 prose-p:text-muted"
+        class="prose max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-p:leading-7 prose-p:text-muted"
       />
     </UPageSection>
   </UPage>

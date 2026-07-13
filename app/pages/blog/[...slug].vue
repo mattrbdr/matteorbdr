@@ -101,10 +101,7 @@ const minLabel = computed(() => t('min_read'))
         <ContentRenderer
           v-if="page?.body"
           :value="page"
-      class="prose max-w-none
-             prose-headings:font-medium prose-headings:tracking-tight
-                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                 prose-p:leading-8 prose-img:rounded-md prose-img:shadow-none"
+          class="prose max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-p:leading-8 prose-img:rounded-md prose-img:shadow-none"
         />
       </div>
 
