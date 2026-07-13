@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <section class="px-4 sm:px-6 lg:px-0">
+  <section>
     <div class="space-y-6">
       <div
         v-for="(item, index) in page.testimonials"
