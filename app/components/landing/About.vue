@@ -9,8 +9,8 @@ defineProps<{
 <template>
   <div>
     <UPageSection
-      :title="page.about.title"
-      :description="page.about.description"
+      :title="page.about?.title"
+      :description="page.about?.description"
       :ui="{
         container: 'p-0!',
         wrapper: 'px-0!',
