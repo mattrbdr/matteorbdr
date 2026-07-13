@@ -32,7 +32,7 @@ export default defineAppConfig({
     }
   },
   footer: {
-    credits: `Construit avec ♥ par Mattéo`,
+    credits: `Construit avec ❤️ par Mattéo`,
     colorMode: false,
     links: [
       {

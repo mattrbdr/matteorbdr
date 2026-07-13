@@ -26,7 +26,7 @@ const messages = {
     article: 'Article',
     footer_credits: '© 2026 Mattéo',
     footer: {
-      built_with: 'Built with ♥ by Mattéo',
+      built_with: 'Built with ❤️ by Mattéo',
       legal: 'Legal notice'
     },
     services: {
@@ -63,7 +63,7 @@ const messages = {
     article: 'Article',
     footer_credits: '© 2026 Mattéo',
     footer: {
-      built_with: 'Construit avec ♥ par Mattéo',
+      built_with: 'Construit avec ❤️ par Mattéo',
       legal: 'Mentions légales'
     },
     services: {
