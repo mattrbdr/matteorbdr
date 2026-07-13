@@ -6,10 +6,6 @@ const { data: page } = await useAsyncData(`contact-${locale.value}`, () => {
   return queryCollection(collection.value).first()
 })
 
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
-
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
 
@@ -21,7 +17,13 @@ defineOgImage('Portfolio', { title, description })
 </script>
 
 <template>
-  <UPage v-if="page">
+  <div
+    v-if="!page"
+    class="px-4 py-12 text-center text-sm text-muted"
+  >
+    Loading…
+  </div>
+  <UPage v-else>
     <section class="px-4 pt-12 pb-6 sm:px-6 lg:px-0 sm:pt-16 sm:pb-8">
       <div class="max-w-xl space-y-3">
         <h1 class="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">

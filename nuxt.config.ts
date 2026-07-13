@@ -58,7 +58,11 @@ export default defineNuxtConfig({
         '/fr/blog',
         '/fr/blog/welcome',
         '/fr/projects',
-        '/fr/services'
+        '/fr/services',
+        '/contact',
+        '/terms',
+        '/fr/contact',
+        '/fr/terms'
       ]
     },
     devStorage: {
