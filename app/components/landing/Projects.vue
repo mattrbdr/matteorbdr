@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
+const { locale } = useTranslations()
+const isFr = locale.value === 'fr'
 const collection = isFr ? 'projects_fr' : 'projects'
 
-const { data: allProjects } = await useAsyncData('all-projects', () =>
+const { data: allProjects } = useAsyncData(`all-projects-${locale.value}`, () =>
   queryCollection(collection).all()
 )
 

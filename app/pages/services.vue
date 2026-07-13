@@ -35,7 +35,7 @@ const emailLabel = computed(() => {
     {{ isFr ? 'Chargement…' : 'Loading…' }}
   </div>
   <UPage v-else>
-    <section class="px-4 pt-12 pb-6 sm:px-6 lg:px-0 sm:pt-16 sm:pb-8">
+    <section class="px-4 pt-4 pb-6 sm:px-6 lg:px-0 sm:pt-6 sm:pb-8">
       <div class="max-w-xl space-y-3">
         <h1 class="whitespace-pre-line text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
           {{ page.hero_tagline }}
@@ -74,14 +74,12 @@ const emailLabel = computed(() => {
             {{ offering.description }}
           </p>
 
-          <div
+          <p
             v-if="offering.pricing"
-            class="mt-4 rounded-lg border border-default/10 bg-elevated/20 px-4 py-3"
+            class="mt-4 text-sm font-medium text-foreground"
           >
-            <div class="text-sm font-medium text-foreground">
-              {{ offering.pricing }}
-            </div>
-          </div>
+            {{ offering.pricing }}
+          </p>
 
           <div
             v-if="offering.items?.length"

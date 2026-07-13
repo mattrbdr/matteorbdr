@@ -28,7 +28,7 @@ const translatedLinks = computed(() => {
 
 <template>
   <header
-    class="w-full flex flex-col gap-5 pb-6 mb-6 select-none px-4 sm:px-6 lg:px-0"
+    class="w-full flex flex-col gap-5 pb-4 mb-4 select-none px-4 sm:px-6 lg:px-0"
   >
     <!-- Brand Name and Toggles -->
     <div class="flex items-center justify-between w-full">
