@@ -1,67 +1,60 @@
 seo:
-  title: "Mattéo - Fullstack Developer"
-  description: "Hello, I'm Mattéo. I design and improve technical systems that really need to work."
-title: "Hi, I'm Mattéo, a freelance developer turning fuzzy ideas into products that work."
-description: "I work on existing products and systems to simplify, modernize, and make them more effective. I also build custom tools when starting from scratch is necessary. My goal is simple: reduce complexity and increase impact."
+  title: "Mattéo - Developer & Product Builder"
+  description: "Hi, I'm Mattéo. I build useful products, fix complicated ones, and launch a lot of things on the internet."
+title: |
+  Hi, I'm Mattéo. 👋
+
+  I build useful products, fix complicated ones, and launch a lot of things on the internet.
+
+  Founder of Racines. Developer, product builder, and occasional problem solver.
 hero:
-  links:
-    - label: "Get in touch"
-      to: https://cal.com/matteorbdr/discovery-meeting
-      color: "neutral"
+  links: []
 about:
-  title: "About me"
+  title: "About"
   description: |
-    I've been building things on the internet since I was old enough to break them.
-    I now work freelance on products that need fixing, modernizing, or building from scratch. My main project is Racines - a SaaS platform for short supply chains that I designed and shipped solo, from architecture to deployment. That's where I test everything I then apply with clients.
-    What I actually care about in a mission: understanding the system before touching the code. And handing over something the other side can maintain without me.
+    I've been building websites since middle school.
+
+    Today, I work on Racines, experiment with new products, and help people turn complicated technical problems into simple things that actually work.
+
+    I like useful software, ambitious ideas, and systems that don't need a 40-page manual.
 experience:
   title: "Experiences"
   items:
-    - position: "Founder & developer at"
-      date: "2025 - Today"
-      company:
-        name: "Racines"
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "https://racinesapp.com"
-        color: "#00DC82"
-    - position: "Architect at"
-      date: "2026 - Today"
-      company:
-        name: "Open Value Pricing"
-        logo: "i-simple-icons-raycast"
-        url: "https://racinesapp.com/en/open-value"
-        color: "#FF6363"
-    - position: "Business developer"
-      date: "2023"
-      company:
-        name: "Geninc"
-        url: "#"
-    - position: "Web developer freelance at"
-      date: "2022 - 2023"
-      company:
-        name: "Initiative for Science in Europe"
-        logo: "i-simple-icons-linear"
-        url: "https://initiative-se.eu/"
-        color: "#5E6AD2"
-    - position: "Business advisor"
-      date: "2022 - 2025"
-      company:
-        name: "Seizart"
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "#"
-        color: "#00DC82"
-    - position: "Freelance developer at"
+    - position: "Freelance developer"
       date: "2018 - Today"
       company:
         name: "MRBDRS"
-        logo: "i-simple-icons-nuxtdotjs"
         url: "#"
-        color: "#00DC82"
     - position: "Founder & President"
       date: "2020"
       company:
         name: "Dev&Prod"
         url: "#"
+    - position: "Web developer freelance"
+      date: "2022 - 2023"
+      company:
+        name: "Initiative for Science in Europe"
+        url: "https://initiative-se.eu/"
+    - position: "Business advisor"
+      date: "2022 - 2025"
+      company:
+        name: "Seizart"
+        url: "#"
+    - position: "Business developer"
+      date: "2023"
+      company:
+        name: "Geninc"
+        url: "#"
+    - position: "Founder & developer"
+      date: "2025 - Today"
+      company:
+        name: "Racines"
+        url: "https://racinesapp.com"
+    - position: "Architect"
+      date: "2026 - Today"
+      company:
+        name: "Open Value Pricing"
+        url: "https://racinesapp.com/en/open-value"
 testimonials:
   - quote: "Mattéo worked on two projects for ISE: the website redesign, and the implementation of a survey tool for candidate lists in the European elections across the 27 EU countries. He completed the mission with great efficiency and considerable flexibility. I can only congratulate myself on the quality of our collaboration."
     author:
@@ -73,22 +66,10 @@ testimonials:
       description: "Founder · Seizart"
 blog:
   title: "Latest articles"
-  description: "Some of my recent thoughts on design, development, and the tech industry."
+  description: "Notes from the things I build, break, learn, and occasionally understand."
 certifications:
-  title: "Certifications"
+  title: "Selected learning"
   items:
-    - title: "AI Fluency for Nonprofits"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
-    - title: "AI Fluency Framework & Foundations"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
-    - title: "AI Fluency for Educators"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
     - title: "MOOC - Become an entrepreneur of change"
       issuer:
         name: "HEC Paris"
@@ -97,43 +78,11 @@ certifications:
       issuer:
         name: "Boston Consulting Group (BCG)"
       date: "Feb 2025"
-    - title: "The strategy of content marketing"
-      issuer:
-        name: "University of California, Davis"
-      date: "Jan 2025"
-    - title: "ABCs of climate and biodiversity"
-      issuer:
-        name: "CNED"
-      date: "Jan 2025"
-    - title: "Introduction to Human Psychology"
-      issuer:
-        name: "Yale University"
-      date: "Jul 2024"
     - title: "Resilient Leadership"
       issuer:
         name: "Harvard Business School"
       date: "Dec 2023"
-    - title: "Fundamentals of digital marketing"
+    - title: "Introduction to Human Psychology"
       issuer:
-        name: "Google Digital Garage"
-      date: "Apr 2023"
-faq:
-  title: "Common questions"
-  description: "Answers to questions I often get asked."
-  categories:
-    - title: "Work & Collaboration"
-      questions:
-        - label: "How does collaboration work with you?"
-          content: "An exchange to validate the need. An audit to understand the system. Recommendations, a clear scope, then autonomous execution with regular check-ins. Delivery on the agreed date, simple communication (Slack, WhatsApp, email)."
-        - label: "Can you work on an existing product?"
-          content: "Yes. I modernize, optimize or replace only what's slowing things down. No unnecessary rewrites."
-        - label: "Do you work autonomously?"
-          content: "Yes. I manage progress and any additional stakeholders. I just need a contact available to validate key decisions."
-    - title: "Services & Pricing"
-      questions:
-        - label: "What projects do you take on?"
-          content: "Refactors, internal tools, SaaS, audits, optimization, light web branding. I don't do mobile apps or editorial communication."
-        - label: "How do your rates work?"
-          content: "Day rate for short missions. Fixed price for scoped projects. Pricing adjusted according to client and objectives."
-        - label: "What's the minimum budget?"
-          content: "There's no strict minimum. I adapt each mission to the client's profile, context, and objectives. I work with all types of structures - SMEs, associations, institutions, small teams or larger organizations. The key is having a clear need and a project that deserves to be done properly."
+        name: "Yale University"
+      date: "Jul 2024"

@@ -1,5 +1,6 @@
 title: "OpenValue"
-description: "Deterministic pricing engine with cryptographic integrity - no blockchain, just math."
+description: "A deterministic pricing engine with cryptographic integrity."
+full_description: "Deterministic pricing engine with cryptographic integrity - no blockchain, just math."
 image: ""
 url: "https://racinesapp.com/open-value"
 tags:
@@ -13,3 +14,4 @@ technologies:
   - "Shell"
 date: "2026-05-14"
 status: in_progress
+featured: true

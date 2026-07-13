@@ -23,7 +23,7 @@ const formatDate = (dateString: string | Date) => {
 </script>
 
 <template>
-  <section class="py-12 text-left sm:py-16">
+  <section class="text-left">
     <header class="mb-4">
       <h2 class="text-xl font-medium text-foreground lg:text-2xl">
         {{ blogSectionTitle }}

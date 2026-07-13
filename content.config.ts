@@ -42,9 +42,9 @@ export default defineContentConfig({
       schema: z.object({
         hero: z.object({
           links: z.array(createButtonSchema()),
-          images: z.array(createImageSchema())
-        }),
-        about: createBaseSchema(),
+          images: z.array(createImageSchema()).optional()
+        }).optional(),
+        about: createBaseSchema().optional(),
         experience: createBaseSchema().extend({
           items: z.array(z.object({
             date: z.date(),
@@ -56,9 +56,9 @@ export default defineContentConfig({
               color: z.string().optional()
             })
           }))
-        }),
-        testimonials: z.array(createTestimonialSchema()),
-        blog: createBaseSchema(),
+        }).optional(),
+        testimonials: z.array(createTestimonialSchema()).optional(),
+        blog: createBaseSchema().optional(),
         faq: createBaseSchema().extend({
           categories: z.array(
             z.object({
@@ -70,7 +70,7 @@ export default defineContentConfig({
                 })
               )
             }))
-        }),
+        }).optional(),
         certifications: createBaseSchema().extend({
           items: z.array(z.object({
             title: z.string(),
@@ -83,7 +83,7 @@ export default defineContentConfig({
             url: z.string().optional(),
             skills: z.array(z.string()).optional()
           }))
-        })
+        }).optional()
       })
     }),
     index_fr: defineCollection({
@@ -92,9 +92,9 @@ export default defineContentConfig({
       schema: z.object({
         hero: z.object({
           links: z.array(createButtonSchema()),
-          images: z.array(createImageSchema())
-        }),
-        about: createBaseSchema(),
+          images: z.array(createImageSchema()).optional()
+        }).optional(),
+        about: createBaseSchema().optional(),
         experience: createBaseSchema().extend({
           items: z.array(z.object({
             date: z.date(),
@@ -106,9 +106,9 @@ export default defineContentConfig({
               color: z.string().optional()
             })
           }))
-        }),
-        testimonials: z.array(createTestimonialSchema()),
-        blog: createBaseSchema(),
+        }).optional(),
+        testimonials: z.array(createTestimonialSchema()).optional(),
+        blog: createBaseSchema().optional(),
         faq: createBaseSchema().extend({
           categories: z.array(
             z.object({
@@ -120,7 +120,7 @@ export default defineContentConfig({
                 })
               )
             }))
-        }),
+        }).optional(),
         certifications: createBaseSchema().extend({
           items: z.array(z.object({
             title: z.string(),
@@ -133,7 +133,7 @@ export default defineContentConfig({
             url: z.string().optional(),
             skills: z.array(z.string()).optional()
           }))
-        })
+        }).optional()
       })
     }),
     projects: defineCollection({
@@ -142,6 +142,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string().nonempty(),
         description: z.string().nonempty(),
+        full_description: z.string().optional(),
         image: z.string().nonempty().editor({ input: 'media' }),
         url: z.string().optional(),
         github: z.string().optional(),
@@ -149,7 +150,8 @@ export default defineContentConfig({
         technologies: z.array(z.string()).optional(),
         date: z.date(),
         status: z.enum(['in_progress', 'completed', 'archived']).optional(),
-        client: z.boolean().optional()
+        client: z.boolean().optional(),
+        featured: z.boolean().optional()
       })
     }),
     projects_fr: defineCollection({
@@ -158,6 +160,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string().nonempty(),
         description: z.string().nonempty(),
+        full_description: z.string().optional(),
         image: z.string().nonempty().editor({ input: 'media' }),
         url: z.string().optional(),
         github: z.string().optional(),
@@ -165,7 +168,8 @@ export default defineContentConfig({
         technologies: z.array(z.string()).optional(),
         date: z.date(),
         status: z.enum(['in_progress', 'completed', 'archived']).optional(),
-        client: z.boolean().optional()
+        client: z.boolean().optional(),
+        featured: z.boolean().optional()
       })
     }),
     blog: defineCollection({
@@ -237,6 +241,10 @@ export default defineContentConfig({
         })).optional(),
         ai_note: z.string().optional(),
         cta_bottom_text: z.string().optional(),
+        faq: z.array(z.object({
+          label: z.string(),
+          content: z.string()
+        })).optional(),
         links: z.array(createButtonSchema())
       })
     }),
@@ -259,6 +267,10 @@ export default defineContentConfig({
         })).optional(),
         ai_note: z.string().optional(),
         cta_bottom_text: z.string().optional(),
+        faq: z.array(z.object({
+          label: z.string(),
+          content: z.string()
+        })).optional(),
         links: z.array(createButtonSchema())
       })
     }),

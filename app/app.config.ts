@@ -1,8 +1,7 @@
 export default defineAppConfig({
   global: {
     picture: {
-      dark: '/mattrbdr2.webp',
-      light: '/mattrbdr2.webp',
+      src: '/mattrbdr2.webp',
       alt: 'Mattéo'
     },
     meetingLink: 'https://cal.com/matteorbdr/discovery-meeting',

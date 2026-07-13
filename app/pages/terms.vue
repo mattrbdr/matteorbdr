@@ -39,7 +39,7 @@ defineOgImage('Portfolio', { title, description })
     >
       <MDC
         :value="page.content"
-        class="prose dark:prose-invert max-w-none
+        class="prose max-w-none
                prose-headings:font-medium prose-headings:tracking-tight
                prose-p:leading-7 prose-p:text-muted"
       />

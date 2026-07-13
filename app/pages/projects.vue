@@ -18,8 +18,6 @@ const { data: projects } = await useAsyncData(`projects-${locale.value}`, () => 
   return queryCollection(projectsCollection.value).all()
 })
 
-const { global } = useAppConfig()
-
 const selectedProject = ref<any>(null)
 const drawerOpen = ref(false)
 const modalOpen = ref(false)
@@ -43,7 +41,6 @@ const allTechnologies = computed(() => {
 })
 
 const statusOptions = computed(() => [
-  { label: locale.value === 'fr' ? 'Tous les statuts' : 'All statuses', value: '' },
   { label: locale.value === 'fr' ? 'En cours' : 'In progress', value: 'in_progress' },
   { label: locale.value === 'fr' ? 'Terminé' : 'Completed', value: 'completed' },
   { label: locale.value === 'fr' ? 'Archivé' : 'Archived', value: 'archived' }
@@ -68,6 +65,12 @@ const filteredProjects = computed(() => {
 })
 
 const hasActiveFilters = computed(() => selectedTags.value.length > 0 || selectedTechnologies.value.length > 0 || selectedStatus.value !== '')
+
+const featuredProjects = computed(() => filteredProjects.value.filter((p: any) => p.featured))
+const otherProjects = computed(() => filteredProjects.value.filter((p: any) => !p.featured))
+
+const selectedWorkLabel = computed(() => locale.value === 'fr' ? 'Selected work' : 'Selected work')
+const experimentsLabel = computed(() => locale.value === 'fr' ? 'Experiments & internet things' : 'Experiments & internet things')
 
 const toggleTag = (tag: string) => {
   if (selectedTags.value.includes(tag)) {
@@ -99,8 +102,8 @@ const statusLabel = (status: string) => {
 }
 
 const statusColor = (status: string) => {
-  if (status === 'in_progress') return 'text-green-600 dark:text-green-400'
-  if (status === 'completed') return 'text-blue-600 dark:text-blue-400'
+  if (status === 'in_progress') return 'text-green-600'
+  if (status === 'completed') return 'text-blue-600'
   return 'text-muted'
 }
 
@@ -161,39 +164,19 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
 
 <template>
   <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      :links="page.links"
-      :ui="{
-        container: 'py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-0',
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
-        links: 'justify-start'
-      }"
-    >
-      <template #links>
-        <div
-          v-if="page.links"
-          class="flex items-center gap-2"
+    <section class="px-4 pt-12 pb-6 sm:px-6 lg:px-0 sm:pt-16 sm:pb-8">
+      <div class="max-w-xl space-y-3">
+        <h1 class="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+          {{ page.title }}
+        </h1>
+        <p
+          v-if="page.description"
+          class="text-sm leading-6 text-muted sm:text-base"
         >
-          <UButton
-            :label="page.links[0]?.label"
-            :to="global.meetingLink"
-            v-bind="page.links[0]"
-            variant="link"
-            class="px-0"
-          />
-          <UButton
-            :to="`mailto:${global.email}`"
-            v-bind="page.links[1]"
-            variant="link"
-            color="neutral"
-            class="px-0 text-muted hover:text-primary"
-          />
-        </div>
-      </template>
-    </UPageHero>
+          {{ page.description }}
+        </p>
+      </div>
+    </section>
 
     <UPageSection
       :ui="{
@@ -204,18 +187,13 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
         <div class="flex flex-wrap items-center gap-4">
           <div class="flex items-center gap-2">
             <span class="text-xs font-medium text-muted">{{ statusFilterLabel }}</span>
-            <select
+            <USelect
               v-model="selectedStatus"
-              class="rounded-lg border border-default/30 bg-default px-2.5 py-1 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none cursor-pointer"
-            >
-              <option
-                v-for="opt in statusOptions"
-                :key="opt.value"
-                :value="opt.value"
-              >
-                {{ opt.label }}
-              </option>
-            </select>
+              :items="statusOptions"
+              :placeholder="locale === 'fr' ? 'Statut' : 'Status'"
+              size="xs"
+              class="min-w-[130px]"
+            />
           </div>
           <button
             v-if="hasActiveFilters"
@@ -263,65 +241,128 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
         </div>
       </div>
 
-      <div class="divide-y divide-default/50">
-        <div
-          v-for="project in filteredProjects"
-          :key="project.title"
-          class="group cursor-pointer py-5 first:pt-0"
-          @click="openProject(project)"
-        >
-          <div class="flex flex-col gap-2 sm:grid sm:grid-cols-[6rem_1fr_auto] sm:items-baseline sm:gap-6">
-            <span class="text-xs text-muted">{{ new Date(project.date).getFullYear() }}</span>
-            <div>
-              <h3 class="text-base font-medium text-foreground transition-colors group-hover:text-primary">
-                {{ project.title }}
-              </h3>
-              <p class="mt-2 max-w-2xl text-sm leading-7 text-muted">
-                {{ project.description }}
-              </p>
-              <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                <button
-                  v-for="tag in project.tags.slice(0, 4)"
-                  :key="tag"
-                  class="text-xs text-muted hover:text-primary transition-colors"
-                  :class="{ 'text-primary': selectedTags.includes(tag) }"
-                  @click.stop="filterByTag(tag)"
+      <!-- Selected work -->
+      <template v-if="featuredProjects.length > 0">
+        <h3 class="text-sm font-medium text-muted mb-3">
+          {{ selectedWorkLabel }}
+        </h3>
+        <div class="divide-y divide-default/50">
+          <div
+            v-for="project in featuredProjects"
+            :key="project.title"
+            class="group cursor-pointer py-5 first:pt-0"
+            @click="openProject(project)"
+          >
+            <div class="flex flex-col gap-2 sm:grid sm:grid-cols-[6rem_1fr_auto] sm:items-baseline sm:gap-6">
+              <span class="text-xs text-muted">{{ new Date(project.date).getFullYear() }}</span>
+              <div>
+                <h3 class="text-base font-medium text-foreground transition-colors group-hover:text-primary">
+                  {{ project.title }}
+                </h3>
+                <p class="mt-2 max-w-2xl text-sm leading-7 text-muted">
+                  {{ project.description }}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                  <button
+                    v-for="tag in project.tags.slice(0, 4)"
+                    :key="tag"
+                    class="text-xs text-muted hover:text-primary transition-colors"
+                    :class="{ 'text-primary': selectedTags.includes(tag) }"
+                    @click.stop="filterByTag(tag)"
+                  >
+                    {{ tag }}
+                  </button>
+                </div>
+                <div
+                  v-if="project.technologies?.length"
+                  class="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5"
                 >
-                  {{ tag }}
-                </button>
+                  <button
+                    v-for="tech in project.technologies.slice(0, 3)"
+                    :key="tech"
+                    class="text-[11px] text-muted/60 hover:text-primary/80 transition-colors"
+                    :class="{ 'text-primary/80': selectedTechnologies.includes(tech) }"
+                    @click.stop="filterByTech(tech)"
+                  >
+                    {{ tech }}
+                  </button>
+                </div>
               </div>
-              <div
-                v-if="project.technologies?.length"
-                class="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5"
-              >
-                <button
-                  v-for="tech in project.technologies.slice(0, 3)"
-                  :key="tech"
-                  class="text-[11px] text-muted/60 hover:text-primary/80 transition-colors"
-                  :class="{ 'text-primary/80': selectedTechnologies.includes(tech) }"
-                  @click.stop="filterByTech(tech)"
-                >
-                  {{ tech }}
-                </button>
-              </div>
+              <span class="text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                {{ detailsLabel }}
+              </span>
             </div>
-            <span class="text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">
-              {{ detailsLabel }}
-            </span>
           </div>
         </div>
-        <div
-          v-if="filteredProjects.length === 0"
-          class="py-8 text-center text-sm text-muted"
-        >
-          {{ noProjectsLabel }}
+      </template>
+
+      <!-- Experiments -->
+      <template v-if="otherProjects.length > 0">
+        <h3 class="text-sm font-medium text-muted mb-3 mt-10">
+          {{ experimentsLabel }}
+        </h3>
+        <div class="divide-y divide-default/50">
+          <div
+            v-for="project in otherProjects"
+            :key="project.title"
+            class="group cursor-pointer py-5 first:pt-0"
+            @click="openProject(project)"
+          >
+            <div class="flex flex-col gap-2 sm:grid sm:grid-cols-[6rem_1fr_auto] sm:items-baseline sm:gap-6">
+              <span class="text-xs text-muted">{{ new Date(project.date).getFullYear() }}</span>
+              <div>
+                <h3 class="text-base font-medium text-foreground transition-colors group-hover:text-primary">
+                  {{ project.title }}
+                </h3>
+                <p class="mt-2 max-w-2xl text-sm leading-7 text-muted">
+                  {{ project.description }}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                  <button
+                    v-for="tag in project.tags.slice(0, 4)"
+                    :key="tag"
+                    class="text-xs text-muted hover:text-primary transition-colors"
+                    :class="{ 'text-primary': selectedTags.includes(tag) }"
+                    @click.stop="filterByTag(tag)"
+                  >
+                    {{ tag }}
+                  </button>
+                </div>
+                <div
+                  v-if="project.technologies?.length"
+                  class="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5"
+                >
+                  <button
+                    v-for="tech in project.technologies.slice(0, 3)"
+                    :key="tech"
+                    class="text-[11px] text-muted/60 hover:text-primary/80 transition-colors"
+                    :class="{ 'text-primary/80': selectedTechnologies.includes(tech) }"
+                    @click.stop="filterByTech(tech)"
+                  >
+                    {{ tech }}
+                  </button>
+                </div>
+              </div>
+              <span class="text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                {{ detailsLabel }}
+              </span>
+            </div>
+          </div>
         </div>
+      </template>
+
+      <div
+        v-if="filteredProjects.length === 0"
+        class="py-8 text-center text-sm text-muted"
+      >
+        {{ noProjectsLabel }}
       </div>
     </UPageSection>
 
     <UModal
       v-model:open="modalOpen"
       :title="selectedProject?.title"
+      :ui="{ title: 'text-left' }"
     >
       <template #body>
         <div
@@ -329,7 +370,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
           class="space-y-4"
         >
           <p class="text-muted">
-            {{ selectedProject.description }}
+            {{ selectedProject.full_description || selectedProject.description }}
           </p>
           <div
             v-if="selectedProject?.status"
@@ -417,7 +458,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
             />
           </div>
           <p class="text-muted">
-            {{ selectedProject.description }}
+            {{ selectedProject.full_description || selectedProject.description }}
           </p>
           <div
             v-if="selectedProject?.status"

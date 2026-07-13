@@ -1,5 +1,6 @@
 title: "Racines"
-description: "Short supply chain SaaS platform connecting producers, merchants, citizens, and local authorities. 0% commission for producers, real-time territorial data, and fair pricing through an integrated OpenValue engine."
+description: "A platform helping local producers sell directly, without commission."
+full_description: "Short supply chain SaaS platform connecting producers, merchants, citizens, and local authorities. 0% commission for producers, real-time territorial data, and fair pricing through an integrated OpenValue engine."
 image: ""
 url: "https://racinesapp.com"
 tags:
@@ -14,3 +15,4 @@ technologies:
   - "Redis"
 date: "2025-01-01"
 status: in_progress
+featured: true

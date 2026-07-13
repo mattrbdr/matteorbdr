@@ -1,5 +1,6 @@
 title: "C.A.S.E."
-description: "Centralized Analysis & Secure Evidence - a Trust Layer platform that transforms raw files into timestamped, cryptographically verified evidence packages ready for formal review (legal, compliance, insurance). Features SHA-256 ingestion with full chain of custody, metadata extraction, OCR, audio/video transcription, CASE READINESS SCORE™, immutable snapshots, append-only audit logs, and certified transmission engine."
+description: "Turn raw files into structured, verifiable evidence packages."
+full_description: "Centralized Analysis & Secure Evidence - a Trust Layer platform that transforms raw files into timestamped, cryptographically verified evidence packages ready for formal review (legal, compliance, insurance). Features SHA-256 ingestion with full chain of custody, metadata extraction, OCR, audio/video transcription, CASE READINESS SCORE™, immutable snapshots, append-only audit logs, and certified transmission engine."
 image: ""
 url: "#"
 tags:
@@ -18,3 +19,4 @@ technologies:
   - "Vite"
 date: "2026-03-01"
 status: in_progress
+featured: true

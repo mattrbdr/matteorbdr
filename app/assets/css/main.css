@@ -7,8 +7,6 @@
   --font-sans:
     -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
-  --font-serif:
-    "Petrona", Georgia, Cambria, "Times New Roman", Times, serif;
 
   --color-primary-50: #fff5eb;
   --color-primary-100: #ffe6cc;
@@ -32,24 +30,7 @@
   }
 }
 
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
-  }
-}
-
 html,
 body {
   background-color: var(--ui-bg);
-}
-
-html.dark,
-html.dark body {
-  background-color: oklch(0.18 0 0) !important;
-}
-
-.dark {
-  --color-default: oklch(0.18 0 0);
-  --color-elevated: oklch(0.2 0 0);
-  --color-muted: oklch(0.16 0 0);
 }
