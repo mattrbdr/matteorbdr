@@ -43,7 +43,7 @@ export default defineAppConfig({
       },
       {
         'icon': 'i-simple-icons-instagram',
-        'to': 'https://w.instagram.com/matteorbdr/',
+        'to': 'https://www.instagram.com/matteorbdr/',
         'target': '_blank',
         'aria-label': 'Instagram'
       },
