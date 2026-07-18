@@ -55,6 +55,11 @@ experience:
       company:
         name: "Open Value Pricing"
         url: "https://racinesapp.com/en/open-value"
+    - position: "System Support Engineer"
+      date: "2026 - Today"
+      company:
+        name: "o2switch"
+        url: "https://www.o2switch.fr/"
 testimonials:
   - quote: "Mattéo worked on two projects for ISE: the website redesign, and the implementation of a survey tool for candidate lists in the European elections across the 27 EU countries. He completed the mission with great efficiency and considerable flexibility. I can only congratulate myself on the quality of our collaboration."
     author:
