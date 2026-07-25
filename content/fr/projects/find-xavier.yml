@@ -1,5 +1,6 @@
 title: "Find Xavier"
-description: "Side project né d'un phénomène viral sur X : outil d'analyse faciale en Python pour comparer des photos de suspects via des métriques multi-critères (corrélation, histogramme, SSIM)."
+description: "Outil d'analyse faciale Python né d'un moment viral sur X."
+full_description: "Un projet side né d'un moment viral sur X : un outil d'analyse faciale Python qui compare des images suspectes via un scoring multi-métrique (corrélation, histogramme, SSIM)."
 image: ""
 url: "https://github.com/mattrbdr/XDDL-FaceBiometic"
 tags:

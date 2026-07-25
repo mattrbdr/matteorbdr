@@ -1,0 +1,16 @@
+title: "etg — env to GitHub"
+description: "CLI that syncs GitHub environment secrets from a local file."
+full_description: "Open-source CLI that syncs GitHub environment secrets from a local file, with diff preview and zero sensitive value exposure."
+image: ""
+url: "https://envtogit.mrbdrs.fr/"
+github: "https://github.com/mattrbdr/envtogithub"
+tags:
+  - "Tech / Dev"
+  - "Tooling"
+  - "Open-source"
+technologies:
+  - "Go"
+  - "GitHub CLI"
+  - "Homebrew"
+date: "2026-07-12"
+status: completed

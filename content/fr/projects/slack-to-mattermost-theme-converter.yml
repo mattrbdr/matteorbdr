@@ -1,0 +1,14 @@
+title: "Slack to Mattermost Theme Converter"
+description: "Convertissez les thèmes Slack en JSON Mattermost en un clic."
+full_description: "Un petit utilitaire vibecodé qui convertit les palettes de thèmes Slack en JSON de thème Mattermost personnalisé, avec presets, aperçu en direct, copie et téléchargement."
+image: ""
+url: "https://slacktomattermost.c.mrbdrs.fr/"
+tags:
+  - "Tech / Dev"
+  - "Tooling"
+technologies:
+  - "JavaScript"
+  - "HTML"
+  - "CSS"
+date: "2026-07-05"
+status: completed

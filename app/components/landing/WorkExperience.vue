@@ -1,54 +1,30 @@
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
-defineProps<{
+const props = defineProps<{
   page: IndexCollectionItem
 }>()
 
-const route = useRoute()
-const isFr = route.path.startsWith('/fr')
+const sortedExperiences = computed(() => {
+  if (!props.page.experience?.items) return []
+  const items = [...props.page.experience.items]
+  items.sort((a, b) => {
+    const yearA = parseInt(String(a.date).match(/\d{4}/)?.[0] || '0')
+    const yearB = parseInt(String(b.date).match(/\d{4}/)?.[0] || '0')
+    return yearA - yearB
+  })
+  return items
+})
 
 const formatYear = (date: string | Date) => {
   const match = String(date).match(/\d{4}/)
   return match?.[0] || String(date)
 }
-
-const formatRole = (position: string) => {
-  const normalized = position.toLowerCase()
-
-  if (normalized.includes('openvalue') || normalized.includes('architect')) {
-    return isFr ? 'créateur' : 'creator'
-  }
-
-  if (normalized.includes('president') || normalized.includes('président')) {
-    return isFr ? 'fondateur, président' : 'founder, president'
-  }
-
-  if (normalized.includes('founder') || normalized.includes('fondateur')) {
-    return isFr ? 'fondateur' : 'founder'
-  }
-
-  if (normalized.includes('seizart') || normalized.includes('advisor') || normalized.includes('conseiller')) {
-    return isFr ? 'conseiller' : 'business advisor'
-  }
-
-  if (normalized.includes('business developer') || normalized.includes('commercial')) {
-    return position
-      .replace(/\s+(at|chez)$/i, '')
-      .trim()
-      .toLowerCase()
-  }
-
-  return position
-    .replace(/\s+(at|chez)$/i, '')
-    .trim()
-    .toLowerCase()
-}
 </script>
 
 <template>
   <UPageSection
-    :title="page.experience.title"
+    :title="props.page.experience?.title"
     :ui="{
       container: 'p-0! gap-4 sm:gap-4',
       wrapper: 'px-0!',
@@ -59,7 +35,7 @@ const formatRole = (position: string) => {
     <template #description>
       <div class="space-y-2.5">
         <div
-          v-for="(experience, index) in page.experience.items"
+          v-for="(experience, index) in sortedExperiences"
           :key="index"
           class="grid grid-cols-[3.25rem_minmax(0,1fr)] items-baseline gap-2 text-left text-sm sm:grid-cols-[3.75rem_minmax(0,1fr)]"
         >
@@ -67,23 +43,24 @@ const formatRole = (position: string) => {
             {{ formatYear(experience.date) }}
           </span>
           <p class="min-w-0 max-w-full text-wrap break-words leading-6 text-foreground">
-            {{ formatRole(experience.position) }}
-            <span class="font-semibold text-foreground"> · </span>
-            <a
-              v-if="experience.company.url && experience.company.url !== '#'"
-              :href="experience.company.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted transition-colors hover:text-primary"
-            >
-              {{ experience.company.name }}
-            </a>
-            <span
-              v-else
-              class="text-muted"
-            >
-              {{ experience.company.name }}
-            </span>
+            {{ experience.position }}
+            <template v-if="experience.company.url && experience.company.url !== '#'">
+              <span class="font-semibold text-foreground"> · </span>
+              <a
+                :href="experience.company.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted transition-colors hover:text-primary"
+              >
+                {{ experience.company.name }}
+              </a>
+            </template>
+            <template v-else>
+              <span class="font-semibold text-foreground"> · </span>
+              <span class="text-muted">
+                {{ experience.company.name }}
+              </span>
+            </template>
           </p>
         </div>
       </div>

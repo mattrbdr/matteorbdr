@@ -26,13 +26,18 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Petrona:wght@400;500;600;700&display=swap'
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
         }
       ]
     }
   },
 
   css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    preference: 'light',
+    fallback: 'light'
+  },
 
   future: {
     compatibilityVersion: 4
@@ -58,7 +63,11 @@ export default defineNuxtConfig({
         '/fr/blog',
         '/fr/blog/welcome',
         '/fr/projects',
-        '/fr/services'
+        '/fr/services',
+        '/contact',
+        '/terms',
+        '/fr/contact',
+        '/fr/terms'
       ]
     },
     devStorage: {

@@ -47,17 +47,19 @@ const formatDate = (dateString: string | Date) => {
 
 <template>
   <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      :links="page.links"
-      :ui="{
-        container: 'py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-0',
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
-        links: 'justify-start'
-      }"
-    />
+    <section class="px-4 pt-4 pb-6 sm:px-6 lg:px-0 sm:pt-6 sm:pb-8">
+      <div class="max-w-xl space-y-3">
+        <h1 class="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+          {{ page.title }}
+        </h1>
+        <p
+          v-if="page.description"
+          class="text-sm leading-6 text-muted sm:text-base"
+        >
+          {{ page.description }}
+        </p>
+      </div>
+    </section>
     <UPageSection
       :ui="{
         container: 'pt-0! px-4 sm:px-6 lg:px-0'

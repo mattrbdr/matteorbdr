@@ -1,67 +1,65 @@
 seo:
-  title: "Mattéo - Développeur Fullstack"
-  description: "Bonjour, je suis Mattéo. Je conçois et améliore des systèmes techniques qui doivent vraiment fonctionner."
-title: "Salut, je suis Mattéo, développeur freelance, je transforme des idées floues en produits qui tournent."
-description: "J'interviens sur des produits et des systèmes existants pour les simplifier, les moderniser et les rendre plus efficaces. Je construis aussi des outils sur mesure quand il faut repartir de zéro. Mon objectif est simple : réduire la complexité et augmenter l'impact."
+  title: "Mattéo - Développeur & Product Builder"
+  description: "Salut, je suis Mattéo. Je construis des produits utiles, j'en répare des compliqués, et je lance beaucoup de choses sur internet."
+title: |
+  Salut, je suis Mattéo. 👋
+
+  Je construis des produits utiles, j'en répare des compliqués, et je lance beaucoup de choses sur internet.
+
+  Fondateur de Racines. Développeur, product builder, et dépanneur occasionnel.
 hero:
-  links:
-    - label: "Me contacter"
-      to: https://cal.com/matteorbdr/discovery-meeting
-      color: "neutral"
+  links: []
 about:
   title: "À propos"
   description: |
-    Je construis des choses sur internet depuis que j'ai l'âge de les casser.
-    Je travaille aujourd'hui en freelance sur des produits qui ont besoin d'être corrigés, modernisés, ou construits de zéro. Mon projet principal est Racines - une plateforme SaaS de circuits courts que j'ai conçue et livrée seul, de l'architecture au déploiement. C'est là que je teste tout ce que j'applique ensuite avec mes clients.
-    Ce qui m'importe vraiment dans une mission : comprendre le système avant de toucher au code. Et livrer quelque chose que l'autre côté peut maintenir sans moi.
+    Je construis des sites web depuis le collège.
+
+    Aujourd'hui, je travaille sur Racines, j'expérimente avec de nouveaux produits, et j'aide les gens à transformer des problèmes techniques compliqués en choses simples qui marchent vraiment.
+
+    J'aime les logiciels utiles, les idées ambitieuses, et les systèmes qui n'ont pas besoin d'un manuel de 40 pages.
 experience:
-  title: Expériences
+  title: "Expériences"
   items:
-    - position: "Fondateur & développeur chez"
-      date: "2025 - Aujourd'hui"
-      company:
-        name: "Racines"
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "https://racinesapp.com"
-        color: "#00DC82"
-    - position: "Architecte chez"
-      date: "2026 - Aujourd'hui"
-      company:
-        name: "Open Value Pricing"
-        logo: "i-simple-icons-raycast"
-        url: "https://racinesapp.com/en/open-value"
-        color: "#FF6363"
-    - position: "Développeur commercial"
-      date: "2023"
-      company:
-        name: "Geninc"
-        url: "#"
-    - position: "Développeur web freelance chez"
-      date: "2022 - 2023"
-      company:
-        name: "Initiative for Science in Europe"
-        logo: "i-simple-icons-linear"
-        url: "https://initiative-se.eu/"
-        color: "#5E6AD2"
-    - position: "Business advisor"
-      date: "2022 - 2025"
-      company:
-        name: "Seizart"
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "#"
-        color: "#00DC82"
-    - position: "Développeur freelance chez"
+    - position: "Développeur freelance"
       date: "2018 - Aujourd'hui"
       company:
         name: "MRBDRS"
-        logo: "i-simple-icons-nuxtdotjs"
         url: "#"
-        color: "#00DC82"
     - position: "Fondateur & Président"
       date: "2020"
       company:
         name: "Dev&Prod"
         url: "#"
+    - position: "Développeur web freelance"
+      date: "2022 - 2023"
+      company:
+        name: "Initiative for Science in Europe"
+        url: "https://initiative-se.eu/"
+    - position: "Business advisor"
+      date: "2022 - 2025"
+      company:
+        name: "Seizart"
+        url: "#"
+    - position: "Développeur commercial"
+      date: "2023"
+      company:
+        name: "Geninc"
+        url: "#"
+    - position: "Fondateur & développeur"
+      date: "2025 - Aujourd'hui"
+      company:
+        name: "Racines"
+        url: "https://racinesapp.com"
+    - position: "Architecte"
+      date: "2026 - Aujourd'hui"
+      company:
+        name: "Open Value Pricing"
+        url: "https://racinesapp.com/en/open-value"
+    - position: "System Support Engineer"
+      date: "2026 - Aujourd'hui"
+      company:
+        name: "o2switch"
+        url: "https://www.o2switch.fr/"
 testimonials:
   - quote: "Mattéo a travaillé sur deux projets pour ISE : la refonte du site, et la mise en place d'un outil de sondage des listes candidates aux élections européennes dans les 27 pays de l'UE. Il a rempli la mission avec une grande efficacité et beaucoup de souplesse. Je ne peux que me féliciter de la qualité de notre collaboration."
     author:
@@ -73,22 +71,10 @@ testimonials:
       description: "Fondateur · Seizart"
 blog:
   title: "Derniers articles"
-  description: "Mes réflexions récentes"
+  description: "Notes sur ce que je construis, casse, apprends, et comprends parfois."
 certifications:
-  title: "Certifications"
+  title: "Selected learning"
   items:
-    - title: "AI Fluency for Nonprofits"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
-    - title: "AI Fluency Framework & Foundations"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
-    - title: "AI Fluency for Educators"
-      issuer:
-        name: "Anthropic"
-      date: "Mar 2026"
     - title: "MOOC - Become an entrepreneur of change"
       issuer:
         name: "HEC Paris"
@@ -97,43 +83,11 @@ certifications:
       issuer:
         name: "Boston Consulting Group (BCG)"
       date: "Feb 2025"
-    - title: "The strategy of content marketing"
-      issuer:
-        name: "University of California, Davis"
-      date: "Jan 2025"
-    - title: "ABCs of climate and biodiversity"
-      issuer:
-        name: "CNED"
-      date: "Jan 2025"
-    - title: "Introduction to Human Psychology"
-      issuer:
-        name: "Yale University"
-      date: "Jul 2024"
     - title: "Resilient Leadership"
       issuer:
         name: "Harvard Business School"
       date: "Dec 2023"
-    - title: "Fundamentals of digital marketing"
+    - title: "Introduction to Human Psychology"
       issuer:
-        name: "Google Digital Garage"
-      date: "Apr 2023"
-faq:
-  title: "Questions fréquentes"
-  description: "Réponses aux questions courantes sur mon processus et mes services."
-  categories:
-    - title: Work & Collaboration
-      questions:
-        - label: Comment se passe une collaboration avec toi ?
-          content: "Un échange pour valider le besoin. Un audit pour comprendre le système. Des recommandations, un cadrage clair, puis une exécution autonome avec points réguliers. Livraison à la date prévue, communication simple (Slack, WhatsApp, email)."
-        - label: Tu peux travailler sur un produit existant ?
-          content: "Oui. Je modernise, optimise ou remplace uniquement ce qui freine. Pas de refonte inutile."
-        - label: Tu travailles en autonomie ?
-          content: "Oui. Je gère l'avancée et les intervenants éventuels. J'ai juste besoin d'un contact disponible pour valider les décisions clés."
-    - title: Services & Pricing
-      questions:
-        - label: Quels projets tu prends en charge ?
-          content: "Refontes, outils internes, SaaS, audits, optimisation, web branding léger. Je ne fais pas d'applications mobiles ni de communication éditoriale."
-        - label: Comment fonctionnent tes tarifs ?
-          content: "TJM pour les missions courtes. Forfait pour les projets cadrés. Tarification ajustée selon le client et les objectifs."
-        - label: Quel budget minimum ?
-          content: "Il n'y a pas de minimum strict. J'adapte chaque mission au profil du client, à son contexte et à ses objectifs. Je travaille avec tout type de structures - PME, associations, institutions, petites équipes ou organisations plus larges. L'essentiel, c'est qu'il y ait un besoin clair et un projet qui mérite d'être fait correctement."
+        name: "Yale University"
+      date: "Jul 2024"

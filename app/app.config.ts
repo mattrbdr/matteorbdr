@@ -1,8 +1,7 @@
 export default defineAppConfig({
   global: {
     picture: {
-      dark: '/mattrbdr2.webp',
-      light: '/mattrbdr2.webp',
+      src: '/mattrbdr2.webp',
       alt: 'Mattéo'
     },
     meetingLink: 'https://cal.com/matteorbdr/discovery-meeting',
@@ -33,7 +32,7 @@ export default defineAppConfig({
     }
   },
   footer: {
-    credits: `Construit avec ♥ par Mattéo`,
+    credits: `Construit avec ❤️ par Mattéo`,
     colorMode: false,
     links: [
       {
@@ -44,7 +43,7 @@ export default defineAppConfig({
       },
       {
         'icon': 'i-simple-icons-instagram',
-        'to': 'https://w.instagram.com/matteorbdr/',
+        'to': 'https://www.instagram.com/matteorbdr/',
         'target': '_blank',
         'aria-label': 'Instagram'
       },

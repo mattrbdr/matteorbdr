@@ -28,25 +28,20 @@ const translatedLinks = computed(() => {
 
 <template>
   <header
-    class="w-full flex flex-col gap-5 pb-6 mb-6 select-none px-4 sm:px-6 lg:px-0"
+    class="w-full flex flex-col gap-5 pb-4 mb-4 select-none px-4 sm:px-6 lg:px-0"
   >
     <!-- Brand Name and Toggles -->
     <div class="flex items-center justify-between w-full">
       <NuxtLink
         :to="route.path.startsWith('/fr') ? '/fr' : '/'"
-        class="transition-opacity hover:opacity-85"
+        class="text-sm font-medium text-foreground transition-opacity hover:opacity-85"
       >
-        <img
-          src="/logo.webp"
-          alt="mrbdrs"
-          class="h-10 w-auto select-none"
-        >
+        Mattéo
       </NuxtLink>
 
       <!-- Right-aligned clean controls -->
       <div class="flex items-center gap-1">
         <LanguageSwitcher />
-        <ColorModeButton />
       </div>
     </div>
 
@@ -56,8 +51,8 @@ const translatedLinks = computed(() => {
         v-for="(link, index) in translatedLinks"
         :key="index"
         :to="link.to"
-        class="font-normal transition-colors text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-primary lowercase"
-        active-class="!text-foreground underline underline-offset-4 decoration-primary/50"
+        class="font-normal transition-colors text-neutral-500 hover:text-primary lowercase"
+        active-class="!text-primary underline underline-offset-4 decoration-2 decoration-primary"
       >
         {{ link.label }}
       </NuxtLink>
