@@ -37,7 +37,7 @@ const emailLabel = computed(() => {
   <UPage v-else>
     <section class="px-4 pt-4 pb-6 sm:px-6 lg:px-0 sm:pt-6 sm:pb-8">
       <div class="max-w-xl space-y-3">
-        <h1 class="whitespace-pre-line text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+        <h1 class="whitespace-pre-line text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {{ page.hero_tagline }}
         </h1>
         <p
@@ -66,7 +66,7 @@ const emailLabel = computed(() => {
             {{ offering.subtitle }}
           </span>
 
-          <h2 class="mt-1.5 text-2xl leading-tight text-foreground">
+          <h2 class="mt-1.5 text-2xl font-bold leading-tight text-foreground">
             {{ offering.title }}
           </h2>
 
@@ -117,7 +117,7 @@ const emailLabel = computed(() => {
       v-if="page.faq?.length"
       class="mt-16 px-4 sm:px-6 lg:px-0"
     >
-      <h2 class="text-xl font-medium text-foreground mb-6 lg:text-2xl">
+      <h2 class="text-xl font-bold text-foreground mb-6 lg:text-2xl">
         {{ faqTitle }}
       </h2>
       <UAccordion

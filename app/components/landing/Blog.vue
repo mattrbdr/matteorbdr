@@ -25,7 +25,7 @@ const formatDate = (dateString: string | Date) => {
 <template>
   <section class="text-left">
     <header class="mb-4">
-      <h2 class="text-xl font-medium text-foreground lg:text-2xl">
+      <h2 class="text-xl font-bold text-foreground lg:text-2xl">
         {{ blogSectionTitle }}
       </h2>
       <p class="mt-2 text-sm text-muted">

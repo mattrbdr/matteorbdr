@@ -79,7 +79,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
           {{ error.statusCode || 500 }}
         </p>
 
-        <h1 class="mt-3 text-2xl font-medium text-foreground sm:text-3xl">
+        <h1 class="mt-3 text-2xl font-bold text-foreground sm:text-3xl">
           {{ title }}
         </h1>
 

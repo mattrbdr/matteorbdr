@@ -26,7 +26,7 @@ defineOgImage('Portfolio', { title, description })
   <UPage v-else>
     <section class="px-4 pt-4 pb-6 sm:px-6 lg:px-0 sm:pt-6 sm:pb-8">
       <div class="max-w-xl space-y-3">
-        <h1 class="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+        <h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {{ page.title }}
         </h1>
         <p
@@ -44,7 +44,7 @@ defineOgImage('Portfolio', { title, description })
     >
       <MDC
         :value="page.content"
-        class="prose max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-p:leading-7 prose-p:text-muted"
+        class="prose max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-p:leading-7 prose-p:text-muted"
       />
     </UPageSection>
   </UPage>

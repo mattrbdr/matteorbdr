@@ -23,7 +23,7 @@ const title = isFr ? 'Projets sélectionnés' : 'Selected work'
     class="text-left"
   >
     <header class="mb-4">
-      <h2 class="text-xl font-medium text-foreground lg:text-2xl">
+      <h2 class="text-xl font-bold text-foreground lg:text-2xl">
         {{ title }}
       </h2>
     </header>

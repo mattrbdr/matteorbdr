@@ -34,7 +34,7 @@ const translatedLinks = computed(() => {
     <div class="flex items-center justify-between w-full">
       <NuxtLink
         :to="route.path.startsWith('/fr') ? '/fr' : '/'"
-        class="text-sm font-medium text-foreground transition-opacity hover:opacity-85"
+        class="text-sm font-semibold text-foreground transition-opacity hover:opacity-85"
       >
         Mattéo
       </NuxtLink>
@@ -51,8 +51,8 @@ const translatedLinks = computed(() => {
         v-for="(link, index) in translatedLinks"
         :key="index"
         :to="link.to"
-        class="font-normal transition-colors text-neutral-500 hover:text-primary lowercase"
-        active-class="!text-primary underline underline-offset-4 decoration-2 decoration-primary"
+        class="font-semibold transition-colors text-neutral-500 hover:text-primary lowercase"
+        active-class="!font-bold !text-primary"
       >
         {{ link.label }}
       </NuxtLink>

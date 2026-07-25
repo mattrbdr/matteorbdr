@@ -166,7 +166,7 @@ const statusFilterLabel = computed(() => locale.value === 'fr' ? 'Statut' : 'Sta
   <UPage v-if="page">
     <section class="px-4 pt-4 pb-6 sm:px-6 lg:px-0 sm:pt-6 sm:pb-8">
       <div class="max-w-xl space-y-3">
-        <h1 class="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+        <h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {{ page.title }}
         </h1>
         <p

@@ -34,4 +34,5 @@ html,
 body {
   background-color: var(--ui-bg);
   font-weight: 600;
+  letter-spacing: -0.03em;
 }
