@@ -1,7 +1,7 @@
 # O2Switch production deployment
 
 The production workflow is `.github/workflows/deploy-on-production.yaml`.
-It runs on pushes to `develop` and can also be started manually.
+It runs on pushes to `main` and can also be started manually.
 The host-side deployment flow follows the O2Switch/cPanel workflow:
 
 1. Build the Nuxt static site into a local deployment folder.
@@ -40,6 +40,6 @@ The workflow intentionally calls cPanel `SshWhitelist/remove_all`, matching the 
 To prevent anyone else from pushing/deploying, also configure GitHub repository settings:
 
 1. Create or update the `production` environment and restrict deployment approvals to `mattrbdr`.
-2. Protect the `develop` branch with a ruleset or branch protection rule.
-3. Restrict who can push to `develop` to `mattrbdr`.
+2. Protect the `main` branch with a ruleset or branch protection rule.
+3. Restrict who can push to `main` to `mattrbdr`.
 4. Require pull requests and required status checks if collaborators should contribute without direct pushes.
